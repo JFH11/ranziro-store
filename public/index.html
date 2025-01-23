@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/Logo Ranziro.png" type="image/png">
+    <title>Ranziro Store - Jasa Post Akun</title>
+
+    <!-- link css -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Link Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Audiowide&family=Chau+Philomene+One:ital@0;1&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rowdies:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/b0ce53bf51.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Alpine JS -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+  </head>
+  <body>
+    <!-- sidebar -->
+    <div class="sidebar">
+      <div>
+        <img src="img/ranziro store.png" alt="" class="logo" />
+        <button class="btn-close" onclick="closeSidebar()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <a href="/semua_akun" class="sidebar-links">
+        <p>Mobile Legends</p>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <!-- Container Search -->
+    <div class="container-search" x-data="main">
+      <!-- Input Search -->
+      <input
+        type="text"
+        id="input-search"
+        class="input-search"
+        placeholder="Cari akun..."
+        x-model="searchQuery"
+      />
+
+      <!-- Hasil Pencarian -->
+      <div class="container-search-1">
+        <!-- Looping Data yang Sudah Difilter -->
+        <template x-for="game in filteredData" :key="game.namaAkun">
+          <a
+            :href="`/akun?nama=${encodeURIComponent(game.namaAkun)}`"
+            class="search-links"
+          >
+            <img :src="`img/${game.imgAkun}`" alt="" class="img-search" />
+            <div class="container-search-2">
+              <h3 x-text="game.namaAkun"></h3>
+              <p x-text="game.owner"></p>
+            </div>
+          </a>
+        </template>
+      </div>
+    </div>
+
+    <!-- header -->
+    <header>
+      <div>
+        <button class="btn-menu" onclick="openSidebar()">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <img src="img/ranziro store.png" alt="" class="logo" />
+        <p class="hdr-p">Berbagai akun yang kamu mau ada di sini.</p>
+      </div>
+
+      <button class="btn-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </header>
+
+    <!-- main -->
+    <main x-data="main">
+      <section class="container-list">
+        <div class="container-list-1">
+          <div class="list-title">Temukan Akun Favoritmu</div>
+        </div>
+
+        <div class="container-list-3">
+          <template x-for="game in data" :key="game.namaAkun">
+            <a
+              :href="`/akun?nama=${encodeURIComponent(game.namaAkun)}`"
+              class="card"
+            >
+              <img :src="`img/${game.imgAkun}`" :alt="game.namaAkun" />
+              <div class="card-info">
+                <div class="card-box"></div>
+                <div class="card-info-2">
+                  <h3 class="card-h3" x-text="game.namaAkun"></h3>
+                  <p class="card-p" x-text="game.owner"></p>
+                </div>
+              </div>
+            </a>
+          </template>
+        </div>
+      </section>
+
+      <!-- footer -->
+      <footer>
+        <!-- wave -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+          <path
+            fill="#11112e"
+            fill-opacity="10"
+            d="M0,64L24,101.3C48,139,96,213,144,234.7C192,256,240,224,288,229.3C336,235,384,277,432,288C480,299,528,277,576,240C624,203,672,149,720,144C768,139,816,181,864,197.3C912,213,960,203,1008,218.7C1056,235,1104,277,1152,245.3C1200,213,1248,107,1296,58.7C1344,11,1392,21,1416,26.7L1440,32L1440,320L1416,320C1392,320,1344,320,1296,320C1248,320,1200,320,1152,320C1104,320,1056,320,1008,320C960,320,912,320,864,320C816,320,768,320,720,320C672,320,624,320,576,320C528,320,480,320,432,320C384,320,336,320,288,320C240,320,192,320,144,320C96,320,48,320,24,320L0,320Z"
+          ></path>
+        </svg>
+        <div class="footer-2">
+          <div class="footer-card">
+            <img src="img/ranziro store.png" alt="" class="footer-logo" />
+            <div class="footer-deskripsi">
+              Pusat jasa terpercaya untuk kebutuhan akun Mobile Legends. Kami
+              menyediakan layanan jual beli, jasa post, dan pemulihan akun
+              dengan aman, cepat, dan profesional. Pilihan terbaik untuk para
+              gamers sejati!
+            </div>
+          </div>
+
+          <div class="footer-card">
+            <div class="footer-title">Peta Situs</div>
+            <div class="footer-hr"></div>
+            <div class="footer-list">
+              <a href="/semua_akun" class="footer-links">Mobile Legends</a>
+            </div>
+          </div>
+
+          <div class="footer-card">
+            <div class="footer-title">Media Sosial</div>
+            <div class="footer-hr"></div>
+            <div class="footer-list">
+              <a href="https://www.instagram.com/ranziro_store" class="footer-links">Instagram</a>
+              <a href="https://www.youtube.com/@ranziroo11" class="footer-links">YouTube</a>
+            </div>
+          </div>
+
+          <div class="footer-card">
+            <div class="footer-title">Legalitas</div>
+            <div class="footer-hr"></div>
+            <div class="footer-list">
+              <a href="/privacy-policy" class="footer-links"
+                >Kebijakan Privasi</a
+              >
+              <a href="/terms-and-conditions" class="footer-links"
+                >Syarat dan Ketentuan</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="coppyright">&copy; 2024 Ranziro Store</div>
+      </footer>
+    </main>
+
+    <script src="js/script.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
