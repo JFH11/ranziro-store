@@ -2,9 +2,9 @@ document.addEventListener('alpine:init', () => {
     Alpine.data('main', () => ({
         data: [
             {
-                namaAkun: 'jejezoldyck',
-                imgAkun: 'jeje.png',
-                owner: 'jeje',
+                namaAkun: '',
+                imgAkun: '',
+                owner: '',
             },
         ],
 
