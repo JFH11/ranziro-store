@@ -5,7 +5,7 @@ const data = [
     // data untuk mobile legends
 {
 // nama_akun
-namaAkun: 'ranziro',
+namaAkun: 'jejezoldyck',
 // @_usernameig
 owner: '',
 // link_ig
