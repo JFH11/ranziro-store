@@ -3,6 +3,11 @@ const path = require('path')
 const apps = express()
 const bodyParser = require('body-parser')
 
+apps.use((req, res, next) => {
+    res.set('Cache-Control', 'no-store'); // Tidak menyimpan cache
+    next();
+});
+
 apps.use(bodyParser.json());
 
 apps.use(express.static(path.join(__dirname, 'public')));
@@ -15,7 +20,7 @@ apps.get('/akun', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'akun.html'))
 });
 
-apps.get('/terms', (req, res) => {
+apps.get('/terms-and-conditions', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'terms.html'))
 });
 
