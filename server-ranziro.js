@@ -15,7 +15,7 @@ apps.get('/akun', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'akun.html'))
 });
 
-apps.get('/terms', (req, res) => {
+apps.get('/terms-and-conditions', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'terms.html'))
 });
 

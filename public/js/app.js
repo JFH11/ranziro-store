@@ -6,7 +6,7 @@ document.addEventListener('alpine:init', () => {
             {
                 namaAkun: 'Priaidaman',
                 imgAkun: 'boje-1.jpg',
-                owner: '@Priaidaman',
+                owner: '@store_jejeee',
             },
         ],
 

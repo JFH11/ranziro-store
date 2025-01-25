@@ -7,35 +7,35 @@ const data = [
 // nama_akun
 namaAkun: 'Priaidaman',
 // @_usernameig
-owner: '@Priaidaman',
+owner: '@store_jejeee',
 // link_ig
-ownerLink: 'https://www.instagram.com/priaidaman/',
+ownerLink: 'https://www.instagram.com/store_jejeee/',
 // daftar_gambar
 gallery: ['boje-1.jpg', 'boje-2.jpg', 'boje-3.jpg', 'boje-4.jpg', 'boje-5.jpg', 'boje-6.jpg'],
 // harga
-price: 'Rp 600.000',
+price: 'Rp 1.800.000',
 // link_rekber
-waRekber: '6287677677', // Nomor WhatsApp Rekber
+waRekber: '6285697188236', // Nomor WhatsApp Rekber
 // link_penjual
-waPenjual: '0928297', // Nomor WhatsApp Penjual
+waPenjual: '6288975937998', // Nomor WhatsApp Penjual
 // detail_akun
 detail: {
     // jaminan = yes/no
     warranty: 'yes',
     // deskripsi = spek akun
-    deskripsi: 'yss cc, fanny aspirant, dll.',
+    deskripsi: 'WR GACOR, SKIN 500+, 3 LEGEND FRANCO ALU GS, RECALL TASTAS, CC LING GRANGER VALIR BADANG NATA, AAMOON VESSEL, ANSPIRANT LAYLA ANGELA CHANGE, TRANSFORMER ROGER GRANGER POPOL, PRIME BEATRIX YZ, SANRIO CHANGE FLORYN, KOF DYROT PAQUITO',
     // id_akun
-    idAkun: '029282882',
+    idAkun: '88432321',
     // rank_tertinggi
     rankTertinggi: 'Mythical Immortal',
     // total_skin
     totalSkin: '533',
     // total_winrate
-    totalWinrate: '65%',
+    totalWinrate: '-',
     // total_pertandingan
-    totalPertandingan: '10928',
+    totalPertandingan: '14005',
     // total_magic_core
-    totalMagicCore: '230',
+    totalMagicCore: '-',
     // level_emblem
     levelEmblem: 'Max',
     // bukti_top_up
@@ -43,7 +43,7 @@ detail: {
     // akun_pribadi
     akunPribadi: 'Beli',
     // bind_akun = monsep = akun koonton terkait, monkos = akun moonton kosong, allkos = akun semua kosong/tidk terkait
-    bindAkun: 'Google/Fb',
+    bindAkun: 'Montoon',
     // keterangan_reff
     keteranganReff: 'Reff',
 },
