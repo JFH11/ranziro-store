@@ -461,10 +461,6 @@ main {
     transition: 0.3s ease;
 }
 
-.trigger-gallery-2:hover {
-    transform: scale(0.95);
-}
-
 .gallery-2 {
     position: relative;
     width: 30%;
@@ -937,6 +933,10 @@ footer svg {
         font-size: 0.8rem;
     }
 
+    .trigger-gallery-2:active {
+        transform: scale(0.95);
+    }    
+
     .gallery {
         margin-bottom: 10rem;
     }
@@ -1027,6 +1027,10 @@ footer svg {
     .trigger-gallery-2 {
         display: block;
     } 
+
+    .trigger-gallery-2:active {
+        transform: scale(0.95);
+    }    
 
     .gallery-2 {
         display: none;
