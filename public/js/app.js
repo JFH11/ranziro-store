@@ -4,6 +4,13 @@ document.addEventListener('alpine:init', () => {
         data: [
 
             // data untuk mobile legends
+
+            {
+                namaAkun: 'zèphyr',
+                imgAkun: 'REX-STORE-1.png',
+                owner: '@REX STORE',
+            },
+
             {
                 namaAkun: 'Priaidaman',
                 imgAkun: 'boje-1.jpg',
@@ -17,9 +24,9 @@ document.addEventListener('alpine:init', () => {
             if (!this.searchQuery) {
                 return this.data;
             }
-            return this.data.filter(item => 
+            return this.data.filter(item =>
                 item.namaAkun.toLowerCase().includes(this.searchQuery.toLowerCase())
             );
-        },                
+        },
     }));
 });
