@@ -5,47 +5,47 @@ const data = [
     // data untuk mobile legends
 {
 // nama_akun
-namaAkun: 'ranziro',
+namaAkun: 'Priaidaman',
 // @_usernameig
-owner: '',
+owner: '@Priaidaman',
 // link_ig
-ownerLink: '',
+ownerLink: 'https://www.instagram.com/priaidaman/',
 // daftar_gambar
-gallery: ['', '', ''],
+gallery: ['boje-1.jpg', 'boje-2.jpg', 'boje-3.jpg', 'boje-4.jpg', 'boje-5.jpg', 'boje-6.jpg'],
 // harga
-price: '',
+price: 'Rp 600.000',
 // link_rekber
-waRekber: '', // Nomor WhatsApp Rekber
+waRekber: '6287677677', // Nomor WhatsApp Rekber
 // link_penjual
-waPenjual: '', // Nomor WhatsApp Penjual
+waPenjual: '0928297', // Nomor WhatsApp Penjual
 // detail_akun
 detail: {
     // jaminan = yes/no
-    warranty: '',
+    warranty: 'yes',
     // deskripsi = spek akun
-    deskripsi: '',
+    deskripsi: 'yss cc, fanny aspirant, dll.',
     // id_akun
-    idAkun: '',
+    idAkun: '029282882',
     // rank_tertinggi
-    rankTertinggi: '',
+    rankTertinggi: 'Mythical Immortal',
     // total_skin
-    totalSkin: '',
+    totalSkin: '533',
     // total_winrate
-    totalWinrate: '',
+    totalWinrate: '65%',
     // total_pertandingan
-    totalPertandingan: '',
+    totalPertandingan: '10928',
     // total_magic_core
-    totalMagicCore: '',
+    totalMagicCore: '230',
     // level_emblem
-    levelEmblem: '',
+    levelEmblem: 'Max',
     // bukti_top_up
-    buktiTopUp: '',
+    buktiTopUp: 'Tidak ada',
     // akun_pribadi
-    akunPribadi: '',
+    akunPribadi: 'Beli',
     // bind_akun = monsep = akun koonton terkait, monkos = akun moonton kosong, allkos = akun semua kosong/tidk terkait
-    bindAkun: '',
+    bindAkun: 'Google/Fb',
     // keterangan_reff
-    keteranganReff: '',
+    keteranganReff: 'Reff',
 },
 },
 ];
@@ -94,7 +94,7 @@ document.querySelector('.keterangan-reff').textContent = `Keterangan Reff: ${det
     const sliderImages = document.getElementById('slider-images');
     account.gallery.forEach(img => {
         const imgElement = document.createElement('img');
-        imgElement.src = img;
+        imgElement.src = `img/${img}`;
         imgElement.classList.add('slide');
         sliderImages.appendChild(imgElement);
     });

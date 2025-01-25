@@ -99,7 +99,7 @@
         <div class="container-list-3">
           <template x-for="game in data" :key="game.namaAkun">
             <a
-              :href="`/akun?nama=${encodeURIComponent(game.namaAkun)}`"
+              :href="`akun.html?nama=${encodeURIComponent(game.namaAkun)}`"
               class="card"
             >
               <img :src="`img/${game.imgAkun}`" :alt="game.namaAkun" />

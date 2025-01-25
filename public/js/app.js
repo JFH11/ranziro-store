@@ -4,9 +4,9 @@ document.addEventListener('alpine:init', () => {
 
             // data untuk mobile legends
             {
-                namaAkun: '',
-                imgAkun: '',
-                owner: '',
+                namaAkun: 'Priaidaman',
+                imgAkun: 'boje-1.jpg',
+                owner: '@Priaidaman',
             },
         ],
 
