@@ -1,6 +1,8 @@
 document.addEventListener('alpine:init', () => {
     Alpine.data('main', () => ({
         data: [
+
+            // data untuk mobile legends
             {
                 namaAkun: '',
                 imgAkun: '',
