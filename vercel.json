@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "builds": [
+    "headers": [
       { "src": "server-ranziro.js", "use": "@vercel/node",
     "headers": [
         {
