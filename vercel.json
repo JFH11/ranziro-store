@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "source": "server-ranziro.js",
+      "src": "server-ranziro.js",
       "use": "@vercel/node",
       "headers": [
         {
@@ -13,5 +13,5 @@
     }
   ],
 
-  "routes": [{ "source": "/(.*)", "dest": "server-ranziro.js" }]
+  "routes": [{ "src": "/(.*)", "dest": "server-ranziro.js" }]
 }
