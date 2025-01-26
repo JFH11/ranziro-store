@@ -6,6 +6,52 @@ const data = [
 
     {
         // nama_akun
+        namaAkun: 'Its making you cry',
+        // @_usernameig
+        owner: '@Galih Store',
+        // link_ig
+        ownerLink: 'https://wa.me6285943116315',
+        // daftar_gambar
+        gallery: ['galih-store-1.png', 'galih-store-2.png', 'galih-store-3.png'],
+        // harga
+        price: 'Rp 850.000',
+        // link_rekber
+        waRekber: '6285697188236', // Nomor WhatsApp Rekber
+        // link_penjual
+        waPenjual: '6285943116315', // Nomor WhatsApp Penjual
+        // detail_akun
+        detail: {
+            // jaminan = yes/no
+            warranty: 'yes',
+            // deskripsi = spek akun
+            deskripsi: 'Monsep allkos nominus freece, skin 402, 2legend, 3collector, kof gs, fanny layla aspirant, yin aot, hanabi vessel, starwars alucard',
+            // id_akun
+            idAkun: '609172877',
+            // rank_tertinggi
+            rankTertinggi: 'Mythical Glory',
+            // total_skin
+            totalSkin: '402',
+            // total_winrate
+            totalWinrate: '-',
+            // total_pertandingan
+            totalPertandingan: '11754',
+            // total_magic_core
+            totalMagicCore: '-',
+            // level_emblem
+            levelEmblem: 'Max',
+            // bukti_top_up
+            buktiTopUp: 'Tidak ada',
+            // akun_pribadi
+            akunPribadi: '',
+            // bind_akun = monsep = akun koonton terkait, monkos = akun moonton kosong, allkos = akun semua kosong/tidk terkait
+            bindAkun: 'Monsep Allkos',
+            // keterangan_reff
+            keteranganReff: '',
+        },
+    },
+
+    {
+        // nama_akun
         namaAkun: 'Dicdikz.',
         // @_usernameig
         owner: '@Brott Store',
