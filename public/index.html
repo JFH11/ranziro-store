@@ -98,17 +98,18 @@
 
         <div class="container-list-3">
           <template x-for="game in data" :key="game.namaAkun">
-            <a
-              :href="`/akun?nama=${encodeURIComponent(game.namaAkun)}`"
-              class="card"
-            >
-              <img :src="`img-webp/${game.imgAkun}`" :alt="game.namaAkun" />
-              <div class="card-info">
-                <div class="card-box"></div>
-                <div class="card-info-2">
-                  <h3 class="card-h3" x-text="game.namaAkun"></h3>
-                  <p class="card-p" x-text="game.owner"></p>
-                </div>
+            <a href="" class="card-parents"
+            :href="`/akun?nama=${encodeURIComponent(game.namaAkun)}`">
+              <div class="card">
+                <img :src="`img-webp/${game.imgAkun}`" :alt="game.namaAkun" />
+                <div class="card-info">
+                  <div class="card-loader"></div>
+                </div>  
+              </div>
+              <div class="card-info-2">
+                <h3 class="card-h3" x-text="game.namaAkun"></h3>
+                <p class="card-p" x-text="game.owner"></p>
+                <p class="card-desc" x-text="game.desc"></p>
               </div>
             </a>
           </template>
@@ -192,6 +193,6 @@
     </main>
 
     <script src="js/scr21kn.js"></script>
-    <script src="js/apwop[2.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>

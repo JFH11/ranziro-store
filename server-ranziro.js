@@ -16,6 +16,10 @@ apps.get('/semua_akun', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'))
 });
 
+apps.get('/ff', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'ff.html'))
+});
+
 apps.get('/akun', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'akun.html'))
 });

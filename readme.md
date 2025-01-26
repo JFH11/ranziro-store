@@ -49,4 +49,5 @@ detail: {
     namaAkun: '',
     imgAkun: '',
     owner: '',
+    desc: ''
 },

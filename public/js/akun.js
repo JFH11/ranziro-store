@@ -24,7 +24,7 @@ const data = [
             // jaminan = yes/no
             warranty: 'yes',
             // deskripsi = spek akun
-            deskripsi: ' OTW 2 LEGEND, LEGEND GS+KOF, ASPIRANT ANGELA, CC NATA, LUCKYBOX SABER EUDORA HAYA FREYA ALPHA ZHASK SELENA GUIN URANUS HANABI, SL TAHUNAN GORD',
+            deskripsi: 'OTW 2 LEGEND, LEGEND GS+KOF, ASPIRANT ANGELA, CC NATA, LUCKYBOX SABER EUDORA HAYA FREYA ALPHA ZHASK SELENA GUIN URANUS HANABI, SL TAHUNAN GORD',
             // id_akun
             idAkun: '90043207',
             // rank_tertinggi
@@ -52,7 +52,7 @@ const data = [
 
     {
         // nama_akun
-        namaAkun: 'F25',
+        namaAkun: 'sold',
         // @_usernameig
         owner: '@store_jejeee',
         // link_ig
