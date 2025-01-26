@@ -1,7 +1,7 @@
 {
     "version": 2,
     "headers": [
-      { "src": "server-ranziro.js", "use": "@vercel/node",
+      { "source": "server-ranziro.js", "use": "@vercel/node",
     "headers": [
         {
           "key": "Cache-Control",
@@ -13,7 +13,7 @@
 
 
     "routes": [
-      { "src": "/(.*)", "dest": "server-ranziro.js" }
+      { "source": "/(.*)", "dest": "server-ranziro.js" }
     ]
       
   }
