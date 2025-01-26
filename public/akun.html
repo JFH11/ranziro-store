@@ -39,9 +39,7 @@
         </button>
       </div>
 
-      <a href="/semua_akun"
-      target="_blank"
-      rel="noopener noreferrer" class="sidebar-links">
+      <a href="/semua_akun" class="sidebar-links">
         <p>Mobile Legends</p>
         <i class="fa-solid fa-arrow-right"></i>
       </a>
@@ -62,12 +60,7 @@
       <div class="container-search-1">
         <!-- Looping Data yang Sudah Difilter -->
         <template x-for="game in filteredData" :key="game.namaAkun">
-          <a
-            :href="`/akun?nama=${encodeURIComponent(game.namaAkun)}`"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="search-links"
-          >
+          <a :href="`/akun?nama=${encodeURIComponent(game.namaAkun)}`" class="search-links">
             <img :src="`img-webp/${game.imgAkun}`" alt="" class="img-search" />
             <div class="container-search-2">
               <h3 x-text="game.namaAkun"></h3>
@@ -133,15 +126,11 @@
           </div>
 
           <div class="container-chat">
-            <a href=""
-            target="_blank"
-            rel="noopener noreferrer" class="btn-rekber">
+            <a href="" class="btn-rekber">
               <i class="fa-solid fa-comment-dots"></i>
               Chat Rekber
             </a>
-            <a href=""
-            target="_blank"
-            rel="noopener noreferrer" class="btn-owner">
+            <a href="" class="btn-owner">
               <i class="fa-brands fa-whatsapp"></i>
               Chat Owner
             </a>
@@ -207,9 +196,7 @@
             <div class="footer-title">Peta Situs</div>
             <div class="footer-hr"></div>
             <div class="footer-list">
-              <a href="/semua_akun"
-              target="_blank"
-              rel="noopener noreferrer" class="footer-links">Mobile Legends</a>
+              <a href="/semua_akun" class="footer-links">Mobile Legends</a>
             </div>
           </div>
 
@@ -230,14 +217,10 @@
             <div class="footer-title">Legalitas</div>
             <div class="footer-hr"></div>
             <div class="footer-list">
-              <a href="/privacy-policy"
-              target="_blank"
-              rel="noopener noreferrer" class="footer-links"
+              <a href="/privacy-policy" class="footer-links"
                 >Kebijakan Privasi</a
               >
-              <a href="/terms"
-              target="_blank"
-              rel="noopener noreferrer" class="footer-links"
+              <a href="/terms" class="footer-links"
                 >Syarat dan Ketentuan</a
               >
             </div>

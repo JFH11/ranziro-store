@@ -39,7 +39,7 @@
         </button>
       </div>
 
-      <a href="/semua_akun" target="_blank" rel="noopener noreferrer" class="sidebar-links">
+      <a href="/semua_akun" class="sidebar-links">
         <p>Mobile Legends</p>
         <i class="fa-solid fa-arrow-right"></i>
       </a>
@@ -62,8 +62,6 @@
         <template x-for="game in filteredData" :key="game.namaAkun">
           <a
             :href="`/akun?nama=${encodeURIComponent(game.namaAkun)}`"
-            target="_blank"
-            rel="noopener noreferrer"
             class="search-links"
           >
             <img :src="`img-webp/${game.imgAkun}`" alt="" class="img-search" />
@@ -101,9 +99,7 @@
         <div class="container-list-3">
           <template x-for="game in data" :key="game.namaAkun">
             <a href="" class="card-parents"
-            :href="`/akun?nama=${encodeURIComponent(game.namaAkun)}`"
-            target="_blank"
-            rel="noopener noreferrer">
+            :href="`/akun?nama=${encodeURIComponent(game.namaAkun)}`">
               <div class="card">
                 <img :src="`img-webp/${game.imgAkun}`" :alt="game.namaAkun" />
                 <div class="card-info">
@@ -145,9 +141,7 @@
             <div class="footer-title">Peta Situs</div>
             <div class="footer-hr"></div>
             <div class="footer-list">
-              <a href="/semua_akun" class="footer-links"
-              target="_blank"
-              rel="noopener noreferrer">Mobile Legends</a>
+              <a href="/semua_akun" class="footer-links">Mobile Legends</a>
             </div>
           </div>
 
@@ -175,15 +169,8 @@
             <div class="footer-title">Legalitas</div>
             <div class="footer-hr"></div>
             <div class="footer-list">
-              <a href="/privacy-policy" 
-              target="_blank"
-              rel="noopener noreferrer"
-               class="footer-links"
-                >Kebijakan Privasi</a
-              >
-              <a href="/terms"
-              target="_blank"
-              rel="noopener noreferrer" class="footer-links">Syarat dan Ketentuan</a>
+              <a href="/privacy-policy" class="footer-links">Kebijakan Privasi</a>
+              <a href="/terms" class="footer-links">Syarat dan Ketentuan</a>
             </div>
           </div>
         </div>

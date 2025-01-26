@@ -39,9 +39,7 @@
         </button>
       </div>
 
-      <a href="/semua_akun"
-      target="_blank"
-      rel="noopener noreferrer" class="sidebar-links">
+      <a href="/semua_akun" class="sidebar-links">
         <p>Mobile Legends</p>
         <i class="fa-solid fa-arrow-right"></i>
       </a>
@@ -63,11 +61,7 @@
         <!-- Looping Data yang Sudah Difilter -->
         <template x-for="game in filteredData" :key="game.namaAkun">
           <a
-            :href="`/akun?nama=${encodeURIComponent(game.namaAkun)}`"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="search-links"
-          >
+            :href="`/akun?nama=${encodeURIComponent(game.namaAkun)}`" class="search-links">
             <img :src="`img-webp/${game.imgAkun}`" alt="" class="img-search" />
             <div class="container-search-2">
               <h3 x-text="game.namaAkun"></h3>
@@ -192,8 +186,7 @@
             <div class="footer-title">Peta Situs</div>
             <div class="footer-hr"></div>
             <div class="footer-list">
-              <a href="/semua_akun"
-              target="_blank" rel="noopener noreferrer" class="footer-links">Mobile Legends</a>
+              <a href="/semua_akun" class="footer-links">Mobile Legends</a>
             </div>
           </div>
 
@@ -212,12 +205,10 @@
             <div class="footer-title">Legalitas</div>
             <div class="footer-hr"></div>
             <div class="footer-list">
-              <a target="_blank" rel="noopener noreferrer"
-               href="/privacy-policy" class="footer-links"
+              <a href="/privacy-policy" class="footer-links"
                 >Kebijakan Privasi</a
               >
-              <a target="_blank" rel="noopener noreferrer"
-              href="/terms" class="footer-links"
+              <a href="/terms" class="footer-links"
                 >Syarat dan Ketentuan</a
               >
             </div>
