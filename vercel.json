@@ -5,6 +5,12 @@
     ],
     "routes": [
       { "src": "/(.*)", "dest": "server-ranziro.js" }
+    ],
+    "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
     ]
   }
   

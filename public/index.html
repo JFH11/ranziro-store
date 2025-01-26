@@ -61,7 +61,7 @@
         <!-- Looping Data yang Sudah Difilter -->
         <template x-for="game in filteredData" :key="game.namaAkun">
           <a
-            :href="`/akun?nama=${encodeURIComponent(game.namaAkun)}`"
+            :href="`/akun?v=<?= Date.now() ?>?nama=${encodeURIComponent(game.namaAkun)}`"
             class="search-links"
           >
             <img :src="`img/${game.imgAkun}`" alt="" class="img-search" />
