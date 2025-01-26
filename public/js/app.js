@@ -6,6 +6,12 @@ document.addEventListener('alpine:init', () => {
             // data untuk mobile legends
 
             {
+                namaAkun: 'Daxx.',
+                imgAkun: 'account-name-daxx.-1.png',
+                owner: '@Zxy Store',
+            },
+            
+            {
                 namaAkun: 'ぎ mitsuyaツ',
                 imgAkun: 'zenix-store-1.png',
                 owner: '@Zenix Store',

@@ -6,6 +6,53 @@ const data = [
 
     {
         // nama_akun
+        namaAkun: 'Daxx.',
+        // @_usernameig
+        owner: '@Zxy Store',
+        // link_ig
+        ownerLink: 'https://wa.me/6281585784936',
+        // daftar_gambar
+        gallery: ['account-name-daxx.-1.png', 'account-name-daxx.-2.png', 'account-name-daxx.-3.png'],
+        // harga
+        price: 'Rp 130.000+',
+        // link_rekber
+        waRekber: '6285697188236', // Nomor WhatsApp Rekber
+        // link_penjual
+        waPenjual: '6281585784936', // Nomor WhatsApp Penjual
+        // detail_akun
+        detail: {
+            // jaminan = yes/no
+            warranty: 'yes',
+            // deskripsi = spek akun
+            deskripsi: '-tt angap aja alkoss, -dev bersih, colector badang, zodiac helcurt, Claude prime,Claude m6,lucbox estes,star Lesley,lb tigreal,venom dyrhot,venom gusion,change lunar,star vaxier,star Vale,star Nolan,venom grock,dbgon Ling,dbagon kimiy,saber,dbagon valir,epic Nana,epix grock, Blazing aldos,venom hanabi,epic balmond,epic gs,epic lunox,Rafael,sumer haya,msc lemord,CC nata dll, Sl car biasa 1, Magic core 91',
+            // id_akun
+            idAkun: '1432905590',
+            // rank_tertinggi
+            rankTertinggi: 'Mythic Honor',
+            // total_skin
+            totalSkin: '153',
+            // total_winrate
+            totalWinrate: '-',
+            // total_pertandingan
+            totalPertandingan: '1785',
+            // total_magic_core
+            totalMagicCore: '91, StarLight Card 1',
+            // level_emblem
+            levelEmblem: '-',
+            // bukti_top_up
+            buktiTopUp: 'Tidak ada',
+            // akun_pribadi
+            akunPribadi: '',
+            // bind_akun = monsep = akun koonton terkait, monkos = akun moonton kosong, allkos = akun semua kosong/tidk terkait
+            bindAkun: 'Log Moonton, Monsep Take SGMAIL FRESH',
+            // keterangan_reff
+            keteranganReff: 'No reff',
+        },
+    },
+
+
+    {
+        // nama_akun
         namaAkun: 'ぎ mitsuyaツ',
         // @_usernameig
         owner: '@Zenix Store',
