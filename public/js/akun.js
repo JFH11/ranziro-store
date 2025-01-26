@@ -6,6 +6,98 @@ const data = [
 
     {
         // nama_akun
+        namaAkun: 'anomali',
+        // @_usernameig
+        owner: '@store_jejeee',
+        // link_ig
+        ownerLink: 'https://www.instagram.com/store_jejeee/',
+        // daftar_gambar
+        gallery: ['anomali-1.png', 'anomali-2.png', 'anomali-3.png', 'anomali-4.png', 'anomali-5.png', 'anomali-6.png'],
+        // harga
+        price: 'Rp 400.000',
+        // link_rekber
+        waRekber: '6285697188236', // Nomor WhatsApp Rekber
+        // link_penjual
+        waPenjual: '6288975937998', // Nomor WhatsApp Penjual
+        // detail_akun
+        detail: {
+            // jaminan = yes/no
+            warranty: 'yes',
+            // deskripsi = spek akun
+            deskripsi: ' OTW 2 LEGEND, LEGEND GS+KOF, ASPIRANT ANGELA, CC NATA, LUCKYBOX SABER EUDORA HAYA FREYA ALPHA ZHASK SELENA GUIN URANUS HANABI, SL TAHUNAN GORD',
+            // id_akun
+            idAkun: '90043207',
+            // rank_tertinggi
+            rankTertinggi: 'Mythical Glory',
+            // total_skin
+            totalSkin: '296',
+            // total_winrate
+            totalWinrate: '-',
+            // total_pertandingan
+            totalPertandingan: '15433',
+            // total_magic_core
+            totalMagicCore: '99',
+            // level_emblem
+            levelEmblem: 'Max',
+            // bukti_top_up
+            buktiTopUp: '-',
+            // akun_pribadi
+            akunPribadi: 'Beli',
+            // bind_akun = monsep = akun koonton terkait, monkos = akun moonton kosong, allkos = akun semua kosong/tidk terkait
+            bindAkun: 'Moonton + 3 Platform',
+            // keterangan_reff
+            keteranganReff: 'Reff',
+        },
+    },
+
+    {
+        // nama_akun
+        namaAkun: 'F25',
+        // @_usernameig
+        owner: '@store_jejeee',
+        // link_ig
+        ownerLink: 'https://www.instagram.com/store_jejeee',
+        // daftar_gambar
+        gallery: ['f25-1.png', 'f25-2.png', 'f25-3.png', 'f25-4.png', 'f25-5.png'],
+        // harga
+        price: 'Rp 150.000+',
+        // link_rekber
+        waRekber: '6285697188236', // Nomor WhatsApp Rekber
+        // link_penjual
+        waPenjual: '6288975937998', // Nomor WhatsApp Penjual
+        // detail_akun
+        detail: {
+            // jaminan = yes/no
+            warranty: 'yes',
+            // deskripsi = spek akun
+            deskripsi: 'dikit lagi dapet skin legend, skin otw 200, zodiac lance selena, luckybox lance kagura, estes, sl tahunan lesley, cc nata, lightborn alu, skin 25+',
+            // id_akun
+            idAkun: '1073318671',
+            // rank_tertinggi
+            rankTertinggi: 'Mythical Glory',
+            // total_skin
+            totalSkin: '189',
+            // total_winrate
+            totalWinrate: '-',
+            // total_pertandingan
+            totalPertandingan: '3596',
+            // total_magic_core
+            totalMagicCore: '173',
+            // level_emblem
+            levelEmblem: 'Max',
+            // bukti_top_up
+            buktiTopUp: '-',
+            // akun_pribadi
+            akunPribadi: 'Beli',
+            // bind_akun = monsep = akun koonton terkait, monkos = akun moonton kosong, allkos = akun semua kosong/tidk terkait
+            bindAkun: 'Moonton Take Segmail, Allkos',
+            // keterangan_reff
+            keteranganReff: 'reff',
+        },
+    },
+
+    {
+        // nama_akun
         namaAkun: 'Daxx.',
         // @_usernameig
         owner: '@Zxy Store',
@@ -358,7 +450,7 @@ if (account) {
 } else {
     document.body.innerHTML = `
     <div class="not-found-container">
-    <h1 class="not-found">Akun Tidak Ditemukan</h1>
+    <h1 class="not-found">Akun Sudah Terjual</h1>
     <a href="/semua_akun" class="back-home">Kembali <i class="fa-solid fa-arrow-right"></i></a>
     </div>
     
