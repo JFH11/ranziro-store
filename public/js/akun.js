@@ -12,7 +12,7 @@ const data = [
         // link_ig
         ownerLink: 'https://www.instagram.com/store_jejeee/',
         // daftar_gambar
-        gallery: ['anomali-1.png', 'anomali-2.png', 'anomali-3.png', 'anomali-4.png', 'anomali-5.png', 'anomali-6.png'],
+        gallery: ['anomali-1.webp', 'anomali-2.webp', 'anomali-3.webp', 'anomali-4.webp', 'anomali-5.webp', 'anomali-6.webp'],
         // harga
         price: 'Rp 400.000',
         // link_rekber
@@ -58,7 +58,7 @@ const data = [
         // link_ig
         ownerLink: 'https://www.instagram.com/store_jejeee',
         // daftar_gambar
-        gallery: ['f25-1.png', 'f25-2.png', 'f25-3.png', 'f25-4.png', 'f25-5.png'],
+        gallery: ['f25-1.webp', 'f25-2.webp', 'f25-3.webp', 'f25-4.webp', 'f25-5.webp'],
         // harga
         price: 'Rp 150.000+',
         // link_rekber
@@ -104,7 +104,7 @@ const data = [
         // link_ig
         ownerLink: 'https://wa.me/6281585784936',
         // daftar_gambar
-        gallery: ['account-name-daxx.-1.png', 'account-name-daxx.-2.png', 'account-name-daxx.-3.png'],
+        gallery: ['account-name-daxx.-1.webp', 'account-name-daxx.-2.webp', 'account-name-daxx.-3.webp'],
         // harga
         price: 'Rp 130.000+',
         // link_rekber
@@ -151,7 +151,7 @@ const data = [
         // link_ig
         ownerLink: 'https://wa.me/6289644102180',
         // daftar_gambar
-        gallery: ['zenix-store-1.png', 'zenix-store-2.png', 'zenix-store-3.png'],
+        gallery: ['zenix-store-1.webp', 'zenix-store-2.webp', 'zenix-store-3.webp'],
         // harga
         price: 'Rp 70.000+',
         // link_rekber
@@ -197,7 +197,7 @@ const data = [
         // link_ig
         ownerLink: 'https://wa.me/6285943116315',
         // daftar_gambar
-        gallery: ['galih-store-1.png', 'galih-store-2.png', 'galih-store-3.png'],
+        gallery: ['galih-store-1.webp', 'galih-store-2.webp', 'galih-store-3.webp'],
         // harga
         price: 'Rp 850.000',
         // link_rekber
@@ -243,7 +243,7 @@ const data = [
         // link_ig
         ownerLink: 'https://wa.me/6282162588954',
         // daftar_gambar
-        gallery: ['brott-store-1.png', 'brott-store-2.png', 'brott-store-3.png'],
+        gallery: ['brott-store-1.webp', 'brott-store-2.webp', 'brott-store-3.webp'],
         // harga
         price: 'Rp 500.000',
         // link_rekber
@@ -290,7 +290,7 @@ const data = [
         // link_ig
         ownerLink: 'https://wa.me/6282115853538',
         // daftar_gambar
-        gallery: ['REX-STORE-1.png'],
+        gallery: ['REX-STORE-1.webp'],
         // harga
         price: 'Rp 30.000',
         // link_rekber
@@ -337,7 +337,7 @@ const data = [
         // link_ig
         ownerLink: 'https://www.instagram.com/store_jejeee/',
         // daftar_gambar
-        gallery: ['boje-1.jpg', 'boje-2.jpg', 'boje-3.jpg', 'boje-4.jpg', 'boje-5.jpg', 'boje-6.jpg'],
+        gallery: ['boje-1.webp', 'boje-2.webp', 'boje-3.webp', 'boje-4.webp', 'boje-5.webp', 'boje-6.webp'],
         // harga
         price: 'Rp 1.800.000',
         // link_rekber
@@ -420,7 +420,7 @@ if (account) {
     const sliderImages = document.getElementById('slider-images');
     account.gallery.forEach(img => {
         const imgElement = document.createElement('img');
-        imgElement.src = `img/${img}`;
+        imgElement.src = `img-webp/${img}`;
         imgElement.classList.add('slide');
         sliderImages.appendChild(imgElement);
     });
@@ -450,7 +450,7 @@ if (account) {
 } else {
     document.body.innerHTML = `
     <div class="not-found-container">
-    <h1 class="not-found">Akun Sudah Terjual</h1>
+    <h1 class="not-found">Akun Sudah Tidak Tersedia</h1>
     <a href="/semua_akun" class="back-home">Kembali <i class="fa-solid fa-arrow-right"></i></a>
     </div>
     

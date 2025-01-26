@@ -7,49 +7,49 @@ document.addEventListener('alpine:init', () => {
 
             {
                 namaAkun: 'anomali',
-                imgAkun: 'anomali-1.png',
+                imgAkun: 'anomali-1.webp',
                 owner: '@store_jejeee',
             },
 
             {
                 namaAkun: 'F25',
-                imgAkun: 'f25-1.png',
+                imgAkun: 'f25-1.webp',
                 owner: '@store_jejeee',
             },
 
             {
                 namaAkun: 'Daxx.',
-                imgAkun: 'account-name-daxx.-1.png',
+                imgAkun: 'account-name-daxx.-1.webp',
                 owner: '@Zxy Store',
             },
 
             {
                 namaAkun: 'ぎ mitsuyaツ',
-                imgAkun: 'zenix-store-1.png',
+                imgAkun: 'zenix-store-1.webp',
                 owner: '@Zenix Store',
             },
 
             {
                 namaAkun: 'Its making you cry',
-                imgAkun: 'galih-store-1.png',
+                imgAkun: 'galih-store-1.webp',
                 owner: '@Galih Store',
             },
 
             {
                 namaAkun: 'Dicdikz.',
-                imgAkun: 'brott-store-1.png',
+                imgAkun: 'brott-store-1.webp',
                 owner: '@Brott Store',
             },
 
             {
                 namaAkun: 'zèphyr',
-                imgAkun: 'REX-STORE-1.png',
+                imgAkun: 'REX-STORE-1.webp',
                 owner: '@REX STORE',
             },
 
             {
                 namaAkun: 'Priaidaman',
-                imgAkun: 'boje-1.jpg',
+                imgAkun: 'boje-1.webp',
                 owner: '@store_jejeee',
             },
         ],
