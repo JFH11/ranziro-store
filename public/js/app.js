@@ -6,6 +6,12 @@ document.addEventListener('alpine:init', () => {
             // data untuk mobile legends
 
             {
+                namaAkun: 'ぎ mitsuyaツ',
+                imgAkun: 'zenix-store-1.png',
+                owner: '@Zenix Store',
+            },
+
+            {
                 namaAkun: 'Its making you cry',
                 imgAkun: 'galih-store-1.png',
                 owner: '@Galih Store',

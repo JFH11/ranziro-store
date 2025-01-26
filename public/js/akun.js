@@ -6,11 +6,57 @@ const data = [
 
     {
         // nama_akun
+        namaAkun: 'ぎ mitsuyaツ',
+        // @_usernameig
+        owner: '@Zenix Store',
+        // link_ig
+        ownerLink: 'https://wa.me/6289644102180',
+        // daftar_gambar
+        gallery: ['zenix-store-1.png', 'zenix-store-2.png', 'zenix-store-3.png'],
+        // harga
+        price: 'Rp 70.000+',
+        // link_rekber
+        waRekber: '6285697188236', // Nomor WhatsApp Rekber
+        // link_penjual
+        waPenjual: '6289644102180', // Nomor WhatsApp Penjual
+        // detail_akun
+        detail: {
+            // jaminan = yes/no
+            warranty: 'yes',
+            // deskripsi = spek akun
+            deskripsi: 'ex glory, emblem max, dev bersih, monsep, min kgm plat',
+            // id_akun
+            idAkun: '531277935',
+            // rank_tertinggi
+            rankTertinggi: 'Mythical Glory',
+            // total_skin
+            totalSkin: '148',
+            // total_winrate
+            totalWinrate: '-',
+            // total_pertandingan
+            totalPertandingan: '5170',
+            // total_magic_core
+            totalMagicCore: '-',
+            // level_emblem
+            levelEmblem: 'Max',
+            // bukti_top_up
+            buktiTopUp: '-',
+            // akun_pribadi
+            akunPribadi: '',
+            // bind_akun = monsep = akun koonton terkait, monkos = akun moonton kosong, allkos = akun semua kosong/tidk terkait
+            bindAkun: 'Log Moonton',
+            // keterangan_reff
+            keteranganReff: 'reff',
+        },
+    },
+
+    {
+        // nama_akun
         namaAkun: 'Its making you cry',
         // @_usernameig
         owner: '@Galih Store',
         // link_ig
-        ownerLink: 'https://wa.me6285943116315',
+        ownerLink: 'https://wa.me/6285943116315',
         // daftar_gambar
         gallery: ['galih-store-1.png', 'galih-store-2.png', 'galih-store-3.png'],
         // harga
