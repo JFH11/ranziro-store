@@ -396,6 +396,8 @@ if (account) {
     // target
     rekberLink.target = '_blank';
     ownerLink.target = '_blank';
+    rekberLink.rel = 'noopener noreferrer';
+    ownerLink.rel = 'noopener noreferrer';
     rekberLink.href = `https://wa.me/${account.waRekber}`;
     ownerLink.href = `https://wa.me/${account.waPenjual}`;
 
@@ -451,7 +453,7 @@ if (account) {
     document.body.innerHTML = `
     <div class="not-found-container">
     <h1 class="not-found">Akun Sudah Tidak Tersedia</h1>
-    <a href="/semua_akun" class="back-home">Kembali <i class="fa-solid fa-arrow-right"></i></a>
+    <a href="/semua_akun" target="_blank" rel="noopener noreferrer" class="back-home">Kembali <i class="fa-solid fa-arrow-right"></i></a>
     </div>
     
     <div class="area">

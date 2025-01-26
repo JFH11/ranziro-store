@@ -39,7 +39,9 @@
         </button>
       </div>
 
-      <a href="/semua_akun" class="sidebar-links">
+      <a href="/semua_akun"
+      target="_blank"
+      rel="noopener noreferrer" class="sidebar-links">
         <p>Mobile Legends</p>
         <i class="fa-solid fa-arrow-right"></i>
       </a>
@@ -62,6 +64,8 @@
         <template x-for="game in filteredData" :key="game.namaAkun">
           <a
             :href="`/akun?nama=${encodeURIComponent(game.namaAkun)}`"
+            target="_blank"
+            rel="noopener noreferrer"
             class="search-links"
           >
             <img :src="`img-webp/${game.imgAkun}`" alt="" class="img-search" />
@@ -157,11 +161,14 @@
           <br />
           Email:
           <a href="mailto:cs.ranzirostore@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
             >cs.ranzirostore@gmail.com</a
           >
           <br />
           Nomor WhatsApp:
-          <a href="https://wa.me/6285697188236">+62 856-9718-8236</a>
+          <a href="https://wa.me/6285697188236"
+          target="_blank" rel="noopener noreferrer">+62 856-9718-8236</a>
         </p>
       </div>
 
@@ -190,7 +197,7 @@
             <div class="footer-title">Peta Situs</div>
             <div class="footer-hr"></div>
             <div class="footer-list">
-              <a href="/semua_akun" class="footer-links">Mobile Legends</a>
+              <a target="_blank" rel="noopener noreferrer" href="/semua_akun" class="footer-links">Mobile Legends</a>
             </div>
           </div>
 
@@ -198,8 +205,8 @@
             <div class="footer-title">Media Sosial</div>
             <div class="footer-hr"></div>
             <div class="footer-list">
-              <a href="https://www.instagram.com/ranziro_store" class="footer-links">Instagram</a>
-              <a href="https://www.youtube.com/@ranziroo11" class="footer-links">YouTube</a>
+              <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/ranziro_store" class="footer-links">Instagram</a>
+              <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@ranziroo11" class="footer-links">YouTube</a>
             </div>
           </div>
 
@@ -207,10 +214,10 @@
             <div class="footer-title">Legalitas</div>
             <div class="footer-hr"></div>
             <div class="footer-list">
-              <a href="/privacy-policy" class="footer-links"
+              <a target="_blank" rel="noopener noreferrer" href="/privacy-policy" class="footer-links"
                 >Kebijakan Privasi</a
               >
-              <a href="/terms" class="footer-links"
+              <a target="_blank" rel="noopener noreferrer" href="/terms" class="footer-links"
                 >Syarat dan Ketentuan</a
               >
             </div>
