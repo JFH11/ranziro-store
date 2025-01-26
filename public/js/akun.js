@@ -6,6 +6,53 @@ const data = [
 
     {
         // nama_akun
+        namaAkun: 'Dicdikz.',
+        // @_usernameig
+        owner: '@Brott Store',
+        // link_ig
+        ownerLink: 'https://wa.me/6282162588954',
+        // daftar_gambar
+        gallery: ['brott-store-1.png', 'brott-store-2.png', 'brott-store-3.png'],
+        // harga
+        price: 'Rp 500.000',
+        // link_rekber
+        waRekber: '6285697188236', // Nomor WhatsApp Rekber
+        // link_penjual
+        waPenjual: '6282162588954', // Nomor WhatsApp Penjual
+        // detail_akun
+        detail: {
+            // jaminan = yes/no
+            warranty: 'yes',
+            // deskripsi = spek akun
+            deskripsi: '',
+            // id_akun
+            idAkun: '130907377',
+            // rank_tertinggi
+            rankTertinggi: 'Mythical Glory',
+            // total_skin
+            totalSkin: '352',
+            // total_winrate
+            totalWinrate: '-',
+            // total_pertandingan
+            totalPertandingan: '14355',
+            // total_magic_core
+            totalMagicCore: '-',
+            // level_emblem
+            levelEmblem: 'Max',
+            // bukti_top_up
+            buktiTopUp: 'Tidak Ada',
+            // akun_pribadi
+            akunPribadi: '',
+            // bind_akun = monsep = akun koonton terkait, monkos = akun moonton kosong, allkos = akun semua kosong/tidk terkait
+            bindAkun: '',
+            // keterangan_reff
+            keteranganReff: 'Refful',
+        },
+    },
+
+
+    {
+        // nama_akun
         namaAkun: 'zèphyr',
         // @_usernameig
         owner: '@REX STORE',
@@ -16,7 +63,7 @@ const data = [
         // harga
         price: 'Rp 30.000',
         // link_rekber
-        waRekber: '6284597188236', // Nomor WhatsApp Rekber
+        waRekber: '6285697188236', // Nomor WhatsApp Rekber
         // link_penjual
         waPenjual: '6282115853538', // Nomor WhatsApp Penjual
         // detail_akun
