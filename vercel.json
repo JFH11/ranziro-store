@@ -1,19 +1,19 @@
 {
     "version": 2,
-    "build": [
+    "builds": [
       { "src": "server-ranziro.js", "use": "@vercel/node",
-      "headers": [
+    "headers": [
         {
           "key": "Cache-Control",
-          "value": "no-store",
-          "cleanUrls": true
+          "value": "no-store"
         }
-    ]  
-
-     }
-     
+    ] 
+  }
     ],
+
+
     "routes": [
       { "src": "/(.*)", "dest": "server-ranziro.js" }
     ]
+      
   }
