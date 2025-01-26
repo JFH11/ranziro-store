@@ -688,14 +688,14 @@ main {
 
 .btn-rekber {
     color: rgb(255, 255, 255);
-    background: rgb(0, 89, 148);
-    border: 1px solid rgb(0, 89, 148);
+    background: rgb(0, 153, 255);
+    border: 1px solid rgb(0, 153, 255);
 }
 
 .btn-owner {
     color: rgb(255, 255, 255);
     background: transparent;
-    border: 1px solid rgb(0, 89, 148);
+    border: 1px solid rgb(0, 153, 255);
 }
 
 .btn-rekber:hover,
@@ -983,7 +983,7 @@ footer svg {
     }
 
     100%{
-        transform: translateY(-150vh) rotate(720deg);
+        transform: translateY(-120vh) rotate(720deg);
         opacity: 0;
         border-radius: 50%;
     }
