@@ -360,5 +360,20 @@ if (account) {
     <div class="not-found-container">
     <h1 class="not-found">Akun Tidak Ditemukan</h1>
     <a href="/semua_akun" class="back-home">Kembali <i class="fa-solid fa-arrow-right"></i></a>
-    </div>`;
+    </div>
+    
+    <div class="area">
+        <ul class="circles">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>`;
 }
