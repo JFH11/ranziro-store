@@ -230,7 +230,6 @@ header div {
 .search-links {
     position: relative;
     width: 100%;
-    margin-bottom: 0.5rem;
     height: max-content;
     display: flex;
     padding: 1rem;
