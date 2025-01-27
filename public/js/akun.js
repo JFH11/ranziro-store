@@ -6,7 +6,7 @@ const data = [
 
     {
         // nama_akun
-        namaAkun: 'Yaampun Yisanz.',
+        namaAkun: 'sold',
         // @_usernameig
         owner: '@store_jejeee',
         // link_ig
