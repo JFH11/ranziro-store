@@ -6,6 +6,98 @@ const data = [
 
     {
         // nama_akun
+        namaAkun: 'Yaampun Yisanz.',
+        // @_usernameig
+        owner: '@store_jejeee',
+        // link_ig
+        ownerLink: 'https://www.instagram.com/store_jejeee/',
+        // daftar_gambar
+        gallery: ['yaampun-mizan-1.webp', 'yaampun-mizan-2.webp', 'yaampun-mizan-3.webp'],
+        // harga
+        price: 'Rp 170.000+',
+        // link_rekber
+        waRekber: '6285697188236', // Nomor WhatsApp Rekber
+        // link_penjual
+        waPenjual: '6288975937998', // Nomor WhatsApp Penjual
+        // detail_akun
+        detail: {
+            // jaminan = yes/no
+            warranty: 'yes',
+            // deskripsi = spek akun
+            deskripsi: 'RUBY ASPIRANT, LIGHTBORN TG, CC NATA, LUCKYBOX URANUS, EPIC JUNGLER"',
+            // id_akun
+            idAkun: '463236693',
+            // rank_tertinggi
+            rankTertinggi: 'Mythical Glory',
+            // total_skin
+            totalSkin: '194',
+            // total_winrate
+            totalWinrate: '-',
+            // total_pertandingan
+            totalPertandingan: '6560',
+            // total_magic_core
+            totalMagicCore: '110',
+            // level_emblem
+            levelEmblem: 'Max',
+            // bukti_top_up
+            buktiTopUp: '-',
+            // akun_pribadi
+            akunPribadi: 'Beli',
+            // bind_akun = monsep = akun koonton terkait, monkos = akun moonton kosong, allkos = akun semua kosong/tidk terkait
+            bindAkun: 'Moonton',
+            // keterangan_reff
+            keteranganReff: 'Reff',
+        },
+    },
+
+    {
+        // nama_akun
+        namaAkun: 'skyy.',
+        // @_usernameig
+        owner: '@store_jejeee',
+        // link_ig
+        ownerLink: 'https://www.instagram.com/store_jejeee/',
+        // daftar_gambar
+        gallery: ['skyy-1.webp', 'skyy-2.webp', 'skyy-3.webp', 'skyy-4.webp', 'skyy-5.webp', 'skyy-6.webp'],
+        // harga
+        price: 'Rp 800.000',
+        // link_rekber
+        waRekber: '6285697188236', // Nomor WhatsApp Rekber
+        // link_penjual
+        waPenjual: '6288975937998', // Nomor WhatsApp Penjual
+        // detail_akun
+        detail: {
+            // jaminan = yes/no
+            warranty: 'yes',
+            // deskripsi = spek akun
+            deskripsi: 'SKIN 400+, 2 LEGEND FRANCO GS, CC YSS BENED NATA, KOF GS GUIN KARINA, TF ALDOUS ROGER, SANRIO CHANGE FLORYN, STARWARS KIMMY, SL TAHUNAN KARRIE HAYA KAGURA, LUCKYBOX 9, CHAMPION LANCE HARITH',
+            // id_akun
+            idAkun: '119345196',
+            // rank_tertinggi
+            rankTertinggi: 'Mythical Glory',
+            // total_skin
+            totalSkin: '400+',
+            // total_winrate
+            totalWinrate: '-',
+            // total_pertandingan
+            totalPertandingan: '13351',
+            // total_magic_core
+            totalMagicCore: '51',
+            // level_emblem
+            levelEmblem: 'Max',
+            // bukti_top_up
+            buktiTopUp: '-',
+            // akun_pribadi
+            akunPribadi: 'Beli',
+            // bind_akun = monsep = akun koonton terkait, monkos = akun moonton kosong, allkos = akun semua kosong/tidk terkait
+            bindAkun: 'MOONTON TAKE SEGMAIL, VK,GC',
+            // keterangan_reff
+            keteranganReff: 'Reff',
+        },
+    },
+
+    {
+        // nama_akun
         namaAkun: 'anomali',
         // @_usernameig
         owner: '@store_jejeee',

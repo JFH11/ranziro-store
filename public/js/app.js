@@ -5,6 +5,20 @@ document.addEventListener('alpine:init', () => {
             // data untuk mobile legends
 
             {
+                namaAkun: 'Yaampun Yisanz.',
+                imgAkun: 'yaampun-mizan-1.webp',
+                owner: '@store_jejeee',
+                desc: 'RUBY ASPIRANT, LIGHTBORN TG, CC NATA, LUCKYBOX URANUS, EPIC JUNGLER"'
+            },
+
+            {
+                namaAkun: 'skyy.',
+                imgAkun: 'skyy-1.webp',
+                owner: '@store_jejeee',
+                desc: 'SKIN 400+, 2 LEGEND FRANCO GS, CC YSS BENED NATA, KOF GS GUIN KARINA, TF ALDOUS ROGER, SANRIO CHANGE FLORYN, STARWARS KIMMY, SL TAHUNAN KARRIE HAYA KAGURA, LUCKYBOX 9, CHAMPION LANCE HARITH'
+            },
+
+            {
                 namaAkun: 'anomali',
                 imgAkun: 'anomali-1.webp',
                 owner: '@store_jejeee',
