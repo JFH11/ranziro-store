@@ -1,7 +1,7 @@
-const express = require('express')
-const path = require('path')
-const apps = express()
-const bodyParser = require('body-parser')
+const express = require('express');
+const path = require('path');
+const bodyParser = require('body-parser');
+const apps = express();
 
 apps.use((req, res, next) => {
     res.set('Cache-Control', 'no-store'); // Tidak menyimpan cache
@@ -9,30 +9,25 @@ apps.use((req, res, next) => {
 });
 
 apps.use(bodyParser.json());
-
 apps.use(express.static(path.join(__dirname, 'public')));
 
-apps.get('/semua_akun', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'))
+// Daftar halaman yang dapat diakses secara dinamis
+const routes = [
+    { path: '/semua_akun', file: 'index.html' },
+    { path: '/ff', file: 'ff.html' },
+    { path: '/akun', file: 'akun.html' },
+    { path: '/terms', file: 'terms.html' },
+    { path: '/privacy-policy', file: 'privacy-policy.html' }
+];
+
+// Membuat rute secara dinamis berdasarkan konfigurasi
+routes.forEach(route => {
+    apps.get(route.path, (req, res) => {
+        res.sendFile(path.join(__dirname, 'public', route.file));
+    });
 });
 
-apps.get('/ff', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'ff.html'))
-});
-
-apps.get('/akun', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'akun.html'))
-});
-
-apps.get('/terms', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'terms.html'))
-});
-
-apps.get('/privacy-policy', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'privacy-policy.html'))
-});
-
-port = process.env.PORT || 4003
+const port = process.env.PORT || 4003;
 apps.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}`)
-})
+    console.log(`Server running on http://localhost:${port}`);
+});
