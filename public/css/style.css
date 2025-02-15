@@ -18,7 +18,13 @@ body {
 }
 
 body::-webkit-scrollbar {
-    display: none;
+    width: 5px;
+    background: rgb(24, 24, 58);
+}
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: white;
 }
 
 header {
