@@ -98,7 +98,7 @@ const data = [
 
     {
         // nama_akun
-        namaAkun: 'anomali',
+        namaAkun: 'sold',
         // @_usernameig
         owner: '@store_jejeee',
         // link_ig
