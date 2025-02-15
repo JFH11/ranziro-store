@@ -12,7 +12,7 @@ apps.use(bodyParser.json());
 apps.use(express.static(path.join(__dirname, 'public')));
 
 // Daftar halaman yang dapat diakses secara dinamis
-const routes = [
+const router = [
     { path: '/semua_akun', file: 'index.html' },
     { path: '/ff', file: 'ff.html' },
     { path: '/akun', file: 'akun.html' },
@@ -21,7 +21,7 @@ const routes = [
 ];
 
 // Membuat rute secara dinamis berdasarkan konfigurasi
-routes.forEach(route => {
+router.forEach(route => {
     apps.get(route.path, (req, res) => {
         res.sendFile(path.join(__dirname, 'public', route.file));
     });
