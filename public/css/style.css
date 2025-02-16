@@ -1020,7 +1020,7 @@ footer svg {
     }
 
     .container-list-3 {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .card {
@@ -1061,7 +1061,9 @@ footer svg {
         height: 10rem;
     }
 
-    .btn-rekber,
+    .btn-rekber {
+        font-size: 0.8rem;
+    }
 
     .prev, .next {
         font-size: 1.5rem;
@@ -1118,7 +1120,7 @@ footer svg {
     }
 
     .container-list-3 { 
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
 
     .card {
