@@ -120,7 +120,7 @@ if (account) {
     document.body.innerHTML = `
     <div class="not-found-container">
     <h1 class="not-found">Akun Sudah Tidak Tersedia</h1>
-    <a href="/mlbb" target="_blank" rel="noopener noreferrer" class="back-home">Kembali <i class="fa-solid fa-arrow-right"></i></a>
+    <a href="/mlbb" class="back-home">Kembali <i class="fa-solid fa-arrow-right"></i></a>
     </div>
     
     <div class="area">
