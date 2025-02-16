@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="img-webp/Logo Ranziro.webp" type="image/webp" />
+    <link rel="icon" href="logo/ranziro_store.webp" type="image/webp" />
     <title>Ranziro Store</title>
 
     <!-- link css -->
@@ -33,13 +33,13 @@
     <!-- sidebar -->
     <div class="sidebar">
       <div>
-        <img src="img-webp/ranziro store.webp" alt="" class="logo" />
+        <img src="logo/ranziro_store.webp" alt="ranziro_store" class="logo" />
         <button class="btn-close" onclick="closeSidebar()">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
 
-      <a href="/semua_akun" class="sidebar-links">
+      <a href="/mlbb" class="sidebar-links">
         <p>Mobile Legends</p>
         <i class="fa-solid fa-arrow-right"></i>
       </a>
@@ -67,7 +67,7 @@
             <img :src="`img-webp/${game.imgAkun}`" alt="" class="img-search" />
             <div class="container-search-2">
               <h3 x-text="game.namaAkun"></h3>
-              <p x-text="game.owner"></p>
+              <p x-text="game.hargaAkun"></p>
             </div>
           </a>
         </template>
@@ -80,7 +80,7 @@
         <button class="btn-menu" onclick="openSidebar()">
           <i class="fa-solid fa-bars"></i>
         </button>
-        <img src="img-webp/ranziro store.webp" alt="" class="logo" />
+        <img src="logo/ranziro_store.webp" alt="ranziro_store" class="logo" />
         <p class="hdr-p">Berbagai akun yang kamu mau ada di sini.</p>
       </div>
 
@@ -102,15 +102,15 @@
             :href="`/akun?nama=${encodeURIComponent(game.namaAkun)}`">
               <div class="card">
                 <img :src="`img-webp/${game.imgAkun}`" :alt="game.namaAkun" />
-                <div class="card-info">
-                  <div class="card-loader"></div>
-                </div>  
               </div>
               <div class="card-info-2">
                 <h3 class="card-h3" x-text="game.namaAkun"></h3>
-                <p class="card-p" x-text="game.owner"></p>
-                <p class="card-desc" x-text="game.desc"></p>
+                <p class="card-p" x-text="game.hargaAkun"></p>
+                <p class="card-status" x-text="game.status"></p>
               </div>
+              <div class="card-info">
+                <div class="card-loader"></div>
+              </div>  
             </a>
           </template>
         </div>
@@ -128,11 +128,9 @@
         </svg>
         <div class="footer-2">
           <div class="footer-card">
-            <img src="img-webp/ranziro store.webp" alt="" class="footer-logo" />
+            <img src="logo/ranziro_store.webp" alt="ranziro_store" class="footer-logo" />
             <div class="footer-deskripsi">
-              Pusat jasa terpercaya untuk kebutuhan akun Mobile Legends. Kami
-              menyediakan layanan jual beli, jasa post, dan pemulihan akun
-              dengan aman, cepat, dan profesional. Pilihan terbaik untuk para
+              Ranziro Store menjual berbagai akun Mobile Legends dengan harga bervariasi sesuai budgetmu. Pilihan terbaik untuk para
               gamers sejati!
             </div>
           </div>
@@ -141,7 +139,7 @@
             <div class="footer-title">Peta Situs</div>
             <div class="footer-hr"></div>
             <div class="footer-list">
-              <a href="/semua_akun" class="footer-links">Mobile Legends</a>
+              <a href="/mlbb" class="footer-links">Mobile Legends</a>
             </div>
           </div>
 
@@ -196,6 +194,6 @@
     </main>
 
     <script src="js/scr21kn.js"></script>
-    <script src="js/appwk20u3ub3928.min.js"></script>
+    <script src="js/apwpwkmemen343.min.js"></script>
   </body>
 </html>

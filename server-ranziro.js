@@ -13,7 +13,7 @@ apps.use(express.static(path.join(__dirname, 'public')));
 
 // Daftar halaman yang dapat diakses secara dinamis
 const router = [
-    { path: '/semua_akun', file: 'index.html' },
+    { path: '/mlbb', file: 'index.html' },
     { path: '/ff', file: 'ff.html' },
     { path: '/akun', file: 'akun.html' },
     { path: '/terms', file: 'terms.html' },

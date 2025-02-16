@@ -39,15 +39,17 @@ detail: {
     akunPribadi: '',
     // bind_akun = monsep = akun koonton terkait, monkos = akun moonton kosong, allkos = akun semua kosong/tidk terkait
     bindAkun: '',
-    // keterangan_reff
-    keteranganReff: '',
 },
 },
 
-
+<!-- app.js -->
 {
     namaAkun: '',
     imgAkun: '',
-    owner: '',
-    desc: ''
+    hargaAkun: '',
+    status: ''
 },
+
+<!-- status untuk app.js -->
+Ready ✅
+Sold Out ❌
