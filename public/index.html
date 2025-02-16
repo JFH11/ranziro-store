@@ -67,7 +67,7 @@
             <img :src="`img-webp/${game.imgAkun}`" alt="" class="img-search" />
             <div class="container-search-2">
               <h3 x-text="game.stock"></h3>
-              <h3 x-text="game.namaAkun"></h3>
+              <h3 x-text="game.namaAkun" class="search-akun"></h3>
               <p x-text="game.hargaAkun"></p>
             </div>
           </a>
@@ -102,17 +102,18 @@
             <a href="" class="card-parents"
             :href="`/akun?nama=${encodeURIComponent(game.namaAkun)}`">
               <div class="card">
-                <img :src="`img-webp/${game.imgAkun}`" :alt="game.namaAkun" />
+                <img :src="`img-webp/${game.imgAkun}`" :alt="game.imgAkun" />
               </div>
               <div class="card-info-2">
+                <div class="card-h3" x-text="game.namaAkun"></div>
                 <div class="card-stock" x-text="game.stock"></div>
-                <h3 class="card-h3" x-text="game.namaAkun"></h3>
                 <p class="card-p" x-text="game.hargaAkun"></p>
                 <p class="card-status" x-text="game.status"></p>
               </div>
               <div class="card-info">
                 <div class="card-loader"></div>
-              </div>  
+              </div>
+              <div class="card-dst" x-text="game.destinasi"></div>
             </a>
           </template>
         </div>
@@ -196,6 +197,6 @@
     </main>
 
     <script src="js/scr21kn.js"></script>
-    <script src="js/apwmdi303n2knd93nd.min.js"></script>
+    <script src="js/apwmei4957271u30j.min.js"></script>
   </body>
 </html>

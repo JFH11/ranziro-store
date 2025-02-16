@@ -1,4 +1,6 @@
 {
+// stock
+stock: '',
 // nama_akun
 namaAkun: '',
 // @_usernameig
@@ -44,11 +46,12 @@ detail: {
 
 <!-- app.js -->
 {
-    stock: '',
     namaAkun: '',
+    stock: '',
     imgAkun: '',
     hargaAkun: '',
-    status: ''
+    status: '',
+    destinasi: ''
 },
 
 <!-- status untuk app.js -->

@@ -5,6 +5,8 @@ const data = [
     // data untuk mobile legends
 
     {
+        // stock
+        stock: 'STOCK02',
         // nama_akun
         namaAkun: 'ShuraTzy.',
         // @_usernameig
@@ -53,6 +55,7 @@ const account = data.find(item => item.namaAkun === accountName);
 if (account) {
     document.getElementById('account-name').textContent = account.namaAkun;
     document.getElementById('account-price').textContent = account.price;
+    document.getElementById('account-stock').textContent = account.stock;
 
     // Tambahkan tautan pemilik akun
     const ownerElement = document.createElement('a');

@@ -270,6 +270,10 @@ header div {
     letter-spacing: 0.1rem;
 }
 
+.search-akun {
+    display: none;
+}
+
 .container-search-2 p {
     position: relative;
     color: #ffffff;
@@ -427,6 +431,10 @@ main {
     color: #ffffff;
 }
 
+.card-h3 {
+    display: none;
+}
+
 .card-p {
     position: relative;
     left: 0.5rem;
@@ -441,6 +449,21 @@ main {
     color: #ffffff;
     font-size: 0.9rem;
     font-family: 'poppins' sans-serif;
+}
+
+.card-dst {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0.7rem 0.8rem;
+    background: linear-gradient(to bottom right, rgb(37, 37, 90), #636bfd);
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-family: 'poppins' sans-serif;
+    border-radius: 0.5rem 0 0.5rem 0 ;
+    z-index: 3;
+    transition: 0.3s ease;
 }
 
 .gallery {
@@ -584,6 +607,11 @@ main {
     font-size: 1.2rem;
 }
 
+.account-stock {
+    display: none;
+}
+
+.account-stock,
 .account-owner,
 #account-price {
     position: relative;
