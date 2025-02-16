@@ -338,7 +338,6 @@ main {
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
     transition: all 0.3s ease;
     border: 2px solid transparent;
     box-shadow: 0 0 2px white;
@@ -418,6 +417,7 @@ main {
     margin: 0.5rem 0;
 }
 
+.card-stock, 
 .card-h3 {
     position: relative;
     font-size: 1rem;

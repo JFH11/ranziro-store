@@ -5,14 +5,16 @@ document.addEventListener('alpine:init', () => {
             // data untuk mobile legends
 
             {
-                namaAkun: 'STOCK02',
+                stock: 'STOCK01',
+                namaAkun: 'ShuraTzy.',
                 imgAkun: 'shuratzy_1.webp',
                 hargaAkun: 'Rp. 175.000',
                 status: 'Ready ✅'
             },
 
             {
-                namaAkun: 'STOCK01',
+                stock: 'STOCK02',
+                namaAkun: 'Jun Kagenoshi',
                 imgAkun: 'junkagenoshi_1.webp',
                 hargaAkun: 'Rp. 140.000',
                 status: 'Sold Out ❌'

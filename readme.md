@@ -44,6 +44,7 @@ detail: {
 
 <!-- app.js -->
 {
+    stock: '',
     namaAkun: '',
     imgAkun: '',
     hargaAkun: '',
