@@ -64,3 +64,17 @@ trigger.addEventListener('click', () => {
         isGalleryOpen = false;
     }
 });
+
+// loader
+function showLoader(event) {
+    event.preventDefault(); // Mencegah navigasi langsung
+    var loader = document.getElementById("container-loader");
+    loader.style.display = "grid"; // Tampilkan loader
+
+    // Ambil URL tujuan dari atribut href elemen <a>
+    var targetUrl = event.currentTarget.href;  
+
+    setTimeout(function () {
+        window.location.href = targetUrl; // Redirect setelah 3 detik
+    }, 2000);
+}

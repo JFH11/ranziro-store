@@ -99,7 +99,7 @@
 
         <div class="container-list-3">
           <template x-for="game in data" :key="game.namaAkun">
-            <a href="" class="card-parents"
+            <a href="" class="card-parents" onclick="return showLoader(event)"
             :href="`/akun?nama=${encodeURIComponent(game.namaAkun)}`">
               <div class="card">
                 <img :src="`img-webp/${game.imgAkun}`" :alt="game.imgAkun" />
@@ -196,7 +196,15 @@
   
     </main>
 
-    <script src="js/scr21kn.js"></script>
+    <div class="container-loader" id="container-loader">
+      <div class="loading">
+          <span class="loader"></span>
+          <span class="loader"></span>
+          <span class="loader"></span>
+      </div>
+  </div>
+
+    <script src="js/scr21mer.min.js"></script>
     <script src="js/apwmei4957271u30j.min.js"></script>
   </body>
 </html>
