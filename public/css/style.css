@@ -1051,17 +1051,23 @@ footer svg {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    
     .card {
         height: 11rem;
     }
-
+    
     .card-box {
         height: 4rem;
         width: 4rem;
         margin-top: 1.5rem;
         margin-bottom: 1.5rem;
     }
-
+    
+    .card-loader {
+        width: 3rem;
+        height: 3rem;
+    }
+    
     .container-search {
         width: 90%;
     }
@@ -1160,6 +1166,11 @@ footer svg {
         width: 4rem;
         margin-top: 2rem;
         margin-bottom: 1.5rem;
+    }
+
+    .card-loader {
+        width: 3rem;
+        height: 3rem;
     }
 
     .container-search {
