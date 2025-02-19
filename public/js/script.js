@@ -72,7 +72,7 @@ function showLoader(event) {
     loader.style.display = "grid"; // Tampilkan loader
 
     // Ambil URL tujuan dari atribut href elemen <a>
-    var targetUrl = event.currentTarget.href;  
+    var targetUrl = event.currentTarget.href;
 
     setTimeout(function () {
         window.location.href = targetUrl; // Redirect setelah 3 detik

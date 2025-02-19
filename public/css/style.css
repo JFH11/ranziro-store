@@ -1158,7 +1158,8 @@ footer svg {
     }
 
     .card {
-        height: 12rem;
+        max-height: 12rem;
+        width: auto;
     }
 
     .card-box {
