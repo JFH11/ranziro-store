@@ -186,7 +186,7 @@ header div {
 .container-search {
     position: fixed;
     z-index: 100;
-    top: 70px;
+    top: 90px;
     padding: 1rem;
     background: #11112e;
     width: 50%;
@@ -280,6 +280,11 @@ header div {
     font-size: 0.75rem;
     font-weight: 500;
     font-family: 'poppins' sans-serif;
+}
+
+.container-search-2 .card-status {
+    position: relative;
+    left: 0;
 }
 
 main {
