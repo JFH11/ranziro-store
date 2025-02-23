@@ -277,7 +277,7 @@ header div {
 .container-search-2 p {
     position: relative;
     color: #ffffff;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 500;
     font-family: 'poppins' sans-serif;
 }
@@ -439,7 +439,7 @@ main {
     position: relative;
     left: 0.5rem;
     color: #ffffff;
-    font-size: 1rem;
+    font-size: 0.75rem;
     font-family: 'poppins' sans-serif;
 }
 
@@ -447,7 +447,7 @@ main {
     position: relative;
     left: 0.5rem;
     color: #ffffff;
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     font-family: 'poppins' sans-serif;
 }
 
