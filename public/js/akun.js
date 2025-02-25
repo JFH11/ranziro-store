@@ -4,49 +4,49 @@ const accountName = decodeURIComponent(urlParams.get('nama'));
 const data = [
     // data untuk mobile legends
 
-    {
-        // stock
-        stock: 'STOCK02',
-        // nama_akun
-        namaAkun: 'ShuraTzy.',
-        // @_usernameig
-        owner: '@ranziro_store',
-        // link_ig
-        ownerLink: 'https://www.instagram.com/ranziro_store/',
-        // daftar_gambar
-        gallery: ['shuratzy_1.webp', 'shuratzy_2.webp', 'shuratzy_3.webp', 'shuratzy_4.webp', 'shuratzy_5.webp', 'shuratzy_6.webp', 'shuratzy_7.webp', 'shuratzy_8.webp'],
-        // harga
-        price: 'Rp. 175.000',
-        // link_rekber
-        waRekber: '6285697188236', // Nomor WhatsApp Rekber
-        // link_penjual
-        detail: {
-            // jaminan = yes/no
-            warranty: 'Yes',
-            // deskripsi = spek akun
-            deskripsi: 'Monsep allkos take segmail fresh -kgm, Layla asprnt, yz m5, LC Uranus, LB harith Fanny, gord epic',
-            // id_akun
-            idAkun: 'SS',
-            // rank_tertinggi
-            rankTertinggi: 'SS',
-            // total_skin
-            totalSkin: 'SS',
-            // total_winrate
-            totalWinrate: 'SS',
-            // total_pertandingan
-            totalPertandingan: 'SS',
-            // total_magic_core
-            totalMagicCore: 'SS',
-            // level_emblem
-            levelEmblem: 'SS',
-            // bukti_top_up
-            buktiTopUp: 'Tidak Ada',
-            // akun_pribadi
-            akunPribadi: 'Beli',
-            // bind_akun = monsep = akun koonton terkait, monkos = akun moonton kosong, allkos = akun semua kosong/tidk terkait
-            bindAkun: 'Montoon/Monsep Allkos',
-        },
-        },
+    // {
+    //     // stock
+    //     stock: 'STOCK02',
+    //     // nama_akun
+    //     namaAkun: 'ShuraTzy.',
+    //     // @_usernameig
+    //     owner: '@ranziro_store',
+    //     // link_ig
+    //     ownerLink: 'https://www.instagram.com/ranziro_store/',
+    //     // daftar_gambar
+    //     gallery: ['shuratzy_1.webp', 'shuratzy_2.webp', 'shuratzy_3.webp', 'shuratzy_4.webp', 'shuratzy_5.webp', 'shuratzy_6.webp', 'shuratzy_7.webp', 'shuratzy_8.webp'],
+    //     // harga
+    //     price: 'Rp. 175.000',
+    //     // link_rekber
+    //     waRekber: '6285697188236', // Nomor WhatsApp Rekber
+    //     // link_penjual
+    //     detail: {
+    //         // jaminan = yes/no
+    //         warranty: 'Yes',
+    //         // deskripsi = spek akun
+    //         deskripsi: 'Monsep allkos take segmail fresh -kgm, Layla asprnt, yz m5, LC Uranus, LB harith Fanny, gord epic',
+    //         // id_akun
+    //         idAkun: 'SS',
+    //         // rank_tertinggi
+    //         rankTertinggi: 'SS',
+    //         // total_skin
+    //         totalSkin: 'SS',
+    //         // total_winrate
+    //         totalWinrate: 'SS',
+    //         // total_pertandingan
+    //         totalPertandingan: 'SS',
+    //         // total_magic_core
+    //         totalMagicCore: 'SS',
+    //         // level_emblem
+    //         levelEmblem: 'SS',
+    //         // bukti_top_up
+    //         buktiTopUp: 'Tidak Ada',
+    //         // akun_pribadi
+    //         akunPribadi: 'Beli',
+    //         // bind_akun = monsep = akun koonton terkait, monkos = akun moonton kosong, allkos = akun semua kosong/tidk terkait
+    //         bindAkun: 'Montoon/Monsep Allkos',
+    //     },
+    //     },
         
 ];
 

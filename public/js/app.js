@@ -44,8 +44,8 @@ document.addEventListener('alpine:init', () => {
                 namaAkun: 'ShuraTzy.',
                 stock: 'STOCK02',
                 imgAkun: 'shuratzy_1.webp',
-                hargaAkun: 'Rp. 175.000',
-                status: 'Ready ✅',
+                hargaAkun: 'Rp. 145.000',
+                status: 'Sold Out ❌',
                 destinasi: '02'
             },
 
