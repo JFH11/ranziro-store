@@ -26,7 +26,7 @@ document.addEventListener('alpine:init', () => {
                 namaAkun: 'Biasa-aja',
                 stock: 'STOCK07',
                 imgAkun: 'biasa-aja_1.webp',
-                hargaAkun: 'Rp. 100.000',
+                hargaAkun: 'Rp. 190.000',
                 status: 'Sold Out ❌',
                 destinasi: '07'
             },
