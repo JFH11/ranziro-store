@@ -24,7 +24,7 @@ const data = [
             // jaminan = yes/no
             warranty: 'Yes',
             // deskripsi = spek akun
-            description: 'LEG & STARWARS ALU, TF JOHNSON ROGER, PRIME BEATRIX CLOD, LIMIT ZILONG CHANGE EUDORA, TOTAL SKIN GERAK 45, EPIC SHOP 35',
+            deskripsi: 'LEG & STARWARS ALU, TF JOHNSON ROGER, PRIME BEATRIX CLOD, LIMIT ZILONG CHANGE EUDORA, TOTAL SKIN GERAK 45, EPIC SHOP 35',
             // id_akun
             idAkun: 'SS',
             // rank_tertinggi

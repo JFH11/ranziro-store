@@ -18,6 +18,8 @@ document.addEventListener('alpine:init', () => {
                 stock: 'STOCK010',
                 imgAkun: 'noxx-sigma_1.webp',
                 hargaAkun: 'Rp. 300.000',
+                status: 'Sold Out ❌',
+                destinasi: '10'
             },
 
             {
