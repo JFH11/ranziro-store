@@ -5,6 +5,22 @@ document.addEventListener('alpine:init', () => {
             // data untuk mobile legends
 
             {
+                namaAkun: 'Fox.',
+                stock: 'STOCK011',
+                imgAkun: 'fox_1.webp',
+                hargaAkun: 'Rp. 450.000',
+                status: 'Ready ✅',
+                destinasi: '11'
+            },
+
+            {
+                namaAkun: 'Noxx Sigma Skibdi.',
+                stock: 'STOCK010',
+                imgAkun: 'noxx-sigma_1.webp',
+                hargaAkun: 'Rp. 300.000',
+            },
+
+            {
                 namaAkun: 'MINAK JINGGO',
                 stock: 'STOCK09',
                 imgAkun: 'minak_1.webp',
