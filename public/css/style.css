@@ -571,7 +571,7 @@ main {
     height: max-content;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 .detail-title {
@@ -627,6 +627,10 @@ main {
     letter-spacing: 0.1rem;
     font-size: 0.8rem;
     text-decoration: none;
+}
+
+#account-price {
+    color:rgb(78, 184, 255);
 }
 
 .not-found-container {

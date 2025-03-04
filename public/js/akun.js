@@ -16,7 +16,7 @@ const data = [
         // daftar_gambar
         gallery: ['fox_1.webp', 'fox_2.webp', 'fox_3.webp', 'fox_4.webp', 'fox_5.webp', 'fox_6.webp', 'fox_7.webp', 'fox_8.webp', 'fox_9.webp', 'fox_10.webp', 'fox_11.webp', 'fox_12.webp'],
         // harga
-        price: 'Rp. 420.000',
+        price: 'Rp. 350.000',
         // link_rekber
         waRekber: '6285863146541', // Nomor WhatsApp Rekber
         // detail_akun
@@ -122,7 +122,7 @@ if (account) {
     const detail = account.detail;
     if (detail) {
         document.querySelector('.warranty').textContent = `Warranty: ${detail.warranty}`;
-        document.querySelector('.reff').textContent = `Reff: ${detail.reff}`;
+        document.querySelector('.reff').textContent = `Reff/Noreff: ${detail.reff}`;
         document.querySelector('.deskripsi-akun').textContent = `Deskripsi: ${detail.deskripsi}`;
         document.querySelector('.id-akun').textContent = `ID Akun: ${detail.idAkun}`;
         document.querySelector('.rank-tertinggi').textContent = `Rank Tertinggi: ${detail.rankTertinggi}`;
