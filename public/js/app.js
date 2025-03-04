@@ -111,7 +111,7 @@ document.addEventListener('alpine:init', () => {
                 return this.data;
             }
             return this.data.filter(item =>
-                item.namaAkun.toLowerCase().includes(this.searchQuery.toLowerCase())
+                item.stock.toLowerCase().includes(this.searchQuery.toLowerCase())
             );
         },
     }));
