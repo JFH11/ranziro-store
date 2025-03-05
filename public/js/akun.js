@@ -47,7 +47,7 @@ const data = [
             akunPribadi: 'BELI',
             // bind_akun
             bindAkun: 'Monsep TAKE SEGMAIL FRESH -KGM, -WA'
-        },        
+        },
     },
 
     // {
@@ -139,7 +139,7 @@ const data = [
     //         bindAkun: 'Montoon/Monsep Allkos',
     //     },
     //     },
-        
+
 ];
 
 const account = data.find(item => item.namaAkun === accountName);
@@ -162,10 +162,11 @@ if (account) {
     // target
     rekberLink.target = '_blank';
     rekberLink.rel = 'noopener noreferrer';
-    rekberLink.href = `https://wa.me/?text=Halo%20saya%20ingin%20memesan%20akun :
-    // Nama%20akun%20:${account.namaAkun}%20,
-    // Harga%20:${account.price}%20,
-    // Kira kira bisa nego?`;
+    rekberLink.href = `https://wa.me/?text=Halo%20saya%20ingin%20memesan%20akun%20%3A%0A
+Nama%20akun%20%3A%20${encodeURIComponent(account.namaAkun)}%0A
+Harga%20%3A%20${encodeURIComponent(account.price)}%0A
+Kira-kira%20bisa%20nego%3F`;
+
 
     // Tampilkan detail
     const detail = account.detail;
