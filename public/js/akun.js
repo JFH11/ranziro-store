@@ -162,10 +162,10 @@ if (account) {
     // target
     rekberLink.target = '_blank';
     rekberLink.rel = 'noopener noreferrer';
-    rekberLink.href = `https://wa.me/?text=_*Halo%20bang%20saya%20ingin%20memesan%20akun%20%3A8*_%0A
+    rekberLink.href = `https://wa.me/?text=_*Halo%20bang%20saya%20ingin%20memesan%20akun%20dari%20stock%20${encodeURIComponent(account.stock)}%3A*_%0A
 > Nama%20akun%20%3A%20${encodeURIComponent(account.namaAkun)}%0A
 > Harga%20%3A%20${encodeURIComponent(account.price)}%0A
-Kira-kira%20masih%20ada%20stock%20%3F`;
+Kira-kira%20masih%20ada%20stocknya%20bang?%20%3F`;
 
 
     // Tampilkan detail
