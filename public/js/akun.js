@@ -162,7 +162,10 @@ if (account) {
     // target
     rekberLink.target = '_blank';
     rekberLink.rel = 'noopener noreferrer';
-    rekberLink.href = `https://wa.me/?text=Halo%20saya%20ingin%20memesan%20${account.namaAkun}%20dengan%20harga%20${account.price}%20dan%20rekber%20${account.waRekber}`;
+    rekberLink.href = `https://wa.me/?text=Halo%20saya%20ingin%20memesan%20akun :
+    // Nama%20akun%20:${account.namaAkun}%20,
+    // Harga%20:${account.price}%20,
+    // Kira kira bisa nego?`;
 
     // Tampilkan detail
     const detail = account.detail;
