@@ -6,17 +6,17 @@ const data = [
 
     {
         // stock
-        stock: 'STOCK011',
+        stock: 'STOCK012',
         // nama_akun
-        namaAkun: 'Fox.',
+        namaAkun: 'Z a z a.',
         // @_usernameig
         owner: '@ranziro_store',
         // link_ig
         ownerLink: 'https://www.instagram.com/ranziro_store/',
         // daftar_gambar
-        gallery: ['fox_1.webp', 'fox_2.webp', 'fox_3.webp', 'fox_4.webp', 'fox_5.webp', 'fox_6.webp', 'fox_7.webp', 'fox_8.webp', 'fox_9.webp', 'fox_10.webp', 'fox_11.webp', 'fox_12.webp'],
+        gallery: ['zaza_1.webp', 'zaza_2.webp', 'zaza_3.webp', 'zaza_4.webp', 'zaza_5.webp', 'zaza_6.webp', 'zaza_7.webp', 'zaza_8.webp', 'zaza_9.webp', 'zaza_10.webp', 'zaza_11.webp', 'zaza_12.webp'],
         // harga
-        price: 'Rp. 350.000',
+        price: 'Rp. 55.000',
         // link_rekber
         waRekber: '6285863146541', // Nomor WhatsApp Rekber
         // detail_akun
@@ -24,9 +24,9 @@ const data = [
             // jaminan = yes/no
             warranty: 'Yes',
             // reff/noreff
-            reff: 'reff',
+            reff: 'NOREFF',
             // deskripsi = spek akun
-            deskripsi: 'LEG & STARWARS ALU, TF JOHNSON ROGER, PRIME BEATRIX CLOD, LIMIT ZILONG CHANGE EUDORA, TOTAL SKIN GERAK 45, EPIC SHOP 35',
+            deskripsi: 'AKUN CEWE COCOK UNTUK USER MAGE, AKUN POLOSAN, FULLSPEK SS',
             // id_akun
             idAkun: 'SS',
             // rank_tertinggi
@@ -42,57 +42,103 @@ const data = [
             // level_emblem
             levelEmblem: 'SS',
             // bukti_top_up
-            buktiTopUp: 'Tidak Ada',
+            buktiTopUp: 'TIDAK ADA',
             // akun_pribadi
-            akunPribadi: 'Beli',
+            akunPribadi: 'BELI',
             // bind_akun
-            bindAkun: 'Monsep allkos take segmail fresh -kgm'
+            bindAkun: 'Monsep TAKE SEGMAIL FRESH -KGM, -WA'
         },        
     },
 
-    {
-        // stock
-        stock: 'STOCK02',
-        // nama_akun
-        namaAkun: 'Sold Out ❌',
-        // @_usernameig
-        owner: '@ranziro_store',
-        // link_ig
-        ownerLink: 'https://www.instagram.com/ranziro_store/',
-        // daftar_gambar
-        gallery: ['shuratzy_1.webp', 'shuratzy_2.webp', 'shuratzy_3.webp', 'shuratzy_4.webp', 'shuratzy_5.webp', 'shuratzy_6.webp', 'shuratzy_7.webp', 'shuratzy_8.webp'],
-        // harga
-        price: 'Rp. 145.000',
-        // link_rekber
-        waRekber: '6285863146541', // Nomor WhatsApp Rekber
-        // detail_akun
-        detail: {
-            // jaminan = yes/no
-            warranty: 'Yes',
-            // deskripsi = spek akun
-            deskripsi: 'Monsep allkos take segmail fresh -kgm, Layla asprnt, yz m5, LC Uranus, LB harith Fanny, gord epic',
-            // id_akun
-            idAkun: 'SS',
-            // rank_tertinggi
-            rankTertinggi: 'SS',
-            // total_skin
-            totalSkin: 'SS',
-            // total_winrate
-            totalWinrate: 'SS',
-            // total_pertandingan
-            totalPertandingan: 'SS',
-            // total_magic_core
-            totalMagicCore: 'SS',
-            // level_emblem
-            levelEmblem: 'SS',
-            // bukti_top_up
-            buktiTopUp: 'Tidak Ada',
-            // akun_pribadi
-            akunPribadi: 'Beli',
-            // bind_akun = monsep = akun koonton terkait, monkos = akun moonton kosong, allkos = akun semua kosong/tidk terkait
-            bindAkun: 'Montoon/Monsep Allkos',
-        },
-        },
+    // {
+    //     // stock
+    //     stock: 'STOCK011',
+    //     // nama_akun
+    //     namaAkun: 'Sold Out ❌',
+    //     // @_usernameig
+    //     owner: '@ranziro_store',
+    //     // link_ig
+    //     ownerLink: 'https://www.instagram.com/ranziro_store/',
+    //     // daftar_gambar
+    //     gallery: ['fox_1.webp', 'fox_2.webp', 'fox_3.webp', 'fox_4.webp', 'fox_5.webp', 'fox_6.webp', 'fox_7.webp', 'fox_8.webp', 'fox_9.webp', 'fox_10.webp', 'fox_11.webp', 'fox_12.webp'],
+    //     // harga
+    //     price: 'Rp. 450.000',
+    //     // link_rekber
+    //     waRekber: '6285863146541', // Nomor WhatsApp Rekber
+    //     // detail_akun
+    //     detail: {
+    //         // jaminan = yes/no
+    //         warranty: 'Yes',
+    //         // reff/noreff
+    //         reff: 'reff',
+    //         // deskripsi = spek akun
+    //         deskripsi: 'LEG & STARWARS ALU, TF JOHNSON ROGER, PRIME BEATRIX CLOD, LIMIT ZILONG CHANGE EUDORA, TOTAL SKIN GERAK 45, EPIC SHOP 35',
+    //         // id_akun
+    //         idAkun: 'SS',
+    //         // rank_tertinggi
+    //         rankTertinggi: 'SS',
+    //         // total_skin
+    //         totalSkin: 'SS',
+    //         // total_winrate
+    //         totalWinrate: 'SS',
+    //         // total_pertandingan
+    //         totalPertandingan: 'SS',
+    //         // total_magic_core
+    //         totalMagicCore: 'SS',
+    //         // level_emblem
+    //         levelEmblem: 'SS',
+    //         // bukti_top_up
+    //         buktiTopUp: 'Tidak Ada',
+    //         // akun_pribadi
+    //         akunPribadi: 'Beli',
+    //         // bind_akun
+    //         bindAkun: 'Monsep allkos take segmail fresh -kgm'
+    //     },        
+    // },
+
+    // {
+    //     // stock
+    //     stock: 'STOCK02',
+    //     // nama_akun
+    //     namaAkun: 'Sold Out ❌',
+    //     // @_usernameig
+    //     owner: '@ranziro_store',
+    //     // link_ig
+    //     ownerLink: 'https://www.instagram.com/ranziro_store/',
+    //     // daftar_gambar
+    //     gallery: ['shuratzy_1.webp', 'shuratzy_2.webp', 'shuratzy_3.webp', 'shuratzy_4.webp', 'shuratzy_5.webp', 'shuratzy_6.webp', 'shuratzy_7.webp', 'shuratzy_8.webp'],
+    //     // harga
+    //     price: 'Rp. 145.000',
+    //     // link_rekber
+    //     waRekber: '6285863146541', // Nomor WhatsApp Rekber
+    //     // detail_akun
+    //     detail: {
+    //         // jaminan = yes/no
+    //         warranty: 'Yes',
+    //         // deskripsi = spek akun
+    //         deskripsi: 'Monsep allkos take segmail fresh -kgm, Layla asprnt, yz m5, LC Uranus, LB harith Fanny, gord epic',
+    //         // id_akun
+    //         idAkun: 'SS',
+    //         // rank_tertinggi
+    //         rankTertinggi: 'SS',
+    //         // total_skin
+    //         totalSkin: 'SS',
+    //         // total_winrate
+    //         totalWinrate: 'SS',
+    //         // total_pertandingan
+    //         totalPertandingan: 'SS',
+    //         // total_magic_core
+    //         totalMagicCore: 'SS',
+    //         // level_emblem
+    //         levelEmblem: 'SS',
+    //         // bukti_top_up
+    //         buktiTopUp: 'Tidak Ada',
+    //         // akun_pribadi
+    //         akunPribadi: 'Beli',
+    //         // bind_akun = monsep = akun koonton terkait, monkos = akun moonton kosong, allkos = akun semua kosong/tidk terkait
+    //         bindAkun: 'Montoon/Monsep Allkos',
+    //     },
+    //     },
         
 ];
 
