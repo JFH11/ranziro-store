@@ -8,7 +8,7 @@ document.addEventListener('alpine:init', () => {
                 namaAkun: 'Z a z a.',
                 stock: 'STOCK012',
                 imgAkun: 'zaza_1.webp',
-                hargaAkun: 'Rp. 100.000',
+                hargaAkun: 'Rp. 55.000',
                 status: 'Ready ✅',
                 destinasi: '12'
             },
