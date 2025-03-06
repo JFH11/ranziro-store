@@ -6,17 +6,17 @@ const data = [
 
     {
         // stock
-        stock: 'STOCK013',
+        stock: 'STOCK015',
         // nama_akun
-        namaAkun: 'DARK SISTEM',
+        namaAkun: 'DAM V2',
         // @_usernameig
         owner: '@ranziro_store',
         // link_ig
         ownerLink: 'https://www.instagram.com/ranziro_store/',
         // daftar_gambar
-        gallery: ['darksistem_1.webp', 'darksistem_2.webp', 'darksistem_3.webp', 'darksistem_4.webp', 'darksistem_5.webp', 'darksistem_6.webp', 'darksistem_7.webp', 'darksistem_8.webp', 'darksistem_9.webp', 'darksistem_10.webp'],
+        gallery: ['damv2_1.webp', 'damv2_2.webp', 'damv2_3.webp', 'damv2_4.webp', 'damv2_5.webp', 'damv2_6.webp', 'damv2_7.webp', 'damv2_8.webp', 'damv2_9.webp', 'damv2_10.webp'],
         // harga
-        price: 'Rp. 45.000',
+        price: 'Rp 150.000+',
         // link_rekber
         waRekber: '6285863146541', // Nomor WhatsApp Rekber
         // detail_akun
@@ -26,7 +26,7 @@ const data = [
             // reff/noreff
             reff: 'NOREFF',
             // deskripsi = spek akun
-            deskripsi: 'DT LING KIMMIE, BLAZING ALDOUS ESME, SEIYA BADANG, KOF KARINA, EPIC GROCK, DLL.',
+            deskripsi: 'DUCATI IRITHEL, LIMITED CHOU, KOF KARINA, VALENTINE FANNY, LB FANNY GRANGER TIGREAL, DLL. MONSEP ALLKOS TAKE SEGMAIL FRESH -KGM',
             // id_akun
             idAkun: 'SS',
             // rank_tertinggi
@@ -46,7 +46,99 @@ const data = [
             // akun_pribadi
             akunPribadi: 'BELI',
             // bind_akun
-            bindAkun: 'Monsep TAKE SEGMAIL FRESH -KGM, -TT'
+            bindAkun: 'Monsep ALLKOS TAKE SEGMAIL FRESH -KGM'
+        },
+    },
+
+    {
+        // stock
+        stock: 'STOCK014',
+        // nama_akun
+        namaAkun: 'AK. hoshino',
+        // @_usernameig
+        owner: '@ranziro_store',
+        // link_ig
+        ownerLink: 'https://www.instagram.com/ranziro_store/',
+        // daftar_gambar
+        gallery: ['akhoshino_1.webp', 'akhoshino_2.webp', 'akhoshino_3.webp', 'akhoshino_4.webp', 'akhoshino_5.webp', 'akhoshino_6.webp', 'akhoshino_7.webp', 'akhoshino_8.webp', 'akhoshino_9.webp'],
+        // harga
+        price: 'Rp 50.000',
+        // link_rekber
+        waRekber: '6285863146541', // Nomor WhatsApp Rekber
+        // detail_akun
+        detail: {
+            // jaminan = yes/no
+            warranty: 'Yes',
+            // reff/noreff
+            reff: 'NOREFF',
+            // deskripsi = spek akun
+            deskripsi: 'LB FANNY ALU, DT LING, VALENTINE CLOD, EPIC KHALED MOSKOV ROGER, DLL. MONSEP ALLKOS TAKE SEGMAIL FRESH -KGM',
+            // id_akun
+            idAkun: 'SS',
+            // rank_tertinggi
+            rankTertinggi: 'SS',
+            // total_skin
+            totalSkin: 'SS',
+            // total_winrate
+            totalWinrate: 'SS',
+            // total_pertandingan
+            totalPertandingan: 'SS',
+            // total_magic_core
+            totalMagicCore: 'SS',
+            // level_emblem
+            levelEmblem: 'SS',
+            // bukti_top_up
+            buktiTopUp: 'TIDAK ADA',
+            // akun_pribadi
+            akunPribadi: 'BELI',
+            // bind_akun
+            bindAkun: 'Monsep allkos take segmail fresh -kgm'
+        },
+    },
+
+    {
+        // stock
+        stock: 'STOCK013',
+        // nama_akun
+        namaAkun: 'DARK SISTEM',
+        // @_usernameig
+        owner: '@ranziro_store',
+        // link_ig
+        ownerLink: 'https://www.instagram.com/ranziro_store/',
+        // daftar_gambar
+        gallery: ['darksistem_1.webp', 'darksistem_2.webp', 'darksistem_3.webp', 'darksistem_4.webp', 'darksistem_5.webp', 'darksistem_6.webp', 'darksistem_7.webp', 'darksistem_8.webp', 'darksistem_9.webp', 'darksistem_10.webp'],
+        // harga
+        price: 'Rp 45.000',
+        // link_rekber
+        waRekber: '6285863146541', // Nomor WhatsApp Rekber
+        // detail_akun
+        detail: {
+            // jaminan = yes/no
+            warranty: 'Yes',
+            // reff/noreff
+            reff: 'NOREFF',
+            // deskripsi = spek akun
+            deskripsi: 'DT LING KIMIE, BLAZING ALDOUS ESME, SEIYA BADANG, KOF KARINA, EPIC GROCK, DLL.',
+            // id_akun
+            idAkun: 'SS',
+            // rank_tertinggi
+            rankTertinggi: 'SS',
+            // total_skin
+            totalSkin: 'SS',
+            // total_winrate
+            totalWinrate: 'SS',
+            // total_pertandingan
+            totalPertandingan: 'SS',
+            // total_magic_core
+            totalMagicCore: 'SS',
+            // level_emblem
+            levelEmblem: 'SS',
+            // bukti_top_up
+            buktiTopUp: 'TIDAK ADA',
+            // akun_pribadi
+            akunPribadi: 'BELI',
+            // bind_akun
+            bindAkun: 'Monsep TAKE SEGMAIL FRESH -KGM, -PLAT(GGL,FB,TT)'
         },
     },
 
@@ -62,7 +154,7 @@ const data = [
         // daftar_gambar
         gallery: ['zaza_1.webp', 'zaza_2.webp', 'zaza_3.webp', 'zaza_4.webp', 'zaza_5.webp', 'zaza_6.webp', 'zaza_7.webp', 'zaza_8.webp', 'zaza_9.webp', 'zaza_10.webp', 'zaza_11.webp', 'zaza_12.webp'],
         // harga
-        price: 'Rp. 55.000',
+        price: 'Rp 55.000',
         // link_rekber
         waRekber: '6285863146541', // Nomor WhatsApp Rekber
         // detail_akun
