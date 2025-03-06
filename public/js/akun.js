@@ -6,6 +6,52 @@ const data = [
 
     {
         // stock
+        stock: 'STOCK013',
+        // nama_akun
+        namaAkun: 'DARK SISTEM',
+        // @_usernameig
+        owner: '@ranziro_store',
+        // link_ig
+        ownerLink: 'https://www.instagram.com/ranziro_store/',
+        // daftar_gambar
+        gallery: ['darksistem_1.webp', 'darksistem_2.webp', 'darksistem_3.webp', 'darksistem_4.webp', 'darksistem_5.webp', 'darksistem_6.webp', 'darksistem_7.webp', 'darksistem_8.webp', 'darksistem_9.webp', 'darksistem_10.webp'],
+        // harga
+        price: 'Rp. 45.000',
+        // link_rekber
+        waRekber: '6285863146541', // Nomor WhatsApp Rekber
+        // detail_akun
+        detail: {
+            // jaminan = yes/no
+            warranty: 'Yes',
+            // reff/noreff
+            reff: 'NOREFF',
+            // deskripsi = spek akun
+            deskripsi: 'DT LING KIMMIE, BLAZING ALDOUS ESME, SEIYA BADANG, KOF KARINA, EPIC GROCK, DLL.',
+            // id_akun
+            idAkun: 'SS',
+            // rank_tertinggi
+            rankTertinggi: 'SS',
+            // total_skin
+            totalSkin: 'SS',
+            // total_winrate
+            totalWinrate: 'SS',
+            // total_pertandingan
+            totalPertandingan: 'SS',
+            // total_magic_core
+            totalMagicCore: 'SS',
+            // level_emblem
+            levelEmblem: 'SS',
+            // bukti_top_up
+            buktiTopUp: 'TIDAK ADA',
+            // akun_pribadi
+            akunPribadi: 'BELI',
+            // bind_akun
+            bindAkun: 'Monsep TAKE SEGMAIL FRESH -KGM, -TT'
+        },
+    },
+
+    {
+        // stock
         stock: 'STOCK012',
         // nama_akun
         namaAkun: 'Z a z a.',

@@ -5,6 +5,15 @@ document.addEventListener('alpine:init', () => {
             // data untuk mobile legends
 
             {
+                namaAkun: 'DARK SISTEM',
+                stock: 'STOCK013',
+                imgAkun: 'darksistem_1.webp',
+                hargaAkun: 'Rp. 45.000',
+                status: 'Ready ✅',
+                destinasi: '13'
+            },
+
+            {
                 namaAkun: 'Z a z a.',
                 stock: 'STOCK012',
                 imgAkun: 'zaza_1.webp',
