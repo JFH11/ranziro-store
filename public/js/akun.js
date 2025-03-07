@@ -241,4 +241,18 @@ Kira-kira%20masih%20ada%20stocknya%20bang%20%3F`;
           <li></li>
         </ul>
       </div>`;
-}
+};
+
+const trigger = document.querySelector('.trigger-gallery-2');
+const gallery = document.querySelector('.gallery-2');
+let isGalleryOpen = false;
+
+trigger.addEventListener('click', () => {
+    if (!isGalleryOpen) {
+        gallery.style.display = 'block';
+        isGalleryOpen = true;
+    } else {
+        gallery.style.display = 'none';
+        isGalleryOpen = false;
+    }
+});

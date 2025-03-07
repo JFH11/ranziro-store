@@ -634,10 +634,6 @@ main {
     text-decoration: none;
 }
 
-#account-price {
-    color:rgb(78, 184, 255);
-}
-
 .not-found-container {
     position: relative;
     width: 100%;
@@ -709,7 +705,7 @@ main {
 .slider-images {
     position: relative;
     display: flex;
-    width: 30rem;
+    width: 35rem;
     height: 17rem;
     transition: transform 0.5s ease-in-out;
     object-fit: cover;
@@ -1106,7 +1102,7 @@ footer svg {
     }
 
     .slider-images {
-        width: 19rem;
+        width: 20rem;
         height: 10rem;
     }
 
@@ -1212,8 +1208,8 @@ footer svg {
     }
 
     .slider-images {
-        width: 26rem;
-        height: 14rem;
+        width: 30rem;
+        height: 15rem;
     }
 
     .prev, .next {

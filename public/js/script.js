@@ -51,20 +51,6 @@ btnSearch.addEventListener('click', () => {
     }
 });
 
-const trigger = document.querySelector('.trigger-gallery-2');
-const gallery = document.querySelector('.gallery-2');
-let isGalleryOpen = false;
-
-trigger.addEventListener('click', () => {
-    if (!isGalleryOpen) {
-        gallery.style.display = 'block';
-        isGalleryOpen = true;
-    } else {
-        gallery.style.display = 'none';
-        isGalleryOpen = false;
-    }
-});
-
 // loader
 function showLoader(event) {
     event.preventDefault(); // Mencegah navigasi langsung
