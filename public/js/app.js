@@ -25,9 +25,9 @@ document.addEventListener('alpine:init', () => {
             {
                 namaAkun: 'DARK SISTEM',
                 stock: 'STOCK013',
-                imgAkun: 'darksistem_1.webp',
+                imgAkun: 'darksistem_sold.webp',
                 hargaAkun: 'Rp 45.000',
-                status: 'Ready ✅',
+                status: 'Sold Out ❌',
                 destinasi: '13'
             },
 
