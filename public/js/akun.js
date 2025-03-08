@@ -16,7 +16,7 @@ const data = [
         // daftar_gambar
         gallery: ['inselucyraan_1.webp', 'inselucyraan_2.webp', 'inselucyraan_3.webp', 'inselucyraan_4.webp', 'inselucyraan_5.webp', 'inselucyraan_6.webp', 'inselucyraan_7.webp', 'inselucyraan_8.webp', 'inselucyraan_9.webp', 'inselucyraan_10.webp', 'inselucyraan_11.webp', 'inselucyraan_12.webp', 'inselucyraan_13.webp', 'inselucyraan_14.webp'],
         // harga
-        price: 'Rp 165.ooo',
+        price: 'Rp 165.000',
         // link_rekber
         waRekber: '6285863146541', // Nomor WhatsApp Rekber
         // detail_akun
