@@ -52,7 +52,7 @@ document.addEventListener('alpine:init', () => {
             {
                 namaAkun: 'Fox.',
                 stock: 'STOCK011',
-                imgAkun: 'fox_1.webp',
+                imgAkun: 'fox_sold.webp',
                 hargaAkun: 'Rp 450.000',
                 status: 'Sold Out ❌',
                 destinasi: '11'
@@ -61,7 +61,7 @@ document.addEventListener('alpine:init', () => {
             {
                 namaAkun: 'Noxx Sigma Skibdi.',
                 stock: 'STOCK010',
-                imgAkun: 'noxx-sigma_1.webp',
+                imgAkun: 'noxx-sigma_sold.webp',
                 hargaAkun: 'Rp 300.000',
                 status: 'Sold Out ❌',
                 destinasi: '10'
@@ -79,7 +79,7 @@ document.addEventListener('alpine:init', () => {
             {
                 namaAkun: 'padliw :p',
                 stock: 'STOCK08',
-                imgAkun: 'padliw_1.webp',
+                imgAkun: 'padliw_sold.webp',
                 hargaAkun: 'Rp 230.000',
                 status: 'Sold Out ❌',
                 destinasi: '08'
@@ -97,7 +97,7 @@ document.addEventListener('alpine:init', () => {
             {
                 namaAkun: '(づ≧▽≦)づ',
                 stock: 'STOCK06',
-                imgAkun: '(づ≧▽≦)づ_1.webp',
+                imgAkun: '(づ≧▽≦)づ_sold.webp',
                 hargaAkun: 'Rp 185.000',
                 status: 'Sold Out ❌',
                 destinasi: '06'
@@ -142,7 +142,7 @@ document.addEventListener('alpine:init', () => {
             {
                 namaAkun: 'Junkagenoshi.',
                 stock: 'STOCK01',
-                imgAkun: 'junkagenoshi_1.webp',
+                imgAkun: 'junkagenoshi_sold.webp',
                 hargaAkun: 'Rp 140.000',
                 status: 'Sold Out ❌',
                 destinasi: '01'
