@@ -16,9 +16,9 @@ document.addEventListener('alpine:init', () => {
             {
                 namaAkun: 'DAM V2',
                 stock: 'STOCK015',
-                imgAkun: 'damv2_1.webp',
+                imgAkun: 'damv2_sold.webp',
                 hargaAkun: 'Rp 150.000+',
-                status: 'Ready ✅',
+                status: 'Sold out ❌',
                 destinasi: '15'
             }
 ,

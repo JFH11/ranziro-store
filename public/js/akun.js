@@ -52,52 +52,6 @@ const data = [
 
     {
         // stock
-        stock: 'STOCK015',
-        // nama_akun
-        namaAkun: 'DAM V2',
-        // @_usernameig
-        owner: '@ranziro_store',
-        // link_ig
-        ownerLink: 'https://www.instagram.com/ranziro_store/',
-        // daftar_gambar
-        gallery: ['damv2_1.webp', 'damv2_2.webp', 'damv2_3.webp', 'damv2_4.webp', 'damv2_5.webp', 'damv2_6.webp', 'damv2_7.webp', 'damv2_8.webp', 'damv2_9.webp', 'damv2_10.webp'],
-        // harga
-        price: 'Rp 150.000+',
-        // link_rekber
-        waRekber: '6285863146541', // Nomor WhatsApp Rekber
-        // detail_akun
-        detail: {
-            // jaminan = yes/no
-            warranty: 'Yes',
-            // reff/noreff
-            reff: 'NOREFF',
-            // deskripsi = spek akun
-            deskripsi: 'DUCATI IRITHEL, LIMITED CHOU, KOF KARINA, VALENTINE FANNY, LB FANNY GRANGER TIGREAL, DLL. MONSEP ALLKOS TAKE SEGMAIL FRESH -KGM',
-            // id_akun
-            idAkun: 'SS',
-            // rank_tertinggi
-            rankTertinggi: 'SS',
-            // total_skin
-            totalSkin: 'SS',
-            // total_winrate
-            totalWinrate: 'SS',
-            // total_pertandingan
-            totalPertandingan: 'SS',
-            // total_magic_core
-            totalMagicCore: 'SS',
-            // level_emblem
-            levelEmblem: 'SS',
-            // bukti_top_up
-            buktiTopUp: 'TIDAK ADA',
-            // akun_pribadi
-            akunPribadi: 'BELI',
-            // bind_akun
-            bindAkun: 'Monsep ALLKOS TAKE SEGMAIL FRESH -KGM'
-        },
-    },
-
-    {
-        // stock
         stock: 'STOCK014',
         // nama_akun
         namaAkun: 'AK. hoshino',
