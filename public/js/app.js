@@ -61,7 +61,7 @@ document.addEventListener('alpine:init', () => {
             {
                 namaAkun: 'Noxx Sigma Skibdi.',
                 stock: 'STOCK010',
-                imgAkun: 'noxx-sigma_sold.webp',
+                imgAkun: 'nox-sigma_sold.webp',
                 hargaAkun: 'Rp 300.000',
                 status: 'Sold Out ❌',
                 destinasi: '10'
