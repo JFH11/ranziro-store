@@ -61,6 +61,6 @@ function showLoader(event) {
     let targetUrl = event.currentTarget.href;
 
     setTimeout(function () {
-        window.location.href = targetUrl; // Redirect setelah 3 detik
+        window.location.href = targetUrl; // Redirect setelah 2 detik
     }, 2000);
 }
