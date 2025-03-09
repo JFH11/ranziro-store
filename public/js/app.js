@@ -70,7 +70,7 @@ document.addEventListener('alpine:init', () => {
             {
                 namaAkun: 'MINAK JINGGO',
                 stock: 'STOCK09',
-                imgAkun: 'minak_1.webp',
+                imgAkun: 'minakjinggo_sold.webp',
                 hargaAkun: 'Rp 105.000',
                 status: 'Sold Out ❌',
                 destinasi: '09'
@@ -88,7 +88,7 @@ document.addEventListener('alpine:init', () => {
             {
                 namaAkun: 'Biasa-aja',
                 stock: 'STOCK07',
-                imgAkun: 'biasa-aja_1.webp',
+                imgAkun: 'biasa-aja_sold.webp',
                 hargaAkun: 'Rp 190.000',
                 status: 'Sold Out ❌',
                 destinasi: '07'
@@ -106,7 +106,7 @@ document.addEventListener('alpine:init', () => {
             {
                 namaAkun: 'syzuro`',
                 stock: 'STOCK05',
-                imgAkun: 'syzuro_1.webp',
+                imgAkun: 'syzuro_sold.webp',
                 hargaAkun: 'Rp 130.000',
                 status: 'Sold Out ❌',
                 destinasi: '05'
@@ -115,7 +115,7 @@ document.addEventListener('alpine:init', () => {
             {
                 namaAkun: 'YouKnowDeath_x',
                 stock: 'STOCK04',
-                imgAkun: 'YouKnowDeath_1.webp',
+                imgAkun: 'youknowdeath_sold.webp',
                 hargaAkun: 'Rp 50.000',
                 status: 'Sold Out ❌',
                 destinasi: '04'
@@ -124,7 +124,7 @@ document.addEventListener('alpine:init', () => {
             {
                 namaAkun: 'SkyeBoyz',
                 stock: 'STOCK03',
-                imgAkun: 'skyeboyz_1.webp',
+                imgAkun: 'skyeboyz_sold.webp',
                 hargaAkun: 'Rp 170.000',
                 status: 'Sold Out ❌',
                 destinasi: '03'
@@ -133,7 +133,7 @@ document.addEventListener('alpine:init', () => {
             {
                 namaAkun: 'ShuraTzy.',
                 stock: 'STOCK02',
-                imgAkun: 'shuratzy_1.webp',
+                imgAkun: 'shuratzy_sold.webp',
                 hargaAkun: 'Rp 145.000',
                 status: 'Sold Out ❌',
                 destinasi: '02'
