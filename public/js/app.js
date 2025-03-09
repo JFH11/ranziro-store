@@ -7,9 +7,9 @@ document.addEventListener('alpine:init', () => {
             {
                 namaAkun: 'inselucyraan.',
                 stock: 'STOCK016',
-                imgAkun: 'inselucyraan_1.webp',
-                hargaAkun: 'Rp 165.000',
-                status: 'Ready ✅',
+                imgAkun: 'inselucyraan_sold.webp',
+                hargaAkun: 'Rp 155.000',
+                status: 'Sold Out ❌',
                 destinasi: '16'
             },
 

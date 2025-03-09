@@ -6,52 +6,6 @@ const data = [
 
     {
         // stock
-        stock: 'STOCK016',
-        // nama_akun
-        namaAkun: 'inselucyraan.',
-        // @_usernameig
-        owner: '@ranziro_store',
-        // link_ig
-        ownerLink: 'https://www.instagram.com/ranziro_store/',
-        // daftar_gambar
-        gallery: ['inselucyraan_1.webp', 'inselucyraan_2.webp', 'inselucyraan_3.webp', 'inselucyraan_4.webp', 'inselucyraan_5.webp', 'inselucyraan_6.webp', 'inselucyraan_7.webp', 'inselucyraan_8.webp', 'inselucyraan_9.webp', 'inselucyraan_10.webp', 'inselucyraan_11.webp', 'inselucyraan_12.webp', 'inselucyraan_13.webp', 'inselucyraan_14.webp'],
-        // harga
-        price: 'Rp 165.000',
-        // link_rekber
-        waRekber: '6285863146541', // Nomor WhatsApp Rekber
-        // detail_akun
-        detail: {
-            // jaminan = yes/no
-            warranty: 'Yes',
-            // reff/noreff
-            reff: 'NOREFF',
-            // deskripsi = spek akun
-            deskripsi: 'CC PHARSA, KOF KARINA, LIMITED ROGER ZILONG SABER, DLL. MONSEP ALLKOS TAKE SEGMAIL FRESH',
-            // id_akun
-            idAkun: 'SS',
-            // rank_tertinggi
-            rankTertinggi: 'SS',
-            // total_skin
-            totalSkin: 'SS',
-            // total_winrate
-            totalWinrate: 'SS',
-            // total_pertandingan
-            totalPertandingan: 'SS',
-            // total_magic_core
-            totalMagicCore: 'SS',
-            // level_emblem
-            levelEmblem: 'SS',
-            // bukti_top_up
-            buktiTopUp: 'TIDAK ADA',
-            // akun_pribadi
-            akunPribadi: 'BELI',
-            // bind_akun
-            bindAkun: 'Monsep ALLKOS TAKE SEGMAIL FRESH -KGM'
-        },
-    },
-
-    {
-        // stock
         stock: 'STOCK014',
         // nama_akun
         namaAkun: 'AK. hoshino',
