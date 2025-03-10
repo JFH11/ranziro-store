@@ -6,6 +6,52 @@ const data = [
 
     {
         // stock
+        stock: 'STOCK017',
+        // nama_akun
+        namaAkun: 'NEIL?!!',
+        // @_usernameig
+        owner: '@ranziro_store',
+        // link_ig
+        ownerLink: 'https://www.instagram.com/ranziro_store/',
+        // daftar_gambar
+        gallery: ['neil_1.webp', 'neil_2.webp', 'neil_3.webp', 'neil_4.webp', 'neil_5.webp', 'neil_6.webp', 'neil_7.webp', 'neil_8.webp', 'neil_9.webp', 'neil_10.webp', 'neil_11.webp', 'neil_12.webp', 'neil_13.webp', 'neil_14.webp'],
+        // harga
+        price: 'Rp 500.000',
+        // link_rekber
+        waRekber: '6285863146541', // Nomor WhatsApp Rekber
+        // detail_akun
+        detail: {
+            // jaminan = yes/no
+            warranty: 'Yes',
+            // reff/noreff
+            reff: 'NOREFF',
+            // deskripsi = spek akun
+            deskripsi: 'LEG GS, KOF AURORA KARINA DYROTH, ASPIRANT ANGELA CHANGE, PRIME YZ, CC GS NATA, LCBX HAYA CHOU GUIN, ANNUAL KARRIE LESLEY, DLL.',
+            // id_akun
+            idAkun: 'SS',
+            // rank_tertinggi
+            rankTertinggi: 'SS',
+            // total_skin
+            totalSkin: 'SS',
+            // total_winrate
+            totalWinrate: 'SS',
+            // total_pertandingan
+            totalPertandingan: 'SS',
+            // total_magic_core
+            totalMagicCore: 'SS',
+            // level_emblem
+            levelEmblem: 'SS',
+            // bukti_top_up
+            buktiTopUp: 'TIDAK ADA',
+            // akun_pribadi
+            akunPribadi: 'BELI',
+            // bind_akun
+            bindAkun: 'MONSEP ALLKOS TAKE SEGMAIL FRESH/FREE CE'
+        },
+    },
+
+    {
+        // stock
         stock: 'STOCK014',
         // nama_akun
         namaAkun: 'AK. hoshino',
