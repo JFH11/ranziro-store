@@ -11,7 +11,7 @@ apps.use((req, res, next) => {
 apps.use(bodyParser.json());
 apps.use(express.static(path.join(__dirname, 'public')));
 
-// Daftar halaman yang dapat diakses secara dinamis
+// dinamis route
 const router = [
     { path: '/mlbb', file: 'index.html' },
     { path: '/ff', file: 'ff.html' },
