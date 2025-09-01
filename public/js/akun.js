@@ -5,8 +5,6 @@ const data = [
     // data untuk mobile legends
 
     {
-        // stock
-        stock: 'STOCK017',
         // nama_akun
         namaAkun: 'NEIL?!!',
         // @_usernameig
@@ -21,10 +19,6 @@ const data = [
         waRekber: '6285863146541', // Nomor WhatsApp Rekber
         // detail_akun
         detail: {
-            // jaminan = yes/no
-            warranty: 'Yes',
-            // reff/noreff
-            reff: 'NOREFF',
             // deskripsi = spek akun
             deskripsi: 'LEG GS, KOF AURORA KARINA DYROTH, ASPIRANT ANGELA CHANGE, PRIME YZ, CC GS NATA, LCBX HAYA CHOU GUIN, ANNUAL KARRIE LESLEY, DLL.',
             // id_akun
@@ -51,8 +45,6 @@ const data = [
     },
 
     {
-        // stock
-        stock: 'STOCK014',
         // nama_akun
         namaAkun: 'AK. hoshino',
         // @_usernameig
@@ -67,10 +59,6 @@ const data = [
         waRekber: '6285863146541', // Nomor WhatsApp Rekber
         // detail_akun
         detail: {
-            // jaminan = yes/no
-            warranty: 'Yes',
-            // reff/noreff
-            reff: 'NOREFF',
             // deskripsi = spek akun
             deskripsi: 'LB FANNY ALU, DT LING, VALENTINE CLOD, EPIC KHALED MOSKOV ROGER, DLL. MONSEP ALLKOS TAKE SEGMAIL FRESH -KGM',
             // id_akun
@@ -97,8 +85,6 @@ const data = [
     },
 
     {
-        // stock
-        stock: 'STOCK012',
         // nama_akun
         namaAkun: 'Z a z a.',
         // @_usernameig
@@ -113,10 +99,6 @@ const data = [
         waRekber: '6285863146541', // Nomor WhatsApp Rekber
         // detail_akun
         detail: {
-            // jaminan = yes/no
-            warranty: 'Yes',
-            // reff/noreff
-            reff: 'NOREFF',
             // deskripsi = spek akun
             deskripsi: 'AKUN CEWE COCOK UNTUK USER MAGE, AKUN POLOSAN, FULLSPEK SS',
             // id_akun
@@ -150,7 +132,6 @@ const account = data.find(item => item.namaAkun === accountName);
 if (account) {
     document.getElementById('account-name').textContent = account.namaAkun;
     document.getElementById('account-price').textContent = account.price;
-    document.getElementById('account-stock').textContent = account.stock;
 
     // Tambahkan tautan pemilik akun
     const ownerElement = document.createElement('a');
@@ -175,8 +156,6 @@ Kira-kira%20masih%20ada%20stocknya%20bang%20%3F`;
     // Tampilkan detail
     const detail = account.detail;
     if (detail) {
-        document.querySelector('.warranty').textContent = `Warranty: ${detail.warranty}`;
-        document.querySelector('.reff').textContent = `Reff/Noreff: ${detail.reff}`;
         document.querySelector('.deskripsi-akun').textContent = `Deskripsi: ${detail.deskripsi}`;
         document.querySelector('.id-akun').textContent = `ID Akun: ${detail.idAkun}`;
         document.querySelector('.rank-tertinggi').textContent = `Rank Tertinggi: ${detail.rankTertinggi}`;
@@ -224,7 +203,7 @@ Kira-kira%20masih%20ada%20stocknya%20bang%20%3F`;
     document.body.innerHTML = `
     <div class="not-found-container">
     <h1 class="not-found">Akun Sudah Tidak Tersedia</h1>
-    <a href="/mlbb" class="back-home">Kembali <i class="fa-solid fa-arrow-right"></i></a>
+    <a href="/mobile-legends" class="back-home">Kembali <i class="fa-solid fa-arrow-right"></i></a>
     </div>
     
     <div class="area">

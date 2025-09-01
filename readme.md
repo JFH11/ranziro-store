@@ -57,3 +57,23 @@ detail: {
 <!-- status untuk app.js -->
 Ready ✅
 Sold Out ❌
+
+          Container Search
+    <div class="container-search">
+      <div class="container-search-1">
+        <!-- Looping Data yang Sudah Difilter -->
+        <template x-for="game in filteredData" :key="game.namaAkun">
+          <a
+            :href="`/akun?nama=${encodeURIComponent(game.namaAkun)}`"
+            class="search-links"
+          >
+            <img :src="`img-webp/${game.imgAkun}`" alt="" class="img-search" />
+            <div class="container-search-2">
+              <h3 x-text="game.stock"></h3>
+              <h3 x-text="game.namaAkun" class="search-akun"></h3>
+              <p x-text="game.hargaAkun"></p>
+            </div>
+          </a>
+        </template>
+      </div>
+    </div>

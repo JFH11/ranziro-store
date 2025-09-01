@@ -1,8 +1,10 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const cors  = require('cors');
 const apps = express();
 
+apps.use(cors( { origin: '*', credentials: true } ));
 apps.use((req, res, next) => {
     res.set('Cache-Control', 'no-store'); // Tidak menyimpan cache
     next();
@@ -13,7 +15,7 @@ apps.use(express.static(path.join(__dirname, 'public')));
 
 // dinamis route
 const router = [
-    { path: '/mlbb', file: 'index.html' },
+    { path: '/mobile-legends', file: 'index.html' },
     { path: '/ff', file: 'ff.html' },
     { path: '/akun', file: 'akun.html' },
     { path: '/terms', file: 'terms.html' },
