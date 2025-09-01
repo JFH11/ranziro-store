@@ -77,34 +77,37 @@ document.addEventListener('alpine:init', () => {
       - Jika user mengetik, gunakan filter + sort seperti biasa
     */
     get filteredDataForSearch() {
-      const q = (this.searchQuery || '').toLowerCase().trim();
+  const q = (this.searchQuery || '').toLowerCase().trim();
 
-      // special-case: jika panel terbuka & query kosong -> return kosong sesuai permintaan
-      if (this.searchOpen && q === '') {
-        return [];
-      }
+  // Kalau panel terbuka & input KOSONG -> kembalikan sliced (batasi DOM)
+  if (this.searchOpen && q === '') {
+    let results = this.data.slice(); // semua data dulu sebagai source
 
-      // otherwise: normal search behavior
-      let results = this.data.filter(item => {
-        if (!q) return true; // fallback (shouldn't happen because q=='' handled above)
-        return item.namaAkun.toLowerCase().includes(q);
-      });
+    if (this.selectedFilter === 'available') results = results.filter(i => i.status === true);
+    else if (this.selectedFilter === 'sold') results = results.filter(i => i.status === false);
 
-      // apply selected status filter
-      if (this.selectedFilter === 'available') results = results.filter(i => i.status === true);
-      else if (this.selectedFilter === 'sold') results = results.filter(i => i.status === false);
+    if (this.selectedSort === 'terlama') results = results.slice().reverse();
+    if (this.selectedSort === 'a-z') results = results.slice().sort((a,b) => a.namaAkun.toLowerCase().localeCompare(b.namaAkun.toLowerCase()));
 
-      // apply sort
-      if (this.selectedSort === 'terbaru') {
-        return results;
-      } else if (this.selectedSort === 'terlama') {
-        return results.slice().reverse();
-      } else if (this.selectedSort === 'a-z') {
-        return results.slice().sort((a, b) => a.namaAkun.toLowerCase().localeCompare(b.namaAkun.toLowerCase()));
-      }
+    // BATASI render sesuai visibleCount
+    return results.slice(0, this.visibleCount);
+  }
 
-      return results;
-    },
+  // normal search (ada query)
+  let results = this.data.filter(item => {
+    if (!q) return true;
+    return item.namaAkun.toLowerCase().includes(q);
+  });
+
+  if (this.selectedFilter === 'available') results = results.filter(i => i.status === true);
+  else if (this.selectedFilter === 'sold') results = results.filter(i => i.status === false);
+
+  if (this.selectedSort === 'terbaru') return results;
+  if (this.selectedSort === 'terlama') return results.slice().reverse();
+  if (this.selectedSort === 'a-z') return results.slice().sort((a,b) => a.namaAkun.toLowerCase().localeCompare(b.namaAkun.toLowerCase()));
+  return results;
+},
+
 
     /* filteredData untuk grid utama tetap seperti sebelumnya */
     get filteredData() {
@@ -125,6 +128,29 @@ document.addEventListener('alpine:init', () => {
 
     get visibleData() { return this.filteredData.slice(0, this.visibleCount); },
     get filteredLength() { return this.filteredData.length; },
+
+    init() {
+  // intersection observer untuk auto-load (hanya jika browser support)
+  this.$nextTick(() => {
+    try {
+      const listRoot = document.querySelector('.container-search-1');
+      const sentinel = this.$refs.searchSentinel;
+      if (listRoot && sentinel && 'IntersectionObserver' in window) {
+        const io = new IntersectionObserver(entries => {
+          entries.forEach(e => {
+            if (e.isIntersecting) {
+              // hanya load lebih ketika panel terbuka dan masih ada sisa
+              if (this.searchOpen && this.filteredLength > this.visibleCount) {
+                this.loadMore();
+              }
+            }
+          });
+        }, { root: listRoot, threshold: 0.8 });
+        io.observe(sentinel);
+      }
+    } catch (err) { /* silent fail */ }
+  });
+},
 
   }));
 });

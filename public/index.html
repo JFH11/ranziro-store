@@ -25,7 +25,7 @@
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
-<body>
+<body x-data="main">
   <!-- sidebar -->
   <div class="sidebar">
     <div>
@@ -41,92 +41,93 @@
     </a>
   </div>
 
-<!-- Container Search (letakkan di tempat semula) -->
-<div class="container-search" x-data="main()" 
-     :class="{ 'open': searchOpen }"
-     @click.outside="searchOpen = false"
-     @keydown.escape.window="searchOpen = false"
-     aria-hidden="false"
->
-  <!-- Input Search -->
-  <input
-    type="text"
-    id="input-search"
-    class="input-search"
-    placeholder="Cari akun..."
-    x-model="searchQuery"
-    @focus="onSearchFocus()"
-    @input="onTyping()"
-    autocomplete="off"
-  />
+  <!-- Container Search (letakkan di tempat semula) -->
+  <div class="container-search" :class="{ 'open': searchOpen }" @click.outside="searchOpen = false"
+    @keydown.escape.window="searchOpen = false" aria-hidden="false">
+    <!-- Input Search -->
+    <input type="text" id="input-search" class="input-search" placeholder="Cari akun..." x-model="searchQuery"
+      @focus="onSearchFocus()" @input="onTyping()" autocomplete="off" />
 
-  <!-- compact filter row di bawah input (kecil) -->
-  <div class="container-search-controls" style="display:flex; justify-content:space-between; gap:0.5rem; margin-top:0.75rem;">
-    <div class="search-filter-group" role="tablist" aria-label="Filter status">
-      <button class="search-filter-btn" :class="{ 'active': selectedFilter === 'all' }" @click="setFilter('all')">All</button>
-      <button class="search-filter-btn" :class="{ 'active': selectedFilter === 'available' }" @click="setFilter('available')">Available</button>
-      <button class="search-filter-btn" :class="{ 'active': selectedFilter === 'sold' }" @click="setFilter('sold')">Sold</button>
-    </div>
+    <!-- compact filter row di bawah input (kecil) -->
+    <div class="container-search-controls"
+      style="display:flex; justify-content:space-between; gap:0.5rem; margin-top:0.75rem;">
+      <div class="search-filter-group" role="tablist" aria-label="Filter status">
+        <button class="search-filter-btn" :class="{ 'active': selectedFilter === 'all' }"
+          @click="setFilter('all')">All</button>
+        <button class="search-filter-btn" :class="{ 'active': selectedFilter === 'available' }"
+          @click="setFilter('available')">Available</button>
+        <button class="search-filter-btn" :class="{ 'active': selectedFilter === 'sold' }"
+          @click="setFilter('sold')">Sold</button>
+      </div>
 
-    <div style="position:relative;">
-      <button class="search-sort-btn" @click="sortOpenSmall = !sortOpenSmall" :aria-expanded="sortOpenSmall.toString()">
-        <span x-text="selectedSortLabelSmall"></span>
-        <svg width="12" height="12" viewBox="0 0 24 24" style="margin-left:6px; vertical-align:middle;" fill="none" aria-hidden="true">
-          <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
+      <div style="position:relative;">
+        <button class="search-sort-btn" @click="sortOpenSmall = !sortOpenSmall"
+          :aria-expanded="sortOpenSmall.toString()">
+          <span x-text="selectedSortLabelSmall"></span>
+          <svg width="12" height="12" viewBox="0 0 24 24" style="margin-left:6px; vertical-align:middle;" fill="none"
+            aria-hidden="true">
+            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
 
-      <div
-        class="search-sort-menu"
-        x-show="sortOpenSmall"
-        x-cloak
-        @click.outside="sortOpenSmall = false"
-        x-transition:enter="transition ease-out duration-150"
-        x-transition:enter-start="opacity-0 transform scale-95"
-        x-transition:enter-end="opacity-100 transform scale-100"
-        x-transition:leave="transition ease-in duration-100"
-        x-transition:leave-start="opacity-100 transform scale-100"
-        x-transition:leave-end="opacity-0 transform scale-95"
-        style="right:0;"
-      >
-        <button class="sort-item-sm" :class="{ 'active': selectedSort === 'terbaru' }" @click="setSort('terbaru'); sortOpenSmall=false">Terbaru</button>
-        <button class="sort-item-sm" :class="{ 'active': selectedSort === 'terlama' }" @click="setSort('terlama'); sortOpenSmall=false">Terlama</button>
-        <button class="sort-item-sm" :class="{ 'active': selectedSort === 'a-z' }" @click="setSort('a-z'); sortOpenSmall=false">A - Z</button>
+        <div class="search-sort-menu" x-show="sortOpenSmall" x-cloak @click.outside="sortOpenSmall = false"
+          x-transition:enter="transition ease-out duration-150" x-transition:enter-start="opacity-0 transform scale-95"
+          x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-100"
+          x-transition:leave-start="opacity-100 transform scale-100"
+          x-transition:leave-end="opacity-0 transform scale-95" style="right:0;">
+          <button class="sort-item-sm" :class="{ 'active': selectedSort === 'terbaru' }"
+            @click="setSort('terbaru'); sortOpenSmall=false">Terbaru</button>
+          <button class="sort-item-sm" :class="{ 'active': selectedSort === 'terlama' }"
+            @click="setSort('terlama'); sortOpenSmall=false">Terlama</button>
+          <button class="sort-item-sm" :class="{ 'active': selectedSort === 'a-z' }"
+            @click="setSort('a-z'); sortOpenSmall=false">A - Z</button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Hasil Pencarian -->
-  <div class="container-search-1" x-show="searchOpen" x-cloak>
-    <!-- Loader typing -->
-    <div style="display:flex; align-items:center; gap:.6rem; padding:.5rem 0;">
-      <div x-show="typing" x-cloak class="typing-loader" aria-hidden="true"></div>
-      <div style="color:#ccc; font-size:0.85rem;" x-text="typing ? 'Mencari...' : ''"></div>
-    </div>
+    <!-- Hasil Pencarian -->
+    <div class="container-search-1" x-show="searchOpen" x-cloak>
+      <!-- Loader typing -->
+      <div style="display:flex; align-items:center; gap:.6rem; padding:.5rem 0;">
+        <div x-show="typing" x-cloak class="typing-loader" aria-hidden="true"></div>
+        <div style="color:#ccc; font-size:0.85rem;" x-text="typing ? 'Mencari...' : ''"></div>
+      </div>
 
-    <!-- jika tidak typing dan query ada tapi hasil = 0 -->
-    <template x-if="!typing && searchQuery.trim().length > 0 && filteredDataForSearch.length === 0">
-      <div style="padding:1rem; color:#fff; text-align:center;">Akun tidak ditemukan</div>
-    </template>
+      <!-- jika tidak typing dan query ada tapi hasil = 0 -->
+      <template x-if="!typing && searchQuery.trim().length > 0 && filteredDataForSearch.length === 0">
+        <div style="padding:1rem; color:#fff; text-align:center;">Akun tidak ditemukan</div>
+      </template>
 
-    <!-- Looping Data (filteredDataForSearch digunakan supaya special-case searchOpen & empty query) -->
-    <template x-for="game in filteredDataForSearch" :key="game.namaAkun">
-      <a :href="`/akun?nama=${encodeURIComponent(game.namaAkun)}`" class="search-links">
-        <div class="search-thumb">
-          <div class="card-sold-search" x-show="!game.status" x-cloak aria-hidden="true">
-            <span class="sold-search">SOLD</span>
+      <!-- Looping Data (filteredDataForSearch digunakan supaya special-case searchOpen & empty query) -->
+      <template x-for="game in filteredDataForSearch" :key="game.namaAkun">
+        <a :href="`/akun?nama=${encodeURIComponent(game.namaAkun)}`" class="search-links">
+          <div class="search-thumb">
+            <div class="card-sold-search" x-show="!game.status" x-cloak aria-hidden="true">
+              <span class="sold-search">SOLD</span>
+            </div>
+            <img loading="lazy" :src="`img-webp/${game.imgAkun}`" alt="" class="img-search"
+              :class="{'img-sold': !game.status}" />
           </div>
-          <img :src="`img-webp/${game.imgAkun}`" alt="" class="img-search" :class="{'img-sold': !game.status}" />
-        </div>
 
-        <div class="container-search-2">
-          <h3 x-text="game.namaAkun" class="search-akun"></h3>
-          <p x-text="game.hargaAkun"></p>
-        </div>
-      </a>
-    </template>
+          <div class="container-search-2">
+            <h3 x-text="game.namaAkun" class="search-akun"></h3>
+            <p x-text="game.hargaAkun"></p>
+          </div>
+        </a>
+      </template>
+
+      <!-- tombol tampilkan lebih banyak -->
+      <div style="text-align:center; padding:.5rem;"
+        x-show="filteredDataForSearch.length >= visibleCount && filteredLength > visibleCount">
+        <button class="search-filter-btn" @click="loadMore()" type="button">Tampilkan lebih banyak</button>
+      </div>
+
+      <!-- sentinel untuk infinite scroll (opsional) -->
+      <div x-ref="searchSentinel"></div>
+
+    </div>
   </div>
-</div>
 
   <!-- header -->
   <header>
@@ -144,118 +145,86 @@
   </header>
 
   <!-- main -->
-  <main x-data="main">
+  <main>
     <section class="container-list">
       <div class="container-list-1">
         <div class="list-title">Temukan Akun Favoritmu <img src="gif/fire.gif" alt="GIF Animasi">
         </div>
 
-<div style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap:1rem; flex-wrap:wrap;">
-    <div class="container-filter" role="tablist" aria-label="Filter akun">
-      <button
-        class="filter-btn"
-        :class="{ 'active': selectedFilter === 'all' }"
-        @click="setFilter('all')"
-        type="button"
-      >All</button>
+        <div
+          style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap:1rem; flex-wrap:wrap;">
+          <div class="container-filter" role="tablist" aria-label="Filter akun">
+            <button class="filter-btn" :class="{ 'active': selectedFilter === 'all' }" @click="setFilter('all')"
+              type="button">All</button>
 
-      <button
-        class="filter-btn"
-        :class="{ 'active': selectedFilter === 'available' }"
-        @click="setFilter('available')"
-        type="button"
-      >Available</button>
+            <button class="filter-btn" :class="{ 'active': selectedFilter === 'available' }"
+              @click="setFilter('available')" type="button">Available</button>
 
-      <button
-        class="filter-btn"
-        :class="{ 'active': selectedFilter === 'sold' }"
-        @click="setFilter('sold')"
-        type="button"
-      >Sold</button>
-    </div>
+            <button class="filter-btn" :class="{ 'active': selectedFilter === 'sold' }" @click="setFilter('sold')"
+              type="button">Sold</button>
+          </div>
 
-    <!-- DROPDOWN SORT -->
-    <div style="position:relative;" aria-haspopup="true" aria-owns="sort-menu">
-      <button
-        class="filter-btn"
-        @click="sortOpen = !sortOpen"
-        :aria-expanded="sortOpen.toString()"
-        type="button"
-      >
-        Sort: <span style="margin-left:.5rem; font-weight:600;" x-text="selectedSortLabel"></span>
-        <svg style="margin-left:.6rem;" width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
+          <!-- DROPDOWN SORT -->
+          <div style="position:relative;" aria-haspopup="true" aria-owns="sort-menu">
+            <button class="filter-btn" @click="sortOpen = !sortOpen" :aria-expanded="sortOpen.toString()" type="button">
+              Sort: <span style="margin-left:.5rem; font-weight:600;" x-text="selectedSortLabel"></span>
+              <svg style="margin-left:.6rem;" width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
 
-      <!-- menu -->
-      <div
-        id="sort-menu"
-        x-show="sortOpen"
-        x-transition:enter="transition ease-out duration-150"
-        x-transition:enter-start="opacity-0 transform scale-95"
-        x-transition:enter-end="opacity-100 transform scale-100"
-        x-transition:leave="transition ease-in duration-100"
-        x-transition:leave-start="opacity-100 transform scale-100"
-        x-transition:leave-end="opacity-0 transform scale-95"
-        @click.outside="sortOpen = false"
-        @keydown.escape.window="sortOpen = false"
-        class="sort-menu"
-        x-cloak
-        role="menu"
-        aria-label="Sort options"
-      >
-        <button role="menuitem" tabindex="0" class="sort-item" :class="{ 'active': selectedSort === 'terbaru' }" @click="setSort('terbaru'); sortOpen=false">Terbaru</button>
-        <button role="menuitem" tabindex="0" class="sort-item" :class="{ 'active': selectedSort === 'terlama' }" @click="setSort('terlama'); sortOpen=false">Terlama</button>
-        <button role="menuitem" tabindex="0" class="sort-item" :class="{ 'active': selectedSort === 'a-z' }" @click="setSort('a-z'); sortOpen=false">A - Z</button>
+            <!-- menu -->
+            <div id="sort-menu" x-show="sortOpen" x-transition:enter="transition ease-out duration-150"
+              x-transition:enter-start="opacity-0 transform scale-95"
+              x-transition:enter-end="opacity-100 transform scale-100"
+              x-transition:leave="transition ease-in duration-100"
+              x-transition:leave-start="opacity-100 transform scale-100"
+              x-transition:leave-end="opacity-0 transform scale-95" @click.outside="sortOpen = false"
+              @keydown.escape.window="sortOpen = false" class="sort-menu" x-cloak role="menu" aria-label="Sort options">
+              <button role="menuitem" tabindex="0" class="sort-item" :class="{ 'active': selectedSort === 'terbaru' }"
+                @click="setSort('terbaru'); sortOpen=false">Terbaru</button>
+              <button role="menuitem" tabindex="0" class="sort-item" :class="{ 'active': selectedSort === 'terlama' }"
+                @click="setSort('terlama'); sortOpen=false">Terlama</button>
+              <button role="menuitem" tabindex="0" class="sort-item" :class="{ 'active': selectedSort === 'a-z' }"
+                @click="setSort('a-z'); sortOpen=false">A - Z</button>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
 
       <div class="container-list-3">
-<template x-for="game in visibleData" :key="game.namaAkun">
-      <a
-        :href="`/akun?nama=${encodeURIComponent(game.namaAkun)}`"
-        class="card-parents"
-        x-transition:enter="fade-up-enter"
-        x-transition:enter-start="fade-up-enter-start"
-        x-transition:enter-end="fade-up-enter-end"
-        x-transition:leave="fade-up-leave"
-        x-transition:leave-start="fade-up-leave-start"
-        x-transition:leave-end="fade-up-leave-end"
-        x-cloak
-        aria-hidden="false"
-      >
-        <div class="card">
-          <div class="card-sold" x-show="!game.status" x-cloak aria-hidden="true">
-            <div class="sold">SOLD</div>
-          </div>
+        <template x-for="game in visibleData" :key="game.namaAkun">
+          <a :href="`/akun?nama=${encodeURIComponent(game.namaAkun)}`" class="card-parents"
+            x-transition:enter="fade-up-enter" x-transition:enter-start="fade-up-enter-start"
+            x-transition:enter-end="fade-up-enter-end" x-transition:leave="fade-up-leave"
+            x-transition:leave-start="fade-up-leave-start" x-transition:leave-end="fade-up-leave-end" x-cloak
+            aria-hidden="false">
+            <div class="card">
+              <div class="card-sold" x-show="!game.status" x-cloak aria-hidden="true">
+                <div class="sold">SOLD</div>
+              </div>
 
-          <div class="card-loader" x-show="game.status" x-cloak aria-hidden="true">
-            <div class="loader"></div>
-          </div>
+              <div class="card-loader" x-show="game.status" x-cloak aria-hidden="true">
+                <div class="loader"></div>
+              </div>
 
-          <img :src="`img-webp/${game.imgAkun}`" :alt="game.imgAkun" :class="{'img-sold': !game.status}" />
-        </div>
+              <img loading="lazy" :src="`img-webp/${game.imgAkun}`" :alt="game.imgAkun"
+                :class="{'img-sold': !game.status}" />
+            </div>
 
-        <div class="card-info-2">
-          <div class="card-h3" x-text="game.namaAkun"></div>
-          <p class="card-p" x-text="game.hargaAkun"></p>
-        </div>
-      </a>
-    </template>
-  </div>
-  <div style="text-align:center; width: 100%; margin-bottom: 3rem;">
-  <button
-    class="filter-btn"
-    x-show="filteredLength > visibleCount"
-    @click="loadMore()"
-    x-cloak
-    type="button"
-  >Lihat lainnya
-</button>
-</div>
+            <div class="card-info-2">
+              <div class="card-h3" x-text="game.namaAkun"></div>
+              <p class="card-p" x-text="game.hargaAkun"></p>
+            </div>
+          </a>
+        </template>
+      </div>
+      <div class="container-load-more">
+        <button class="filter-btn" x-show="filteredLength > visibleCount" @click="loadMore()" x-cloak
+          type="button">Lihat lainnya
+        </button>
+      </div>
     </section>
 
     <!-- footer -->
