@@ -1,6 +1,20 @@
 document.addEventListener('alpine:init', () => {
   Alpine.data('main', () => ({
+    // state
     searchQuery: '',
+    selectedFilter: 'all',
+    selectedSort: 'terbaru',
+    visibleCount: 10,
+    increment: 10,
+    sortOpen: false,
+    sortOpenSmall: false,
+    searchOpen: false,
+
+    // typing debounce
+    typing: false,
+    typingTimer: null,
+    typingDebounceMs: 500,
+
     data: [
       { namaAkun: 'NEIL?!!', imgAkun: 'neil_1.webp', hargaAkun: 'Rp 500.000', status: true },
       { namaAkun: 'inselucyraan.', imgAkun: 'inselucyraan_sold.webp', hargaAkun: 'Rp 155.000', status: false },
@@ -21,11 +35,96 @@ document.addEventListener('alpine:init', () => {
       { namaAkun: 'Junkagenoshi.', imgAkun: 'junkagenoshi_sold.webp', hargaAkun: 'Rp 140.000', status: false },
     ],
 
-    /* jika nanti ingin mencari, filteredData pakai namaAkun */
+    /* labels */
+    get selectedSortLabel() {
+      if (this.selectedSort === 'terbaru') return 'Terbaru';
+      if (this.selectedSort === 'terlama') return 'Terlama';
+      if (this.selectedSort === 'a-z') return 'A - Z';
+      return this.selectedSort;
+    },
+    get selectedSortLabelSmall() { return this.selectedSortLabel; },
+
+    /* actions */
+    setFilter(filter) {
+      this.selectedFilter = filter;
+      this.visibleCount = 10;
+    },
+    setSort(sort) {
+      this.selectedSort = sort;
+      this.visibleCount = 10;
+      this.sortOpenSmall = false;
+      this.sortOpen = false;
+    },
+    loadMore() { this.visibleCount += this.increment; },
+
+    onSearchFocus() {
+      this.searchOpen = true;
+    },
+
+    onTyping() {
+      if (!this.searchOpen) this.searchOpen = true;
+      this.typing = true;
+      if (this.typingTimer) clearTimeout(this.typingTimer);
+      this.typingTimer = setTimeout(() => {
+        this.typing = false;
+        this.typingTimer = null;
+      }, this.typingDebounceMs);
+    },
+
+    /* 
+      IMPORTANT CHANGE: filteredDataForSearch 
+      - Jika panel search terbuka dan input KOSONG -> kembalikan array KOSONG (tidak menampilkan semua)
+      - Jika user mengetik, gunakan filter + sort seperti biasa
+    */
+    get filteredDataForSearch() {
+      const q = (this.searchQuery || '').toLowerCase().trim();
+
+      // special-case: jika panel terbuka & query kosong -> return kosong sesuai permintaan
+      if (this.searchOpen && q === '') {
+        return [];
+      }
+
+      // otherwise: normal search behavior
+      let results = this.data.filter(item => {
+        if (!q) return true; // fallback (shouldn't happen because q=='' handled above)
+        return item.namaAkun.toLowerCase().includes(q);
+      });
+
+      // apply selected status filter
+      if (this.selectedFilter === 'available') results = results.filter(i => i.status === true);
+      else if (this.selectedFilter === 'sold') results = results.filter(i => i.status === false);
+
+      // apply sort
+      if (this.selectedSort === 'terbaru') {
+        return results;
+      } else if (this.selectedSort === 'terlama') {
+        return results.slice().reverse();
+      } else if (this.selectedSort === 'a-z') {
+        return results.slice().sort((a, b) => a.namaAkun.toLowerCase().localeCompare(b.namaAkun.toLowerCase()));
+      }
+
+      return results;
+    },
+
+    /* filteredData untuk grid utama tetap seperti sebelumnya */
     get filteredData() {
       const q = (this.searchQuery || '').toLowerCase().trim();
-      if (!q) return this.data;
-      return this.data.filter(item => item.namaAkun.toLowerCase().includes(q));
-    }
+      let results = this.data.filter(item => {
+        if (!q) return true;
+        return item.namaAkun.toLowerCase().includes(q);
+      });
+
+      if (this.selectedFilter === 'available') results = results.filter(i => i.status === true);
+      else if (this.selectedFilter === 'sold') results = results.filter(i => i.status === false);
+
+      if (this.selectedSort === 'terbaru') return results;
+      if (this.selectedSort === 'terlama') return results.slice().reverse();
+      if (this.selectedSort === 'a-z') return results.slice().sort((a,b) => a.namaAkun.toLowerCase().localeCompare(b.namaAkun.toLowerCase()));
+      return results;
+    },
+
+    get visibleData() { return this.filteredData.slice(0, this.visibleCount); },
+    get filteredLength() { return this.filteredData.length; },
+
   }));
 });
