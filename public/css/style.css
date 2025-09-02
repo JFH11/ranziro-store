@@ -136,7 +136,7 @@ header div {
     position: relative;
     width: 100%;
     gap: 0.5rem;
-    padding: 1rem 0;
+    padding: 0.5rem 1rem;
     color: #ffffff;
     height: max-content;
     display: flex;
@@ -144,6 +144,7 @@ header div {
     cursor: pointer;
     background: transparent;
     border: none;
+    border-radius: 0.5rem;
     transition: 0.3s ease;
 }
 
@@ -156,9 +157,14 @@ header div {
 
 .fa-arrow-right {
     position: absolute;
-    right: 0;
+    right: 1rem;
     opacity: 0;
     transition: opacity 0.3s ease;
+}
+
+.sidebar-links:hover {
+    background: #fff01a;
+    color: #000;
 }
 
 .sidebar-links:hover .fa-arrow-right {
@@ -356,7 +362,7 @@ main {
     position: relative;
     color: #ffffff;
     font-size: 1.1rem;
-    font-weight: 500;
+    font-weight: 700;
     font-family: 'poppins' sans-serif;
     text-transform: uppercase;
     letter-spacing: 0.1rem;
@@ -556,32 +562,6 @@ main {
 .fade-up-leave-start { opacity: 1; transform: translateY(0); }
 .fade-up-leave-end { opacity: 0; transform: translateY(-8px) scale(.995); }
 
-.card-status {
-    position: relative;
-    left: 0.5rem;
-    color: #ffffff;
-    font-size: 0.75rem;
-    font-family: 'poppins' sans-serif;
-}
-
-.card-dst {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 2.8rem;
-    height: 2.8rem;
-    display: grid;
-    place-items: center;
-    background: linear-gradient(to bottom right, rgb(37, 37, 90), #636bfd);
-    color: #ffffff;
-    font-size: 0.9rem;
-    font-weight: 500;
-    font-family: 'poppins' sans-serif;
-    border-radius: 0.5rem 0 0.5rem 0 ;
-    z-index: 3;
-    transition: 0.3s ease;
-}
-
 .gallery {
     position: relative;
     top: 7rem;
@@ -615,7 +595,7 @@ main {
     background: #242424;
     backdrop-filter: blur(10px);
     border: 1px solid #444444;
-    border-radius: 0.5rem;
+    border-radius: 1rem;
 }
 
 .trigger-gallery-2 {
@@ -627,7 +607,7 @@ main {
     cursor: pointer;
     background: #242424;
     border: none;
-    border-radius: 0.5rem;
+    border-radius: 1rem;
     color: white;
     font-family: 'poppins' sans-serif;
     font-size: 1rem;
@@ -646,7 +626,7 @@ main {
     backdrop-filter: blur(10px);
     border: 1px solid #444444;
     color: white;
-    border-radius: 0.5rem;
+    border-radius: 1rem;
     font-family: 'poppins' sans-serif;
 }
 
@@ -666,17 +646,17 @@ main {
     height: max-content;
     display: flex;
     flex-direction: column;
-    gap: 0.2rem;
 }
 
 .gallery-1-3 {
     position: relative;
-    padding-bottom: 1.5rem;
     width: 100%;
     height: max-content;
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid rgba(128, 128, 128, 0.507);
+    align-items: center;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #80808081;
 }
 
 .container-detail {
@@ -685,7 +665,7 @@ main {
     height: max-content;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 0.5rem;
 }
 
 .detail-title {
@@ -708,6 +688,7 @@ main {
 .level-emblem,
 .bukti-top-up,
 .akun-pribadi,
+.akun-log,
 .bind-akun,
 .total-magic-core {
     position: relative;
@@ -727,11 +708,6 @@ main {
     font-size: 1.2rem;
 }
 
-.account-stock {
-    display: none;
-}
-
-.account-stock,
 .account-owner,
 #account-price {
     position: relative;
@@ -804,6 +780,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 1rem;
 }
 
 .slider {
@@ -818,8 +795,8 @@ main {
 .slider-images {
     position: relative;
     display: flex;
-    width: 35rem;
-    height: 17rem;
+    width: 25rem;
+    height: 25rem;
     transition: transform 0.5s ease-in-out;
     object-fit: cover;
 }
@@ -840,10 +817,10 @@ main {
     font-size: 3rem;
 }
 .prev {
-    left: 10px;
+    left: 0;
 }
 .next {
-    right: 10px;
+    right: 0;
 }
 
 .container-chat {
@@ -901,7 +878,7 @@ footer svg {
     position: relative;
     width: 100%;
     height: max-content;
-    padding: 2rem 10%;
+    padding: 2rem 10% 0 10%;
     background: #242424;
     display: flex;
     gap: 5rem;
@@ -975,7 +952,7 @@ footer svg {
     position: relative;
     width: 100%;
     height: 3rem;
-    padding: 1rem 10%;
+    padding: 2rem 10%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1116,7 +1093,7 @@ footer svg {
 
 @media screen and (max-width: 480px) {
     header {
-        padding: 1rem 2.5%;
+        padding: 1rem 5%;
     }
 
     .hdr-p {
@@ -1124,7 +1101,7 @@ footer svg {
     }
 
     .container-list {
-        padding: 1rem 2.5%;
+        padding: 1rem 5%;
     }
 
     .container-list-1 {
@@ -1162,7 +1139,8 @@ footer svg {
     }
 
     .footer-2 {
-        padding: 2rem 2.5%;
+        padding: 2rem 5% 0 5%;
+        gap: 4rem;
     }
 
     .footer-deskripsi {
@@ -1170,7 +1148,7 @@ footer svg {
     }
 
     .coppyright {
-        padding: 1rem 2.5%;
+        padding: 2rem 5%;
         gap: 2rem;
     }
 
@@ -1189,8 +1167,8 @@ footer svg {
     }
 
     .slider-images {
-        width: 20rem;
-        height: 10rem;
+        width: 15rem;
+        height: 15rem;
     }
 
     .btn-rekber {
