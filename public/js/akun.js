@@ -2,17 +2,38 @@ const urlParams = new URLSearchParams(window.location.search);
 const accountName = decodeURIComponent(urlParams.get('nama'));
 
 const data = [
+        {
+        namaAkun: 'Ranziro', // nama ml
+        id: '183746742', // nama ig
+        gallery: ['ranziro.webp','ranziro_2.webp'], // array gambar utk slider
+        price: 'Rp 315.000', // harga
+        waRekber: '6285863146541', // wa admin
+        status: true, // <<< true = available (overlay HILANG), false = sold (overlay MUNCUL)
+        detail: {
+            deskripsi: 'Collector yss, prime beatrix, tf roger, annual haya kagura, luckybox selena alpha alice odette, recall gacor" skin banyak, cocok utk push rank.',
+            rankTertinggi: 'Glory *74',
+            totalSkin: '326',
+            totalWinrate: 'ss',
+            totalPertandingan: '13k+',
+            totalMagicCore: 'ss',
+            levelEmblem: 'Max',
+            buktiTopUp: 'Tidak ada',
+            akunPribadi: 'Beli',
+            log: 'Moonton (take segmail/change email)',
+            bindAkun: 'Moonton & Platform'
+        },
+    },
+
+
     {
         namaAkun: 'NEIL?!!',
-        owner: '@ranziro_store',
-        ownerLink: 'https://www.instagram.com/ranziro_store/',
+        id: '99999999',
         gallery: ['neil_1.webp','neil_2.webp','neil_3.webp','neil_4.webp','neil_5.webp','neil_6.webp','neil_7.webp','neil_8.webp','neil_9.webp','neil_10.webp','neil_11.webp','neil_12.webp','neil_13.webp','neil_14.webp'],
         price: 'Rp 500.000',
         waRekber: '6285863146541',
         status: false, // <<< true = available (overlay HILANG), false = sold (overlay MUNCUL)
         detail: {
             deskripsi: 'LEG GS, KOF AURORA KARINA DYROTH, ASPIRANT ANGELA CHANGE, PRIME YZ, CC GS NATA, LCBX HAYA CHOU GUIN, ANNUAL KARRIE LESLEY, DLL.',
-            idAkun: 'SS',
             rankTertinggi: 'SS',
             totalSkin: 'SS',
             totalWinrate: 'SS',
@@ -21,22 +42,20 @@ const data = [
             levelEmblem: 'SS',
             buktiTopUp: 'TIDAK ADA',
             akunPribadi: 'BELI',
-            log: 'Moonton',
-            bindAkun: 'Allkos (take segmail fresh)'
+            log: 'Moonton (take segmail fresh)',
+            bindAkun: 'Moonton'
         },
     },
 
     {
         namaAkun: 'AK. hoshino',
-        owner: '@ranziro_store',
-        ownerLink: 'https://www.instagram.com/ranziro_store/',
+        id: '9999999',
         gallery: ['akhoshino_1.webp','akhoshino_2.webp','akhoshino_3.webp','akhoshino_4.webp','akhoshino_5.webp','akhoshino_6.webp','akhoshino_7.webp','akhoshino_8.webp','akhoshino_9.webp'],
         price: 'Rp 50.000',
         waRekber: '6285863146541',
         status: false, // contoh: sold -> overlay akan muncul
         detail: {
             deskripsi: 'LB FANNY ALU, DT LING, VALENTINE CLOD, EPIC KHALED MOSKOV ROGER, DLL. MONSEP ALLKOS TAKE SEGMAIL FRESH -KGM',
-            idAkun: 'SS',
             rankTertinggi: 'SS',
             totalSkin: 'SS',
             totalWinrate: 'SS',
@@ -45,22 +64,20 @@ const data = [
             levelEmblem: 'SS',
             buktiTopUp: 'TIDAK ADA',
             akunPribadi: 'BELI',
-            log: 'Moonton',
-            bindAkun: 'Allkos (take segmail fresh)'
+            log: 'Moonton (take segmail fresh)',
+            bindAkun: 'Moonton'
         },
     },
 
     {
         namaAkun: 'Z a z a.',
-        owner: '@ranziro_store',
-        ownerLink: 'https://www.instagram.com/ranziro_store/',
+        id: '99999999',
         gallery: ['zaza_1.webp','zaza_2.webp','zaza_3.webp','zaza_4.webp','zaza_5.webp','zaza_6.webp','zaza_7.webp','zaza_8.webp','zaza_9.webp','zaza_10.webp','zaza_11.webp','zaza_12.webp'],
         price: 'Rp 55.000',
         waRekber: '6285863146541',
         status: false,
         detail: {
             deskripsi: 'AKUN CEWE COCOK UNTUK USER MAGE, AKUN POLOSAN, FULLSPEK SS',
-            idAkun: 'SS',
             rankTertinggi: 'SS',
             totalSkin: 'SS',
             totalWinrate: 'SS',
@@ -70,7 +87,7 @@ const data = [
             buktiTopUp: 'TIDAK ADA',
             akunPribadi: 'BELI',
             log: 'Moonton',
-            bindAkun: 'Plat (take segmail fresh)'
+            bindAkun: 'Moonton & Platform'
         },
     },
 ];
@@ -80,14 +97,7 @@ const account = data.find(item => item.namaAkun === accountName);
 if (account) {
     document.getElementById('account-name').textContent = account.namaAkun;
     document.getElementById('account-price').textContent = account.price;
-
-    // Owner link
-    const ownerElement = document.createElement('a');
-    ownerElement.href = account.ownerLink;
-    ownerElement.textContent = account.owner;
-    ownerElement.classList.add('account-owner');
-    ownerElement.target = '_blank';
-    document.getElementById('account-owner').replaceWith(ownerElement);
+    document.getElementById('account-id').textContent = account.id;
 
     // Rekber link (pakai nomor dari data)
     const rekberLink = document.querySelector('.btn-rekber');
@@ -99,7 +109,6 @@ if (account) {
     const detail = account.detail;
     if (detail) {
         document.querySelector('.deskripsi-akun').textContent = `Deskripsi: ${detail.deskripsi}`;
-        document.querySelector('.id-akun').textContent = `ID Akun: ${detail.idAkun}`;
         document.querySelector('.rank-tertinggi').textContent = `Rank Tertinggi: ${detail.rankTertinggi}`;
         document.querySelector('.total-skin').textContent = `Total Skin: ${detail.totalSkin}`;
         document.querySelector('.total-winrate').textContent = `Total Winrate: ${detail.totalWinrate}`;

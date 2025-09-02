@@ -16,6 +16,7 @@ document.addEventListener('alpine:init', () => {
     typingDebounceMs: 500,
 
     data: [
+      { namaAkun: 'Ranziro', imgAkun: 'ranziro.webp', hargaAkun: 'Rp 315.000', status: true },
       { namaAkun: 'NEIL?!!', imgAkun: 'neil_1.webp', hargaAkun: 'Rp 350.000', status: false },
       { namaAkun: 'inselucyraan.', imgAkun: 'inselucyraan_sold.webp', hargaAkun: 'Rp 155.000', status: false },
       { namaAkun: 'DAM V2', imgAkun: 'damv2_sold.webp', hargaAkun: 'Rp 130.000', status: false },

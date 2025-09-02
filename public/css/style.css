@@ -264,7 +264,6 @@ header div {
 
 .search-thumb { position: relative; width: 3.4rem; height: 3.4rem; overflow: hidden; border-radius: 0.3rem; flex-shrink:0; }
 .img-search { width:100%; height:100%; object-fit:cover; display:block; }
-.img-sold { filter:grayscale(1) contrast(.95); }
 
 .container-search-2 h3 { color:#fff; font-size:0.95rem; margin:0; font-weight:600; }
 .container-search-2 p { color:#fbff00; font-size:0.78rem; margin:0; margin-top:0.2rem; }
@@ -526,8 +525,6 @@ main {
   transition: all 0.3s ease;
 }
 
-.img-sold { filter: grayscale(1) contrast(.95); }
-
 .card-info-2 {
   position: relative;
   width: 100%;
@@ -708,19 +705,19 @@ main {
     font-size: 1.2rem;
 }
 
-.account-owner,
-#account-price {
+.account-id {
     position: relative;
     font-weight: 500;
     font-family: 'poppins' sans-serif;
-    color: #ffffff;
-    letter-spacing: 0.1rem;
-    font-size: 0.8rem;
+    color: #e4e4e4d3;
+    font-size: 0.9rem;
     text-decoration: none;
 }
 
 #account-price {
     color: #fbff00;
+    font-weight: 600;
+    font-size: 0.9rem;
 }
 
 .not-found-container {
