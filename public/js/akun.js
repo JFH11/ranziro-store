@@ -29,7 +29,7 @@ const data = [
         namaAkun: 'NEIL?!!',
         id: '99999999',
         gallery: ['neil_1.webp','neil_2.webp','neil_3.webp','neil_4.webp','neil_5.webp','neil_6.webp','neil_7.webp','neil_8.webp','neil_9.webp','neil_10.webp','neil_11.webp','neil_12.webp','neil_13.webp','neil_14.webp'],
-        price: 'Rp 500.000',
+        price: 'Rp 350.000',
         waRekber: '6285863146541',
         status: false, // <<< true = available (overlay HILANG), false = sold (overlay MUNCUL)
         detail: {

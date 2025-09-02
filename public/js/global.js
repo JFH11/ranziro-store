@@ -1,6 +1,4 @@
-// -------------------------
-// Generic panel factory
-// -------------------------
+// global.js
 function createPanel({ trigger, container, closeBtn, openFn, closeFn, focusOnOpenSelector }) {
   if (!trigger && !closeBtn && !container) {
     throw new Error('createPanel: setidaknya salah satu dari trigger/closeBtn/container harus disediakan');
@@ -8,30 +6,91 @@ function createPanel({ trigger, container, closeBtn, openFn, closeFn, focusOnOpe
 
   let _isOpen = false;
 
+  // helper: kembalikan alpine component instance jika ada
+  function getAlpineComponent() {
+    try {
+      const root = document.querySelector('[x-data]');
+      if (!root) return null;
+      // beberapa versi menyimpan instance di __x dengan property $data
+      if (root.__x && root.__x.$data) return root.__x;
+      if (root.__x) return root.__x;
+    } catch (e) { /* ignore */ }
+    return null;
+  }
+
+  // helper: bersihkan input DOM & fire input/change event supaya x-model sinkron
+  function clearInputDOM(selector) {
+    if (!selector) return;
+    const el = document.querySelector(selector);
+    if (!el) return;
+    el.value = '';
+    el.dispatchEvent(new Event('input', { bubbles: true }));
+    el.dispatchEvent(new Event('change', { bubbles: true }));
+  }
+
   const api = {
     get isOpen() { return _isOpen; },
 
     open() {
       if (_isOpen) return;
+
       if (typeof openFn === 'function') openFn(container);
       _isOpen = true;
+
+      // sinkron ke Alpine (component)
+      const comp = getAlpineComponent();
+      if (comp && comp.$data) {
+        // jika panel ini fokus ke '.input-search' treat sebagai search panel
+        if (typeof focusOnOpenSelector === 'string' && focusOnOpenSelector.includes('input-search')) {
+          comp.$data.tempSearchQuery = '';   // kosongkan input panel agar menampilkan daftar
+          comp.$data.typing = false;
+          comp.$data.searchOpen = true;
+          comp.$data.visibleCount = 10;      // pastikan pagination kembali awal
+        } else if (container && container.classList && container.classList.contains('container-search')) {
+          comp.$data.searchOpen = true;
+        }
+      }
+
       if (api.onOpen) api.onOpen();
       if (api.onStateChange) api.onStateChange();
+
+      // fokus DOM (delay kecil supaya transform visual selesai dulu)
       if (focusOnOpenSelector) {
-        const el = document.querySelector(focusOnOpenSelector);
-        if (el) el.focus();
+        setTimeout(() => {
+          const el = document.querySelector(focusOnOpenSelector);
+          if (el) el.focus();
+        }, 10);
       }
     },
 
     close() {
       if (!_isOpen) return;
+
       if (typeof closeFn === 'function') closeFn(container);
       _isOpen = false;
+
+      // sinkron ke Alpine (component)
+      const comp = getAlpineComponent();
+      if (comp && comp.$data) {
+        if (typeof focusOnOpenSelector === 'string' && focusOnOpenSelector.includes('input-search')) {
+          // reset lengkap supaya saat buka lagi tampil semua data
+          comp.$data.tempSearchQuery = '';
+          comp.$data.typing = false;
+          comp.$data.searchOpen = false;
+          comp.$data.visibleCount = 10;
+        } else if (container && container.classList && container.classList.contains('container-search')) {
+          comp.$data.searchOpen = false;
+        }
+      }
+
       if (api.onClose) api.onClose();
       if (api.onStateChange) api.onStateChange();
+
+      // cadangan: bersihkan DOM input dan dispatch event supaya Alpine sinkron
       if (focusOnOpenSelector) {
-        const el = document.querySelector(focusOnOpenSelector);
-        if (el) el.value = '';
+        setTimeout(() => {
+          clearInputDOM(focusOnOpenSelector);
+        }, 10);
       }
     },
 
@@ -41,12 +100,11 @@ function createPanel({ trigger, container, closeBtn, openFn, closeFn, focusOnOpe
     },
 
     // hooks assigned from outside
-    onOpen: null,         // called after open()
-    onClose: null,        // called after close()
-    onStateChange: null,  // called after open/close (useful to update UI common state)
+    onOpen: null,
+    onClose: null,
+    onStateChange: null,
   };
 
-  // event listeners
   if (trigger) trigger.addEventListener('click', api.toggle);
   if (closeBtn) closeBtn.addEventListener('click', api.close);
 
@@ -90,12 +148,10 @@ const searchPanel = createPanel({
 // mutual-exclusion: jika satu buka, tutup yang lain
 // -------------------------
 sidebarPanel.onOpen = () => {
-  // tutup search kalo terbuka
-  if (searchPanel.isOpen) searchPanel.close();
+  if (searchPanel.isOpen) searchPanel.close(); // close search (ini akan reset search state)
 };
 searchPanel.onOpen = () => {
-  // tutup sidebar kalo terbuka
-  if (sidebarPanel.isOpen) sidebarPanel.close();
+  if (sidebarPanel.isOpen) sidebarPanel.close(); // close sidebar
 };
 
 // -------------------------
@@ -136,20 +192,24 @@ document.addEventListener('click', (e) => {
   }
 });
 
-  // ====== Tahun otomatis ======
-  document.getElementById("year").textContent = new Date().getFullYear();
+// ====== Tahun otomatis ======
+const yearEl = document.getElementById("year");
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // ====== Logika terakhir diakses ======
-  const lastAccessedEl = document.getElementById("last-accessed");
-  const lastAccessed = localStorage.getItem("lastAccessed");
+// ====== Logika terakhir diakses ======
+const lastAccessedEl = document.getElementById("last-accessed");
+const lastAccessed = localStorage.getItem("lastAccessed");
 
+if (lastAccessedEl) {
   if (lastAccessed) {
     lastAccessedEl.textContent = lastAccessed;
   } else {
     lastAccessedEl.textContent = "Belum pernah diakses sebelumnya";
   }
+}
 
-  // simpan waktu sekarang
+// simpan waktu sekarang
+(function saveNow() {
   const now = new Date();
   const formatted = now.toLocaleDateString("id-ID", {
     day: "2-digit",
@@ -161,3 +221,4 @@ document.addEventListener('click', (e) => {
   });
 
   localStorage.setItem("lastAccessed", formatted);
+})();
