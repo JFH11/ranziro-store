@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "server-ranziro.js",
+      "src": "server.js",
       "use": "@vercel/node"
     }
   ],
@@ -10,7 +10,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "server-ranziro.js",
+      "dest": "server.js",
       "headers": {
         "key": "Cache-Control",
         "value": "no-store"

@@ -1,10 +1,10 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const cors  = require('cors');
+const cors = require('cors');
 const apps = express();
 
-apps.use(cors( { origin: '*', credentials: true } ));
+apps.use(cors({ origin: '*', credentials: true }));
 apps.use((req, res, next) => {
     res.set('Cache-Control', 'no-store'); // Tidak menyimpan cache
     next();

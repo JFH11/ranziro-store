@@ -38,14 +38,32 @@
       <p>Mobile Legends</p>
       <i class="fa-solid fa-arrow-right"></i>
     </a>
+
+    <a target="_blank" rel="noopener noreferrer"
+      href="https://wa.me/6285863146541?text=Halo%20Admin%20Ranziro%20Store.%20Saya%20ingin%20menjual%20akun%20Mobile%20Legends%20saya."
+      class="sidebar-links">
+      <p>Jual Akun ?</p>
+      <i class="fa-solid fa-arrow-right"></i>
+    </a>
   </div>
 
   <!-- Container Search (letakkan di tempat semula) -->
   <div class="container-search" :class="{ 'open': searchOpen }" @click.outside="searchOpen = false"
     @keydown.escape.window="searchOpen = false" aria-hidden="false">
     <!-- Input Search -->
-    <input type="text" id="input-search" class="input-search" placeholder="Cari akun..." x-model="tempSearchQuery"
-      @focus="onSearchFocus()" @input="onTyping()" autocomplete="new-password" />
+    <div style="position: relative; width: 100%;
+    display: flex; align-items: center;">
+      <input type="text" id="input-search" class="input-search" placeholder="Cari akun..." x-model="tempSearchQuery"
+        @focus="onSearchFocus()" @input="onTyping()" autocomplete="new-password" style="padding-right: 30px;" />
+
+      <!-- Tombol Clear -->
+      <button x-show="tempSearchQuery.length > 0" @click="clearSearch()" class="clear-search-btn" x-cloak
+        aria-label="Clear" style="position: absolute; width: 20px; height: 20px; right: 8px;
+           background: transparent; border: none; cursor: pointer; color: #ccc;
+           display: grid; place-items: center;" onmouseenter="">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
 
     <!-- compact filter row di bawah input (kecil) -->
     <div class="container-search-controls"
@@ -87,7 +105,8 @@
 
     <!-- Hasil Pencarian -->
     <div class="container-search-1" x-show="searchOpen" x-cloak>
-      <!-- Loader typing -->
+
+      <!-- existing typing loader (biarkan) -->
       <div style="display:flex; align-items:center; gap:.6rem; padding:.5rem 0;">
         <div x-show="typing" x-cloak class="typing-loader" aria-hidden="true"></div>
         <div style="color:#ccc; font-size:0.85rem;" x-text="typing ? 'Mencari...' : ''"></div>
@@ -95,7 +114,10 @@
 
       <!-- jika tidak typing dan query ada tapi hasil = 0 -->
       <template x-if="!typing && tempSearchQuery.trim().length > 0 && filteredDataForSearch.length === 0">
-        <div style="padding:1rem; color:#fff; text-align:center;">Akun tidak ditemukan</div>
+        <div style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+          <div style="padding:1rem; color:#ffffff52; text-align:center;">Akun tidak ditemukan</div>
+          <i class="fa-solid fa-dice" style="font-size: 3rem; color: #ffffff52; top: -1rem; margin-bottom: 0.5rem;"></i>
+        </div>
       </template>
 
       <!-- Looping Data (filteredDataForSearch digunakan supaya special-case searchOpen & empty query) -->
@@ -124,7 +146,7 @@
 
       <!-- sentinel untuk infinite scroll (opsional) -->
       <div x-ref="searchSentinel"></div>
-
+      <!-- Loader ketika buka search -->
     </div>
   </div>
 
@@ -322,9 +344,9 @@
   </main>
 
   <!-- js -->
-  <script src="js/glwoblswsmsw.min.js"></script>
   <script src="js/akwn203m4xdk.min.js"></script>
   <script src="js/apwssmeoow2453sGH.min.js"></script>
+  <script src="js/glwoblswsmsw.min.js"></script>
   <script src="assets/lload34mdelp.min.js"></script>
 </body>
 

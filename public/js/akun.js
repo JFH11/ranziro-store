@@ -123,7 +123,7 @@
     if (rekberLink) {
         rekberLink.target = '_blank';
         rekberLink.rel = 'noopener noreferrer';
-        rekberLink.href = `https://wa.me/${account.waRekber}?text=${encodeURIComponent(`_*Halo bang saya ingin menanyakan ketersediaan akun dari ${account.namaAkun}*_\n\n> Nama akun : ${account.namaAkun}\n> Harga : ${account.price}\n\nKira-kira masih ada stocknya bang ?`)}`;
+        rekberLink.href = `https://wa.me/${account.waRekber}?text=${encodeURIComponent(`_*Halo Admin, saya ingin menanyakan ketersediaan akun dari ${account.namaAkun}*_\n\n> Nama akun : ${account.namaAkun}\n> Harga : ${account.price}\n\nKira-kira masih ada stocknya min?`)}`;
     }
 
     // detail fields
