@@ -163,8 +163,7 @@ header div {
 }
 
 .sidebar-links:hover {
-    background: #fff01a;
-    color: #000;
+    background: #ffffff1f;
 }
 
 .sidebar-links:hover .fa-arrow-right {
@@ -260,7 +259,7 @@ header div {
 .container-search-1::-webkit-scrollbar-thumb { background: #ffffff; border-radius: 0.5rem; }
 
 .search-links { position: relative; width: 100%; height: max-content; display: flex; padding: 0.6rem; cursor: pointer; background: transparent; border: none; border-radius: 0.5rem; transition: 0.18s ease; align-items:center; gap:0.75rem; }
-.search-links:hover { background: rgba(255,255,255,0.06); }
+.search-links:hover { background: #ffffff1f; }
 
 .search-thumb { position: relative; width: 3.4rem; height: 3.4rem; overflow: hidden; border-radius: 0.3rem; flex-shrink:0; }
 .img-search { width:100%; height:100%; object-fit:cover; display:block; }

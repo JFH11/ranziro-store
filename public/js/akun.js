@@ -1,4 +1,4 @@
-// akun.js (final, siap pakai)
+// akwn203m4xdk.min.js (final, siap pakai)
 (() => {
     const urlParams = new URLSearchParams(window.location.search);
     const rawName = urlParams.get('nama');

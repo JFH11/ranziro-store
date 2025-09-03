@@ -1,4 +1,4 @@
-// global.js (optimized)
+// glwoblswsmsw.min.js (optimized)
 
 // Create panel with improved Alpine component lookup, class toggles and cleanup support
 function createPanel({ trigger, container, closeBtn, openFn, closeFn, focusOnOpenSelector }) {
