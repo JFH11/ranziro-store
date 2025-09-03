@@ -1,24 +1,53 @@
-// global.js
+// global.js (optimized)
+
+// Create panel with improved Alpine component lookup, class toggles and cleanup support
 function createPanel({ trigger, container, closeBtn, openFn, closeFn, focusOnOpenSelector }) {
   if (!trigger && !closeBtn && !container) {
     throw new Error('createPanel: setidaknya salah satu dari trigger/closeBtn/container harus disediakan');
   }
 
   let _isOpen = false;
+  let _destroyed = false;
 
-  // helper: kembalikan alpine component instance jika ada
+  // cache root alpine element once (fallback)
+  let _cachedAlpineRoot = null;
+  function getCachedAlpineRoot() {
+    if (_cachedAlpineRoot) return _cachedAlpineRoot;
+    _cachedAlpineRoot = document.querySelector('[x-data]') || null;
+    return _cachedAlpineRoot;
+  }
+
+  // Efficient Alpine component finder:
+  // - try container (most specific)
+  // - then trigger
+  // - then cached root
+  // returns the __x object (Alpine instance) or null
   function getAlpineComponent() {
     try {
-      const root = document.querySelector('[x-data]');
-      if (!root) return null;
-      // beberapa versi menyimpan instance di __x dengan property $data
-      if (root.__x && root.__x.$data) return root.__x;
-      if (root.__x) return root.__x;
-    } catch (e) { /* ignore */ }
+      const tryEls = [container, trigger];
+      for (let el of tryEls) {
+        if (!el) continue;
+        // if element itself has __x (when x-data is on same node)
+        if (el.__x) return el.__x;
+        // search upwards for nearest parent with __x
+        let p = el.parentElement;
+        while (p) {
+          if (p.__x) return p.__x;
+          p = p.parentElement;
+        }
+      }
+
+      // fallback to cached root
+      const root = getCachedAlpineRoot();
+      if (root && root.__x) return root.__x;
+
+    } catch (err) {
+      // ignore
+    }
     return null;
   }
 
-  // helper: bersihkan input DOM & fire input/change event supaya x-model sinkron
+  // helper to clear and sync input DOM (only when needed)
   function clearInputDOM(selector) {
     if (!selector) return;
     const el = document.querySelector(selector);
@@ -28,33 +57,43 @@ function createPanel({ trigger, container, closeBtn, openFn, closeFn, focusOnOpe
     el.dispatchEvent(new Event('change', { bubbles: true }));
   }
 
+  // small utility to safely set or reset visibleCountSearch if present
+  function resetVisibleCountSearchOnComp(comp) {
+    if (!comp || !comp.$data) return;
+    if (typeof comp.$data.visibleCountSearch !== 'undefined') {
+      try { comp.$data.visibleCountSearch = 10; } catch (e) { /* ignore */ }
+    }
+  }
+
   const api = {
     get isOpen() { return _isOpen; },
 
     open() {
-      if (_isOpen) return;
-
+      if (_isOpen || _destroyed) return;
       if (typeof openFn === 'function') openFn(container);
       _isOpen = true;
 
-      // sinkron ke Alpine (component)
       const comp = getAlpineComponent();
       if (comp && comp.$data) {
-        // jika panel ini fokus ke '.input-search' treat sebagai search panel
         if (typeof focusOnOpenSelector === 'string' && focusOnOpenSelector.includes('input-search')) {
-          comp.$data.tempSearchQuery = '';   // kosongkan input panel agar menampilkan daftar
-          comp.$data.typing = false;
-          comp.$data.searchOpen = true;
-          comp.$data.visibleCount = 10;      // pastikan pagination kembali awal
+          // precise search panel reset
+          try {
+            comp.$data.tempSearchQuery = '';
+            comp.$data.typing = false;
+            comp.$data.searchOpen = true;
+          } catch (e) { /* ignore */ }
+          // reset pagination
+          resetVisibleCountSearchOnComp(comp);
         } else if (container && container.classList && container.classList.contains('container-search')) {
-          comp.$data.searchOpen = true;
+          try { comp.$data.searchOpen = true; } catch (e) { }
+          resetVisibleCountSearchOnComp(comp);
         }
       }
 
       if (api.onOpen) api.onOpen();
       if (api.onStateChange) api.onStateChange();
 
-      // fokus DOM (delay kecil supaya transform visual selesai dulu)
+      // Fokus sedikit tunda supaya animasi CSS tidak terganggu
       if (focusOnOpenSelector) {
         setTimeout(() => {
           const el = document.querySelector(focusOnOpenSelector);
@@ -64,33 +103,31 @@ function createPanel({ trigger, container, closeBtn, openFn, closeFn, focusOnOpe
     },
 
     close() {
-      if (!_isOpen) return;
-
+      if (!_isOpen || _destroyed) return;
       if (typeof closeFn === 'function') closeFn(container);
       _isOpen = false;
 
-      // sinkron ke Alpine (component)
       const comp = getAlpineComponent();
       if (comp && comp.$data) {
         if (typeof focusOnOpenSelector === 'string' && focusOnOpenSelector.includes('input-search')) {
-          // reset lengkap supaya saat buka lagi tampil semua data
-          comp.$data.tempSearchQuery = '';
-          comp.$data.typing = false;
-          comp.$data.searchOpen = false;
-          comp.$data.visibleCount = 10;
+          try {
+            comp.$data.tempSearchQuery = '';
+            comp.$data.typing = false;
+            comp.$data.searchOpen = false;
+          } catch (e) { /* ignore */ }
+          resetVisibleCountSearchOnComp(comp);
         } else if (container && container.classList && container.classList.contains('container-search')) {
-          comp.$data.searchOpen = false;
+          try { comp.$data.searchOpen = false; } catch (e) { }
+          resetVisibleCountSearchOnComp(comp);
         }
       }
 
       if (api.onClose) api.onClose();
       if (api.onStateChange) api.onStateChange();
 
-      // cadangan: bersihkan DOM input dan dispatch event supaya Alpine sinkron
+      // bersihkan DOM input secara aman
       if (focusOnOpenSelector) {
-        setTimeout(() => {
-          clearInputDOM(focusOnOpenSelector);
-        }, 10);
+        setTimeout(() => clearInputDOM(focusOnOpenSelector), 10);
       }
     },
 
@@ -103,6 +140,17 @@ function createPanel({ trigger, container, closeBtn, openFn, closeFn, focusOnOpe
     onOpen: null,
     onClose: null,
     onStateChange: null,
+
+    // cleanup untuk SPA / testability
+    destroy() {
+      if (_destroyed) return;
+      _destroyed = true;
+      if (trigger) trigger.removeEventListener('click', api.toggle);
+      if (closeBtn) closeBtn.removeEventListener('click', api.close);
+      api.onOpen = null;
+      api.onClose = null;
+      api.onStateChange = null;
+    }
   };
 
   if (trigger) trigger.addEventListener('click', api.toggle);
@@ -112,7 +160,7 @@ function createPanel({ trigger, container, closeBtn, openFn, closeFn, focusOnOpe
 }
 
 // -------------------------
-// element references
+// element references (cached once)
 // -------------------------
 const menu = document.querySelector('.btn-menu');
 const sidebarEl = document.querySelector('.sidebar');
@@ -138,7 +186,7 @@ const sidebarPanel = createPanel({
 const searchPanel = createPanel({
   trigger: btnSearch,
   container: containerSearch,
-  closeBtn: null, // kalau ada close button tambahkan di sini
+  closeBtn: null,
   openFn: (el) => { if (el) el.style.transform = 'scale(1)'; },
   closeFn: (el) => { if (el) el.style.transform = 'scale(0)'; },
   focusOnOpenSelector: '.input-search'
@@ -148,21 +196,26 @@ const searchPanel = createPanel({
 // mutual-exclusion: jika satu buka, tutup yang lain
 // -------------------------
 sidebarPanel.onOpen = () => {
-  if (searchPanel.isOpen) searchPanel.close(); // close search (ini akan reset search state)
+  if (searchPanel.isOpen) searchPanel.close();
 };
 searchPanel.onOpen = () => {
-  if (sidebarPanel.isOpen) sidebarPanel.close(); // close sidebar
+  if (sidebarPanel.isOpen) sidebarPanel.close();
 };
 
 // -------------------------
-// update main state (blur + pointer)
+// update main state (batched via class toggle jika mungkin)
 // -------------------------
 function updateMainState() {
   if (!main) return;
-  if (sidebarPanel.isOpen || searchPanel.isOpen) {
+  const isAnyOpen = sidebarPanel.isOpen || searchPanel.isOpen;
+  // prefer class toggle (more performant than multiple style writes)
+  if (isAnyOpen) {
+    main.classList.add('ui-panel-open');
+    // fallback for usages that do not have class CSS
     main.style.pointerEvents = 'none';
     main.style.filter = 'blur(10px)';
   } else {
+    main.classList.remove('ui-panel-open');
     main.style.pointerEvents = 'auto';
     main.style.filter = 'blur(0)';
   }
@@ -173,6 +226,7 @@ searchPanel.onStateChange = updateMainState;
 // -------------------------
 // global handlers: Escape & klik di luar untuk menutup
 // -------------------------
+// keydown is cheap; keep single listener
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     if (sidebarPanel.isOpen) sidebarPanel.close();
@@ -180,15 +234,26 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
+// click: early exit and minimal contains checks
 document.addEventListener('click', (e) => {
   const t = e.target;
-  // close sidebar if click outside sidebar and outside menu button
+
+  // Sidebar close: only compute contains if sidebar open
   if (sidebarPanel.isOpen && sidebarEl && menu) {
-    if (!sidebarEl.contains(t) && !menu.contains(t)) sidebarPanel.close();
+    // if click is outside both the sidebar and the menu -> close
+    if (!sidebarEl.contains(t) && !menu.contains(t)) {
+      sidebarPanel.close();
+      // no need to continue if closed
+      return;
+    }
   }
-  // close search if click outside search container and outside search button
+
+  // Search close: only compute contains if search open
   if (searchPanel.isOpen && containerSearch && btnSearch) {
-    if (!containerSearch.contains(t) && !btnSearch.contains(t)) searchPanel.close();
+    if (!containerSearch.contains(t) && !btnSearch.contains(t)) {
+      searchPanel.close();
+      return;
+    }
   }
 });
 
@@ -201,14 +266,10 @@ const lastAccessedEl = document.getElementById("last-accessed");
 const lastAccessed = localStorage.getItem("lastAccessed");
 
 if (lastAccessedEl) {
-  if (lastAccessed) {
-    lastAccessedEl.textContent = lastAccessed;
-  } else {
-    lastAccessedEl.textContent = "Belum pernah diakses sebelumnya";
-  }
+  lastAccessedEl.textContent = lastAccessed || "Belum pernah diakses sebelumnya";
 }
 
-// simpan waktu sekarang
+// simpan waktu sekarang (IIFE)
 (function saveNow() {
   const now = new Date();
   const formatted = now.toLocaleDateString("id-ID", {
@@ -219,6 +280,5 @@ if (lastAccessedEl) {
     minute: "2-digit",
     second: "2-digit"
   });
-
   localStorage.setItem("lastAccessed", formatted);
 })();

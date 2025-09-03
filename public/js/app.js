@@ -1,23 +1,27 @@
 document.addEventListener('alpine:init', () => {
   Alpine.data('main', () => ({
     // state
-    searchQuery: '',          // dipakai oleh container-list (grid utama)
-    tempSearchQuery: '',      // dipakai hanya oleh container-search (panel)
-    selectedFilter: 'all',    // untuk container-list
-    selectedFilterSearch: 'all', // untuk panel search (terpisah)
-    selectedSort: 'terbaru',  // untuk container-list
-    selectedSortSearch: 'terbaru', // untuk panel search (terpisah)
-    visibleCount: 10,
+    searchQuery: '',
+    tempSearchQuery: '',
+    selectedFilter: 'all',
+    selectedFilterSearch: 'all',
+    selectedSort: 'terbaru',
+    selectedSortSearch: 'terbaru',
+
+    // separate visible counts for main & search
+    visibleCountMain: 10,
+    visibleCountSearch: 10,
     increment: 10,
+
     sortOpen: false,
     sortOpenSmall: false,
     searchOpen: false,
 
-    // typing debounce (untuk panel search)
     typing: false,
     typingTimer: null,
     typingDebounceMs: 500,
 
+    // data (example) - you can replace/extend this
     data: [
       { namaAkun: 'Ranziro', imgAkun: 'ranziro.webp', hargaAkun: 'Rp 315.000', status: true },
       { namaAkun: 'NEIL?!!', imgAkun: 'neil_1.webp', hargaAkun: 'Rp 350.000', status: false },
@@ -39,7 +43,13 @@ document.addEventListener('alpine:init', () => {
       { namaAkun: 'Jun Kagenoshi', imgAkun: 'junkagenoshi_sold.webp', hargaAkun: 'Rp 140.000', status: false },
     ],
 
-    /* labels untuk container-list */
+    // --- caching helpers (memoization) ---
+    _cachedFilteredKey: null,
+    _cachedFilteredResult: null,
+    _cachedSearchKey: null,
+    _cachedSearchResult: null,
+
+    /* labels */
     get selectedSortLabel() {
       if (this.selectedSort === 'terbaru') return 'Terbaru';
       if (this.selectedSort === 'terlama') return 'Terlama';
@@ -47,7 +57,6 @@ document.addEventListener('alpine:init', () => {
       return this.selectedSort;
     },
 
-    /* label untuk panel search (kecil) */
     get selectedSortLabelSmall() {
       if (this.selectedSortSearch === 'terbaru') return 'Terbaru';
       if (this.selectedSortSearch === 'terlama') return 'Terlama';
@@ -55,38 +64,50 @@ document.addEventListener('alpine:init', () => {
       return this.selectedSortSearch;
     },
 
-    /* actions untuk container-list (tetap seperti dulu) */
+    /* MAIN actions */
     setFilter(filter) {
       this.selectedFilter = filter;
-      this.visibleCount = 10;
+      this.visibleCountMain = 10;
+      // invalidate cache
+      this._cachedFilteredKey = null;
+      this._cachedFilteredResult = null;
     },
     setSort(sort) {
       this.selectedSort = sort;
-      this.visibleCount = 10;
+      this.visibleCountMain = 10;
       this.sortOpenSmall = false;
       this.sortOpen = false;
+      // invalidate cache
+      this._cachedFilteredKey = null;
+      this._cachedFilteredResult = null;
     },
 
-    /* actions khusus panel search (tidak mengubah container-list) */
+    /* SEARCH panel actions (separate) */
     setFilterSearch(filter) {
       this.selectedFilterSearch = filter;
-      this.visibleCount = 10;
+      this.visibleCountSearch = 10;
+      // invalidate search cache
+      this._cachedSearchKey = null;
+      this._cachedSearchResult = null;
     },
     setSortSearch(sort) {
       this.selectedSortSearch = sort;
-      this.visibleCount = 10;
+      this.visibleCountSearch = 10;
       this.sortOpenSmall = false;
+      // invalidate search cache
+      this._cachedSearchKey = null;
+      this._cachedSearchResult = null;
     },
 
-    loadMore() { this.visibleCount += this.increment; },
+    /* separate load more functions */
+    loadMoreMain() { this.visibleCountMain += this.increment; },
+    loadMoreSearch() { this.visibleCountSearch += this.increment; },
 
-    // fokus ke panel search
     onSearchFocus() {
       this.searchOpen = true;
-      // tidak menyentuh searchQuery (grid utama)
+      // don't touch searchQuery (main)
     },
 
-    // typing handler untuk panel search (pakai tempSearchQuery)
     onTyping() {
       if (!this.searchOpen) this.searchOpen = true;
       this.typing = true;
@@ -97,79 +118,111 @@ document.addEventListener('alpine:init', () => {
       }, this.typingDebounceMs);
     },
 
-    /* filteredDataForSearch: gunakan tempSearchQuery & state search-only */
-    get filteredDataForSearch() {
+    /* full results for search (memoized) */
+    get filteredDataForSearchAll() {
       const q = (this.tempSearchQuery || '').toLowerCase().trim();
+      const key = `${q}|${this.selectedFilterSearch}|${this.selectedSortSearch}`;
 
-      // Kalau panel terbuka & input KOSONG -> tampilkan semua data (dengan filter+sort) - BATASI sesuai visibleCount
-      if (this.searchOpen && q === '') {
-        let results = this.data.slice();
+      if (this._cachedSearchKey === key && this._cachedSearchResult) return this._cachedSearchResult;
 
-        if (this.selectedFilterSearch === 'available') results = results.filter(i => i.status === true);
-        else if (this.selectedFilterSearch === 'sold') results = results.filter(i => i.status === false);
+      // start from preprocessed data (contains _nameLower)
+      let results = this.data;
 
-        if (this.selectedSortSearch === 'terlama') results = results.slice().reverse();
-        if (this.selectedSortSearch === 'a-z') results = results.slice().sort((a,b) => a.namaAkun.toLowerCase().localeCompare(b.namaAkun.toLowerCase()));
-
-        return results.slice(0, this.visibleCount);
-      }
-
-      // normal search (ada query di panel)
-      let results = this.data.filter(item => {
-        if (!q) return true;
-        return item.namaAkun.toLowerCase().includes(q);
-      });
-
+      // filter status
       if (this.selectedFilterSearch === 'available') results = results.filter(i => i.status === true);
       else if (this.selectedFilterSearch === 'sold') results = results.filter(i => i.status === false);
 
-      if (this.selectedSortSearch === 'terbaru') return results;
-      if (this.selectedSortSearch === 'terlama') return results.slice().reverse();
-      if (this.selectedSortSearch === 'a-z') return results.slice().sort((a,b) => a.namaAkun.toLowerCase().localeCompare(b.namaAkun.toLowerCase()));
+      // search
+      if (q && q.length > 0) {
+        results = results.filter(item => item._nameLower.includes(q));
+      }
+
+      // sorting
+      if (this.selectedSortSearch === 'terlama') results = results.slice().reverse();
+      else if (this.selectedSortSearch === 'a-z') results = results.slice().sort((a, b) => a._nameLower.localeCompare(b._nameLower));
+      // 'terbaru' => keep original order
+
+      this._cachedSearchKey = key;
+      this._cachedSearchResult = results;
       return results;
     },
 
-    /* filteredData untuk grid utama tetap memakai searchQuery (tidak terpengaruh saat mengetik di panel) */
+    /* results shown in the panel (sliced when panel open & query empty) */
+    get filteredDataForSearch() {
+      const q = (this.tempSearchQuery || '').toLowerCase().trim();
+
+      if (this.searchOpen && q === '') {
+        return this.filteredDataForSearchAll.slice(0, this.visibleCountSearch);
+      }
+
+      // when there's a query, keep showing full results
+      return this.filteredDataForSearchAll;
+    },
+
+    /* MAIN filtered data (memoized) */
     get filteredData() {
       const q = (this.searchQuery || '').toLowerCase().trim();
-      let results = this.data.filter(item => {
-        if (!q) return true;
-        return item.namaAkun.toLowerCase().includes(q);
-      });
+      const key = `${q}|${this.selectedFilter}|${this.selectedSort}`;
+
+      if (this._cachedFilteredKey === key && this._cachedFilteredResult) {
+        return this._cachedFilteredResult;
+      }
+
+      let results = this.data;
+
+      if (q) {
+        results = results.filter(item => item._nameLower.includes(q));
+      }
 
       if (this.selectedFilter === 'available') results = results.filter(i => i.status === true);
       else if (this.selectedFilter === 'sold') results = results.filter(i => i.status === false);
 
-      if (this.selectedSort === 'terbaru') return results;
-      if (this.selectedSort === 'terlama') return results.slice().reverse();
-      if (this.selectedSort === 'a-z') return results.slice().sort((a,b) => a.namaAkun.toLowerCase().localeCompare(b.namaAkun.toLowerCase()));
+      if (this.selectedSort === 'terlama') results = results.slice().reverse();
+      else if (this.selectedSort === 'a-z') results = results.slice().sort((a, b) => a._nameLower.localeCompare(b._nameLower));
+      // 'terbaru' => keep original order
+
+      this._cachedFilteredKey = key;
+      this._cachedFilteredResult = results;
       return results;
     },
 
-    get visibleData() { return this.filteredData.slice(0, this.visibleCount); },
+    get visibleData() { return this.filteredData.slice(0, this.visibleCountMain); },
     get filteredLength() { return this.filteredData.length; },
 
     init() {
-      // intersection observer untuk auto-load (hanya jika browser support)
-      this.$nextTick(() => {
-        try {
-          const listRoot = document.querySelector('.container-search-1');
-          const sentinel = this.$refs.searchSentinel;
-          if (listRoot && sentinel && 'IntersectionObserver' in window) {
-            const io = new IntersectionObserver(entries => {
-              entries.forEach(e => {
-                if (e.isIntersecting) {
-                  // hanya load lebih ketika panel terbuka dan masih ada sisa
-                  if (this.searchOpen && this.filteredLength > this.visibleCount) {
-                    this.loadMore();
-                  }
-                }
-              });
-            }, { root: listRoot, threshold: 0.8 });
-            io.observe(sentinel);
-          }
-        } catch (err) { /* silent fail */ }
-      });
+      // Preprocess names to lowercase once to avoid repeated toLowerCase calls
+      this.data = this.data.map(item => ({ ...item, _nameLower: (item.namaAkun || '').toLowerCase() }));
+
+      // watchers to invalidate cache when reactive params change (covers direct x-model changes too)
+      if (this.$watch) {
+        this.$watch('searchQuery', () => {
+          this._cachedFilteredKey = null;
+          this._cachedFilteredResult = null;
+        });
+        this.$watch('tempSearchQuery', () => {
+          this._cachedSearchKey = null;
+          this._cachedSearchResult = null;
+        });
+        this.$watch('selectedFilter', () => {
+          this._cachedFilteredKey = null;
+          this._cachedFilteredResult = null;
+        });
+        this.$watch('selectedSort', () => {
+          this._cachedFilteredKey = null;
+          this._cachedFilteredResult = null;
+        });
+        this.$watch('selectedFilterSearch', () => {
+          this._cachedSearchKey = null;
+          this._cachedSearchResult = null;
+        });
+        this.$watch('selectedSortSearch', () => {
+          this._cachedSearchKey = null;
+          this._cachedSearchResult = null;
+        });
+      }
+
+      // removed auto-load IntersectionObserver to avoid 'auto Tampilkan lebih banyak on scroll' behavior.
+      // Kalau suatu saat mau auto-load kembali, bisa diaktifkan dengan flag terpisah.
     },
 
   }));

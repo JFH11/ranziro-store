@@ -45,20 +45,20 @@
   <div class="container-search" :class="{ 'open': searchOpen }" @click.outside="searchOpen = false"
     @keydown.escape.window="searchOpen = false" aria-hidden="false">
     <!-- Input Search -->
-<input type="text" id="input-search" class="input-search" placeholder="Cari akun..." x-model="tempSearchQuery"
-  @focus="onSearchFocus()" @input="onTyping()" autocomplete="new-password" />
+    <input type="text" id="input-search" class="input-search" placeholder="Cari akun..." x-model="tempSearchQuery"
+      @focus="onSearchFocus()" @input="onTyping()" autocomplete="new-password" />
 
     <!-- compact filter row di bawah input (kecil) -->
     <div class="container-search-controls"
       style="display:flex; justify-content:space-between; gap:0.5rem; margin-top:0.75rem;">
-<div class="search-filter-group" role="tablist" aria-label="Filter status">
-  <button class="search-filter-btn" :class="{ 'active': selectedFilterSearch === 'all' }"
-    @click="setFilterSearch('all')">All</button>
-  <button class="search-filter-btn" :class="{ 'active': selectedFilterSearch === 'available' }"
-    @click="setFilterSearch('available')">Available</button>
-  <button class="search-filter-btn" :class="{ 'active': selectedFilterSearch === 'sold' }"
-    @click="setFilterSearch('sold')">Sold</button>
-</div>
+      <div class="search-filter-group" role="tablist" aria-label="Filter status">
+        <button class="search-filter-btn" :class="{ 'active': selectedFilterSearch === 'all' }"
+          @click="setFilterSearch('all')">All</button>
+        <button class="search-filter-btn" :class="{ 'active': selectedFilterSearch === 'available' }"
+          @click="setFilterSearch('available')">Available</button>
+        <button class="search-filter-btn" :class="{ 'active': selectedFilterSearch === 'sold' }"
+          @click="setFilterSearch('sold')">Sold</button>
+      </div>
 
       <div style="position:relative;">
         <button class="search-sort-btn" @click="sortOpenSmall = !sortOpenSmall"
@@ -76,12 +76,12 @@
           x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-100"
           x-transition:leave-start="opacity-100 transform scale-100"
           x-transition:leave-end="opacity-0 transform scale-95" style="right:0;">
-<button class="sort-item-sm" :class="{ 'active': selectedSortSearch === 'terbaru' }"
-  @click="setSortSearch('terbaru'); sortOpenSmall=false">Terbaru</button>
-<button class="sort-item-sm" :class="{ 'active': selectedSortSearch === 'terlama' }"
-  @click="setSortSearch('terlama'); sortOpenSmall=false">Terlama</button>
-<button class="sort-item-sm" :class="{ 'active': selectedSortSearch === 'a-z' }"
-  @click="setSortSearch('a-z'); sortOpenSmall=false">A - Z</button>
+          <button class="sort-item-sm" :class="{ 'active': selectedSortSearch === 'terbaru' }"
+            @click="setSortSearch('terbaru'); sortOpenSmall=false">Terbaru</button>
+          <button class="sort-item-sm" :class="{ 'active': selectedSortSearch === 'terlama' }"
+            @click="setSortSearch('terlama'); sortOpenSmall=false">Terlama</button>
+          <button class="sort-item-sm" :class="{ 'active': selectedSortSearch === 'a-z' }"
+            @click="setSortSearch('a-z'); sortOpenSmall=false">A - Z</button>
         </div>
       </div>
     </div>
@@ -95,9 +95,9 @@
       </div>
 
       <!-- jika tidak typing dan query ada tapi hasil = 0 -->
-<template x-if="!typing && tempSearchQuery.trim().length > 0 && filteredDataForSearch.length === 0">
-  <div style="padding:1rem; color:#fff; text-align:center;">Akun tidak ditemukan</div>
-</template>
+      <template x-if="!typing && tempSearchQuery.trim().length > 0 && filteredDataForSearch.length === 0">
+        <div style="padding:1rem; color:#fff; text-align:center;">Akun tidak ditemukan</div>
+      </template>
 
       <!-- Looping Data (filteredDataForSearch digunakan supaya special-case searchOpen & empty query) -->
       <template x-for="game in filteredDataForSearch" :key="game.namaAkun">
@@ -119,8 +119,8 @@
 
       <!-- tombol tampilkan lebih banyak -->
       <div style="text-align:center; padding:.5rem;"
-        x-show="filteredDataForSearch.length >= visibleCount && filteredLength > visibleCount">
-        <button class="search-filter-btn" @click="loadMore()" type="button">Tampilkan lebih banyak</button>
+        x-show="filteredDataForSearchAll.length > filteredDataForSearch.length">
+        <button class="search-filter-btn" @click="loadMoreSearch()" type="button">Tampilkan lebih banyak</button>
       </div>
 
       <!-- sentinel untuk infinite scroll (opsional) -->
@@ -221,8 +221,8 @@
         </template>
       </div>
       <div class="container-load-more">
-        <button class="filter-btn" x-show="filteredLength > visibleCount" @click="loadMore()" x-cloak
-          type="button">Lihat lainnya
+        <button class="filter-btn" x-show="filteredLength > visibleCountMain" @click="loadMoreMain()" x-cloak
+          type="button">Tampilkan lebih banyak
         </button>
       </div>
     </section>
@@ -256,11 +256,21 @@
         <div class="footer-card">
           <div class="footer-title">Media Sosial</div>
           <div class="footer-hr"></div>
-          <div class="footer-list">
-            <a href="https://www.instagram.com/ranziro_store" class="footer-links" target="_blank"
-              rel="noopener noreferrer">Instagram</a>
-            <a href="https://www.youtube.com/@ranziroo11" target="_blank" rel="noopener noreferrer"
-              class="footer-links">YouTube</a>
+          <div class="footer-list" style="display: flex; flex-direction: row; gap: 0.5rem;">
+            <a style="width: 30px; height: 30px; font-size:1rem; padding:5px; display: grid; place-items: center; border-radius:50%; transition: background-color .3s ease;"
+              href="https://www.instagram.com/ranziro_store" class="footer-links" target="_blank"
+              rel="noopener noreferrer" onmouseenter="this.style.background='#db2777'; this.style.color='white';"
+              onmouseleave="this.style.background='transparent'; this.style.color='white';">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a style="width: 30px; height: 30px; font-size:1rem; padding:5px; display: grid; place-items: center; border-radius:50%; transition: background-color .3s ease;"
+              href="https://www.youtube.com/@ranziroo11" class="footer-links" target="_blank" rel="noopener noreferrer"
+              onmouseenter="this.style.background='red'; this.style.color='white';"
+              onmouseleave="this.style.background='transparent'; this.style.color='white';">
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+
           </div>
         </div>
 

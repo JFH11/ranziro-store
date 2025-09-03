@@ -1070,7 +1070,10 @@ footer svg {
     animation-duration: 11s;
 }
 
-
+.ui-panel-open {
+  pointer-events: none;
+  filter: blur(10px);
+}
 
 @keyframes animate {
 
@@ -1098,7 +1101,7 @@ footer svg {
     }
 
     .container-list {
-        padding: 1rem 5%;
+        padding: 1rem 2.5%;
     }
 
     .container-list-1 {
