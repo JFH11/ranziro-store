@@ -79,9 +79,9 @@
 }
 
 #nprogress .bar {
-    background: #FFD200 !important;
+    background: #fbff00 !important;
     height: 3px;
   }
-  #nprogress .peg { box-shadow: 0 0 10px #FFD200, 0 0 5px #FFD200; }
+  #nprogress .peg { box-shadow: 0 0 10px #fbff00, 0 0 5px #fbff00; }
   /* hide spinner */
   #nprogress .spinner { display: none !important; }

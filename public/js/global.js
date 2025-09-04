@@ -310,3 +310,22 @@ if (lastAccessedEl) {
   });
   localStorage.setItem("lastAccessed", formatted);
 })();
+
+NProgress.configure({ showSpinner: false, trickleSpeed: 200 });
+
+  // start saat user klik link internal (simple)
+  document.addEventListener('click', function(e){
+    const a = e.target.closest && e.target.closest('a');
+    if (!a) return;
+    // hanya untuk link internal yang non-hash dan non-target-blank
+    const href = a.getAttribute('href');
+    if (!href || href.startsWith('http') && new URL(href).origin !== location.origin) return;
+    if (a.target === '_blank') return;
+    // mulai progress dan biarkan navigasi terjadi
+    NProgress.start();
+  });
+
+  // pastikan NProgress selesai saat halaman baru sudah siap
+  window.addEventListener('pageshow', function() { NProgress.done(); });
+  window.addEventListener('load', function() { NProgress.done(); });
+  window.addEventListener('beforeunload', function() { NProgress.start(); });
