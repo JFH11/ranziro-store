@@ -77,3 +77,11 @@
   display: flex;
   gap: 0.5rem;
 }
+
+#nprogress .bar {
+    background: #FFD200 !important;
+    height: 3px;
+  }
+  #nprogress .peg { box-shadow: 0 0 10px #FFD200, 0 0 5px #FFD200; }
+  /* hide spinner */
+  #nprogress .spinner { display: none !important; }
