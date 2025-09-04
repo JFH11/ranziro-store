@@ -67,7 +67,7 @@ javascript-obfuscator akwn203m4xdk.min.js \
   --disable-console-output true
 
 <!-- global js -->
-javascript-obfuscator glwoblswsmsw.min.js \
+javascript-obfuscator global.js \
   --output glwoblswsmsw.min.js \
   --compact true \
   --self-defending true \

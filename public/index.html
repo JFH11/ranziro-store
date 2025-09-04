@@ -4,18 +4,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- head -->
-  <meta name="theme-color" content="#fbff00"> <!-- kuning -->
-  <!-- optional: for Safari iOS (status bar) -->
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
   <link rel="icon" href="logo/ranziro_store.webp" type="image/webp" />
   <title>Ranziro Store</title>
 
   <!-- link css -->
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="assets/loader.css">
-  <link rel="stylesheet" href="https://unpkg.com/nprogress@0.2.0/nprogress.css" />
 
   <!-- Link Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -45,7 +39,7 @@
       <p>Mobile Legends</p>
       <i class="fa-solid fa-gamepad"></i>
     </a>
-
+    
     <a target="_blank" rel="noopener noreferrer"
       href="https://wa.me/6285863146541?text=Halo%20Admin%20Ranziro%20Store.%20Saya%20ingin%20menjual%20akun%20Mobile%20Legends%20saya."
       class="sidebar-links">
@@ -60,7 +54,8 @@
     @keydown.escape.window="searchOpen = false" aria-hidden="false">
 
     <!-- compact filter row di bawah input (kecil) -->
-    <div class="container-search-controls" style="display:flex; justify-content:space-between; gap:0.5rem; ">
+    <div class="container-search-controls"
+      style="display:flex; justify-content:space-between; gap:0.5rem; ">
       <div class="search-filter-group" role="tablist" aria-label="Filter status">
         <button class="search-filter-btn" :class="{ 'active': selectedFilterSearch === 'all' }"
           @click="setFilterSearch('all')">All</button>
@@ -156,7 +151,7 @@
     <button class="btn-search">
       <i class="fa-solid fa-magnifying-glass"></i>
 
-      <!-- Input Search -->
+          <!-- Input Search -->
       <input type="text" id="input-search" class="input-search" placeholder="Cari akun..." x-model="tempSearchQuery"
         @focus="onSearchFocus()" @input="onTyping()" autocomplete="new-password" />
 
@@ -328,12 +323,9 @@
 
   </main>
 
-  <div id="top-loader" aria-hidden="true"></div>
-
   <script src="js/apwssmeoow2453sGH.min.js"></script>
   <script src="js/glwoblswsmsw.min.js"></script>
   <script src="assets/lload34mdelp.min.js"></script>
-  <script src="https://unpkg.com/nprogress@0.2.0/nprogress.js"></script>
 </body>
 
 </html>
