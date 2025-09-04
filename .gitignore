@@ -1,2 +1,6 @@
 .vercel
 .vscode
+public/js/app.js
+public/js/akun.js
+public/js/global.js
+public/assets/loader.js
