@@ -1,5 +1,6 @@
 .vercel
 .vscode
+node_modules
 public/js/app.js
 public/js/akun.js
 public/js/global.js
