@@ -118,26 +118,6 @@ document.addEventListener('alpine:init', () => {
       }, this.typingDebounceMs);
     },
 
-    clearSearch() {
-      this.tempSearchQuery = '';
-      this.typing = false;
-      this._cachedSearchKey = null;
-      this._cachedSearchResult = null;
-      // kalau mau juga reset visibleCountSearch
-      this.visibleCountSearch = 10;
-
-      // kembalikan fokus ke input
-      if (this.$nextTick) {
-        this.$nextTick(() => {
-          const el = document.getElementById('input-search');
-          if (el) el.focus();
-        });
-      } else {
-        const el = document.getElementById('input-search');
-        if (el) el.focus();
-      }
-    },
-
     /* full results for search (memoized) */
     get filteredDataForSearchAll() {
       const q = (this.tempSearchQuery || '').toLowerCase().trim();

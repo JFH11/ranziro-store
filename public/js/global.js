@@ -1,13 +1,16 @@
 // glwoblswsmsw.min.js (optimized)
 
 // Create panel with improved Alpine component lookup, class toggles and cleanup support
-function createPanel({ trigger, container, closeBtn, openFn, closeFn, focusOnOpenSelector }) {
+function createPanel({ trigger, container, closeBtn, openFn, closeFn, focusOnOpenSelector, triggerAlwaysOpen = false }) {
   if (!trigger && !closeBtn && !container) {
     throw new Error('createPanel: setidaknya salah satu dari trigger/closeBtn/container harus disediakan');
   }
 
   let _isOpen = false;
   let _destroyed = false;
+
+  // stored handler so we can remove it later
+  let _triggerHandler = null;
 
   // cache root alpine element once (fallback)
   let _cachedAlpineRoot = null;
@@ -18,29 +21,20 @@ function createPanel({ trigger, container, closeBtn, openFn, closeFn, focusOnOpe
   }
 
   // Efficient Alpine component finder:
-  // - try container (most specific)
-  // - then trigger
-  // - then cached root
-  // returns the __x object (Alpine instance) or null
   function getAlpineComponent() {
     try {
       const tryEls = [container, trigger];
       for (let el of tryEls) {
         if (!el) continue;
-        // if element itself has __x (when x-data is on same node)
         if (el.__x) return el.__x;
-        // search upwards for nearest parent with __x
         let p = el.parentElement;
         while (p) {
           if (p.__x) return p.__x;
           p = p.parentElement;
         }
       }
-
-      // fallback to cached root
       const root = getCachedAlpineRoot();
       if (root && root.__x) return root.__x;
-
     } catch (err) {
       // ignore
     }
@@ -68,7 +62,8 @@ function createPanel({ trigger, container, closeBtn, openFn, closeFn, focusOnOpe
   const api = {
     get isOpen() { return _isOpen; },
 
-    open() {
+    // open(preserveInput = false) -> kalau true: jangan reset tempSearchQuery ketika fokus ke input-search
+    open(preserveInput = false) {
       if (_isOpen || _destroyed) return;
       if (typeof openFn === 'function') openFn(container);
       _isOpen = true;
@@ -76,13 +71,12 @@ function createPanel({ trigger, container, closeBtn, openFn, closeFn, focusOnOpe
       const comp = getAlpineComponent();
       if (comp && comp.$data) {
         if (typeof focusOnOpenSelector === 'string' && focusOnOpenSelector.includes('input-search')) {
-          // precise search panel reset
+          // precise search panel reset: reset hanya kalau preserveInput === false
           try {
-            comp.$data.tempSearchQuery = '';
+            if (!preserveInput) comp.$data.tempSearchQuery = '';
             comp.$data.typing = false;
             comp.$data.searchOpen = true;
           } catch (e) { /* ignore */ }
-          // reset pagination
           resetVisibleCountSearchOnComp(comp);
         } else if (container && container.classList && container.classList.contains('container-search')) {
           try { comp.$data.searchOpen = true; } catch (e) { }
@@ -125,12 +119,13 @@ function createPanel({ trigger, container, closeBtn, openFn, closeFn, focusOnOpe
       if (api.onClose) api.onClose();
       if (api.onStateChange) api.onStateChange();
 
-      // bersihkan DOM input secara aman
+      // bersihkan DOM input secara aman (hanya saat menutup)
       if (focusOnOpenSelector) {
         setTimeout(() => clearInputDOM(focusOnOpenSelector), 10);
       }
     },
 
+    // toggle tetap panggil open() tanpa preserveInput (default)
     toggle() {
       if (_isOpen) api.close();
       else api.open();
@@ -145,7 +140,9 @@ function createPanel({ trigger, container, closeBtn, openFn, closeFn, focusOnOpe
     destroy() {
       if (_destroyed) return;
       _destroyed = true;
-      if (trigger) trigger.removeEventListener('click', api.toggle);
+      if (trigger && _triggerHandler) {
+        try { trigger.removeEventListener('click', _triggerHandler); } catch (e) {}
+      }
       if (closeBtn) closeBtn.removeEventListener('click', api.close);
       api.onOpen = null;
       api.onClose = null;
@@ -153,7 +150,20 @@ function createPanel({ trigger, container, closeBtn, openFn, closeFn, focusOnOpe
     }
   };
 
-  if (trigger) trigger.addEventListener('click', api.toggle);
+  // Attach trigger listener via wrapper so we can control preserveInput and remove later
+  if (trigger) {
+    if (triggerAlwaysOpen) {
+      _triggerHandler = function (e) {
+        // default open from trigger: do NOT preserve input (explicit preserve only via other controls)
+        api.open(false);
+      };
+    } else {
+      _triggerHandler = function (e) {
+        api.toggle();
+      };
+    }
+    trigger.addEventListener('click', _triggerHandler);
+  }
   if (closeBtn) closeBtn.addEventListener('click', api.close);
 
   return api;
@@ -167,6 +177,8 @@ const sidebarEl = document.querySelector('.sidebar');
 const closeMenu = document.querySelector('.btn-close');
 
 const btnSearch = document.querySelector('.btn-search');
+// ini yg baru: tombol/elemen yang kamu sebut untuk "mempertahankan" container-search saat diklik
+const btnSearchInput = document.querySelector('#input-search');
 const containerSearch = document.querySelector('.container-search');
 const inputSearch = document.querySelector('.input-search');
 
@@ -189,8 +201,25 @@ const searchPanel = createPanel({
   closeBtn: null,
   openFn: (el) => { if (el) el.style.transform = 'scale(1)'; },
   closeFn: (el) => { if (el) el.style.transform = 'scale(0)'; },
-  focusOnOpenSelector: '.input-search'
+  focusOnOpenSelector: '.input-search',
+  // klik btn-search akan selalu memanggil open() (tidak toggle)
+  triggerAlwaysOpen: true
 });
+
+// -------------------------
+// jika btnSearchInput disediakan: kliknya akan membuka panel namun *mempertahankan* isi input
+// (open dengan preserveInput = true). Juga hentikan propagasi supaya tidak kena cek klik-di-luar.
+if (btnSearchInput) {
+  btnSearchInput.addEventListener('click', (e) => {
+    // jika belum terbuka -> buka tapi jangan reset isi input (preserveInput = true)
+    if (!searchPanel.isOpen) {
+      searchPanel.open(true);
+    }
+    // jika sudah terbuka, biarkan saja (tidak menutup / mereset)
+    // hentikan bubbling supaya document click handler tidak menutup panel bila btnSearchInput berada di luar container.
+    e.stopPropagation();
+  });
+}
 
 // -------------------------
 // mutual-exclusion: jika satu buka, tutup yang lain
@@ -208,10 +237,8 @@ searchPanel.onOpen = () => {
 function updateMainState() {
   if (!main) return;
   const isAnyOpen = sidebarPanel.isOpen || searchPanel.isOpen;
-  // prefer class toggle (more performant than multiple style writes)
   if (isAnyOpen) {
     main.classList.add('ui-panel-open');
-    // fallback for usages that do not have class CSS
     main.style.pointerEvents = 'none';
     main.style.filter = 'blur(10px)';
   } else {
@@ -226,7 +253,6 @@ searchPanel.onStateChange = updateMainState;
 // -------------------------
 // global handlers: Escape & klik di luar untuk menutup
 // -------------------------
-// keydown is cheap; keep single listener
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     if (sidebarPanel.isOpen) sidebarPanel.close();
@@ -240,17 +266,19 @@ document.addEventListener('click', (e) => {
 
   // Sidebar close: only compute contains if sidebar open
   if (sidebarPanel.isOpen && sidebarEl && menu) {
-    // if click is outside both the sidebar and the menu -> close
     if (!sidebarEl.contains(t) && !menu.contains(t)) {
       sidebarPanel.close();
-      // no need to continue if closed
       return;
     }
   }
 
   // Search close: only compute contains if search open
-  if (searchPanel.isOpen && containerSearch && btnSearch) {
-    if (!containerSearch.contains(t) && !btnSearch.contains(t)) {
+  // NOTE: include btnSearch and btnSearchInput in "allowed" targets so klik pada kedua elemen tidak menutup panel
+  if (searchPanel.isOpen && containerSearch) {
+    const clickedInsideContainer = containerSearch.contains(t);
+    const clickedSearchTrigger = btnSearch && btnSearch.contains(t);
+    const clickedSearchInput = btnSearchInput && btnSearchInput.contains(t);
+    if (!clickedInsideContainer && !clickedSearchTrigger && !clickedSearchInput) {
       searchPanel.close();
       return;
     }

@@ -94,7 +94,7 @@ header div {
     left: -300px;
     width: 300px;
     height: 100vh;
-    padding: 0 1.5rem;
+    padding: 0 1rem;
     display: flex;
     flex-direction: column;
     background: #242424;
@@ -162,18 +162,21 @@ header div {
     padding: 0;
 }
 
-.fa-arrow-right {
+.sidebar-links i {
     position: absolute;
     right: 1rem;
+    font-size: 1.2rem;
+    margin: 0;
+    padding: 0;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: 0.3s ease;
 }
 
 .sidebar-links:hover {
     background: #ffffff1f;
 }
 
-.sidebar-links:hover .fa-arrow-right {
+.sidebar-links:hover i {
     opacity: 1;
 }
 
@@ -185,14 +188,31 @@ header div {
 
 .btn-search {
     position: relative;
-    width: auto;
-    height: auto;
-    padding: 0.7rem;
-    border: none;
-    background: transparent;
+    display: flex;
+    align-items: center;
+    width: 25%;
+    height: max-content;
     cursor: pointer;
     color: white;
-    font-size: 1.2rem;
+    padding: 0;
+    font-size: 1.1rem;
+    border: 1px solid #444444;
+    border-radius: 2rem;
+    background: #161616;
+    transition: 0.7s cubic-bezier(.2, .9, .2, 1);
+}
+
+.btn-search:focus,
+.btn-search:focus-within {
+    width: 30%;
+    border-color: #fbff00;
+}
+
+.btn-search i {
+    position: absolute;
+    padding: 0;
+    margin-right: 1rem;
+    left: 1rem;
 }
 
 /* container-search awal: scale(0) */
@@ -216,18 +236,13 @@ header div {
 .input-search {
     position: relative;
     width: 100%;
-    padding: 0.5rem 0.75rem;
+    padding: 0.7rem 1rem 0.7rem 3rem;
     font-size: 0.9rem;
-    border: 1px solid #444444;
-    border-radius: 0.5rem;
-    background: #161616;
     color: #ffffff;
     outline: none;
     transition: border 0.3s ease;
-}
-
-.input-search:focus {
-    border: 1px solid #fbff00;
+    background: transparent;
+    border: none;
 }
 
 /* kelas open -> tampil */
@@ -1278,6 +1293,15 @@ footer svg {
         display: none;
     }
 
+    .btn-search {
+        width: 100%;
+    }
+
+    .btn-search:focus,
+    .btn-search:focus-within {
+        width: 120%;
+    }
+
     .container-list {
         padding: 1rem 2.5%;
     }
@@ -1403,6 +1427,15 @@ footer svg {
     .hdr-p {
         display: block;
         font-size: 0.8rem;
+    }
+
+    .btn-search {
+        width: 40%;
+    }
+
+    .btn-search:focus,
+    .btn-search:focus-within {
+        width: 45%;
     }
 
     .list-title {

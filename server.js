@@ -16,10 +16,7 @@ apps.use(express.static(path.join(__dirname, 'public')));
 // dinamis route
 const router = [
     { path: '/mobile-legends', file: 'index.html' },
-    { path: '/ff', file: 'ff.html' },
     { path: '/akun', file: 'akun.html' },
-    { path: '/terms', file: 'terms.html' },
-    { path: '/privacy-policy', file: 'privacy-policy.html' }
 ];
 
 // Membuat rute secara dinamis berdasarkan konfigurasi
