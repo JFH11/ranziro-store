@@ -76,7 +76,7 @@ javascript-obfuscator glwoblswsmsw.min.js \
   --disable-console-output true
 
 <!-- loader js-->
-javascript-obfuscator lload34mdelp.min.js \
+javascript-obfuscator loader.js \
   --output lload34mdelp.min.js \
   --compact true \
   --self-defending true \
