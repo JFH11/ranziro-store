@@ -196,7 +196,7 @@ header div {
     color: white;
     padding: 0;
     font-size: 1.1rem;
-    border: 1px solid #444444;
+    border: 2px solid #444444;
     border-radius: 2rem;
     background: #161616;
     transition: 0.7s cubic-bezier(.2, .9, .2, 1);
