@@ -49,7 +49,7 @@ javascript-obfuscator nama_file \
   --disable-console-output true
 
 <!-- app js -->
-javascript-obfuscator apwssmeoow2453sGH.min.js \
+javascript-obfuscator app.js \
   --output apwssmeoow2453sGH.min.js \
   --compact true \
   --self-defending true \
@@ -58,7 +58,7 @@ javascript-obfuscator apwssmeoow2453sGH.min.js \
   --disable-console-output true
 
 <!-- akun js -->
-javascript-obfuscator akwn203m4xdk.min.js \
+javascript-obfuscator akun.js \
   --output akwn203m4xdk.min.js \
   --compact true \
   --self-defending true \

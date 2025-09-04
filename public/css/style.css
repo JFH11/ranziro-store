@@ -73,19 +73,9 @@ header div {
 
 .logo {
     position: relative;
-    width: 4rem;
-    height: 4rem;
+    width: 8rem;
+    height: 3rem;
     margin-right: 1rem;
-}
-
-.hdr-p {
-    position: relative;
-    color: #ffffff;
-    font-size: 0.9rem;
-    font-weight: 300;
-    margin: 0;
-    padding: 0;
-    font-style: italic;
 }
 
 .sidebar {
@@ -1085,8 +1075,8 @@ footer svg {
 
 .footer-logo {
     position: relative;
-    width: 6rem;
-    height: 6rem;
+    width: 14rem;
+    height: 5.5rem;
     margin-bottom: 1rem;
 }
 
@@ -1289,17 +1279,13 @@ footer svg {
         padding: 1rem 5%;
     }
 
-    .hdr-p {
-        display: none;
-    }
-
     .btn-search {
-        width: 100%;
+        width: 85%;
     }
 
     .btn-search:focus,
     .btn-search:focus-within {
-        width: 120%;
+        width: 100%;
     }
 
     .container-list {
@@ -1424,11 +1410,6 @@ footer svg {
 
 /* landscape */
 @media screen and (min-width: 480px) and (max-width: 1024px) {
-    .hdr-p {
-        display: block;
-        font-size: 0.8rem;
-    }
-
     .btn-search {
         width: 40%;
     }
