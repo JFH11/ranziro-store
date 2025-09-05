@@ -27,61 +27,61 @@
 
 <body x-data="main">
   <!-- sidebar -->
-<div class="sidebar" id="sidebar">
-  <div class="sidebar-header">
-    <img loading="lazy" src="logo/ranziro_store.webp" alt="ranziro_store" class="logo" />
-    <button class="btn-close" id="btnClose"><i class="fa-solid fa-xmark"></i></button>
-  </div>
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <img loading="lazy" src="logo/ranziro_store.webp" alt="ranziro_store" class="logo" />
+      <button class="btn-close" id="btnClose"><i class="fa-solid fa-xmark"></i></button>
+    </div>
 
-  <a href="/mobile-legends" class="sidebar-links">
-    <p>Mobile Legends</p>
-    <i class="fa-solid fa-gamepad"></i>
-  </a>
+    <a href="/mobile-legends" class="sidebar-links">
+      <p>Mobile Legends</p>
+      <i class="fa-solid fa-gamepad"></i>
+    </a>
 
-  <a target="_blank" rel="noopener noreferrer"
-     href="https://wa.me/6285863146541?text=Halo%20Admin%20Ranziro%20Store."
-     class="sidebar-links">
-    <p>Jual Akun ?</p>
-    <i class="fa-solid fa-tags"></i>
-  </a>
+    <a target="_blank" rel="noopener noreferrer"
+      href="https://wa.me/6285863146541?text=Halo%20Admin%20Ranziro%20Store.%20Saya%20ingin%20menjual%20akun%20saya."
+      class="sidebar-links">
+      <p>Jual Akun ?</p>
+      <i class="fa-solid fa-tags"></i>
+    </a>
 
-  <!-- COMMUNITY BUTTON (di bawah Jual Akun) - tanpa caret -->
-  <button class="sidebar-links" id="communityBtn" aria-expanded="false" aria-controls="communityMenu">
-    <p style="margin:0; display:flex; align-items:center; gap:.6rem;">
-      <span>Komunitas</span>
-    </p>
-    <i class="fa-solid fa-users"></i>
-  </button>
+    <!-- COMMUNITY BUTTON (di bawah Jual Akun) - tanpa caret -->
+    <button class="sidebar-links" id="communityBtn" aria-expanded="false" aria-controls="communityMenu">
+      <p style="margin:0; display:flex; align-items:center; gap:.6rem;">
+        <span>Komunitas</span>
+      </p>
+      <i class="fa-solid fa-users"></i>
+    </button>
 
-  <!-- COMMUNITY MENU (item tanpa deskripsi kecil) -->
-  <div class="community-menu" id="communityMenu" aria-hidden="true">
-    <a class="sidebar-links" target="_blank" rel="noopener noreferrer" href="https://chat.whatsapp.com/REPLACE">
+    <!-- COMMUNITY MENU (item tanpa deskripsi kecil) -->
+    <div class="community-menu" id="communityMenu" aria-hidden="true">
+      <a class="sidebar-links" target="_blank" rel="noopener noreferrer" href="https://chat.whatsapp.com/REPLACE">
         <p>Group WhatsApp</p>
         <i class="fa-brands fa-whatsapp"></i>
-    </a>
-    
-    <a class="sidebar-links" target="_blank" rel="noopener noreferrer" href="https://whatsapp.com/channel/0029Vb6byeUDJ6H8aXr2SU3X">
-      <p>Saluran WhatsApp</p>
-      <i class="fa-brands fa-whatsapp"></i>
-    </a>
+      </a>
 
-    <a class="sidebar-links" target="_blank" rel="noopener noreferrer" href="https://discord.gg/REPLACE">
+      <a class="sidebar-links" target="_blank" rel="noopener noreferrer"
+        href="https://whatsapp.com/channel/0029Vb6byeUDJ6H8aXr2SU3X">
+        <p>Saluran WhatsApp</p>
+        <i class="fa-brands fa-whatsapp"></i>
+      </a>
+
+      <a class="sidebar-links" target="_blank" rel="noopener noreferrer" href="https://discord.gg/REPLACE">
         <p>Discord</p>
         <i class="fa-brands fa-discord"></i>
-    </a>
+      </a>
 
+    </div>
+
+    <div class="spacer"></div>
   </div>
-
-  <div class="spacer"></div>
-</div>
 
   <!-- Container Search (letakkan di tempat semula) -->
   <div class="container-search" :class="{ 'open': searchOpen }" @click.outside="searchOpen = false"
     @keydown.escape.window="searchOpen = false" aria-hidden="false">
 
     <!-- compact filter row di bawah input (kecil) -->
-    <div class="container-search-controls"
-      style="display:flex; justify-content:space-between; gap:0.5rem; ">
+    <div class="container-search-controls" style="display:flex; justify-content:space-between; gap:0.5rem; ">
       <div class="search-filter-group" role="tablist" aria-label="Filter status">
         <button class="search-filter-btn" :class="{ 'active': selectedFilterSearch === 'all' }"
           @click="setFilterSearch('all')">All</button>
@@ -176,7 +176,7 @@
     <button class="btn-search">
       <i class="fa-solid fa-magnifying-glass"></i>
 
-          <!-- Input Search -->
+      <!-- Input Search -->
       <input type="text" id="input-search" class="input-search" placeholder="Cari akun..." x-model="tempSearchQuery"
         @focus="onSearchFocus()" @input="onTyping()" autocomplete="new-password" />
 
