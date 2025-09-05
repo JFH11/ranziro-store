@@ -994,7 +994,6 @@ main {
     width: 25rem;
     height: 25rem;
     transition: transform 0.5s ease-in-out;
-    object-fit: cover;
 }
 
 .slide {
