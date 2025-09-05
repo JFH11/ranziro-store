@@ -1,6 +1,8 @@
 .vercel
 .vscode
 node_modules
+convert-img.js
+readme.md
 public/js/app.js
 public/js/akun.js
 public/js/global.js
