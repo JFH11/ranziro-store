@@ -208,22 +208,23 @@ header div {
     margin-right: 1rem;
     left: 1rem;
 }
+
 /* community-menu agar lebarnya dan padding sama seperti .sidebar-links */
 .community-menu {
-  overflow: hidden;
-  max-height: 0;
-  opacity: 0;
-  display: flex;
-  flex-direction: column;
-  transition: margin-top .28s cubic-bezier(.2,.9,.2,1), opacity .28s ease;
-  margin-top: 0;
-  width: 100%;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    transition: margin-top .28s cubic-bezier(.2, .9, .2, 1), opacity .28s ease;
+    margin-top: 0;
+    width: 100%;
 }
 
 .community-menu.open {
-  max-height: max-content;
-  margin-top: 0.5rem;
-  opacity: 1;
+    max-height: max-content;
+    margin-top: 0.5rem;
+    opacity: 1;
 }
 
 /* container-search awal: scale(0) */
@@ -1291,7 +1292,6 @@ footer svg {
         opacity: 0;
         border-radius: 50%;
     }
-
 }
 
 @media screen and (max-width: 480px) {
