@@ -4,7 +4,22 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const apps = express();
 
-apps.use(cors({ origin: '*', credentials: true }));
+const allowedOrigins = [
+    'https://ranzirostore.vercel.app',
+    'http://localhost:2121'
+];
+
+apps.use(cors({
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true
+}));
+
 apps.use((req, res, next) => {
     res.set('Cache-Control', 'no-store'); // Tidak menyimpan cache
     next();
@@ -26,7 +41,7 @@ router.forEach(route => {
     });
 });
 
-const port = process.env.PORT || 4004;
+const port = process.env.PORT || 2121;
 apps.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
 });
